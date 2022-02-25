@@ -60,9 +60,12 @@ void Update(Partita *partita)
         strcat(riga,"┃ ");
         for (j = 0; j < 10; j++)
         {
-            if(partita->mappa[i/2][j])
+            if(partita->mappa[i/2][j] > 0)
             {
-                strcat(riga,ColoreRosso);
+                if(partita->mappa[i/2][j] == 1)
+                    strcat(riga,ColoreBianco);
+                if(partita->mappa[i/2][j] == 2)
+                    strcat(riga,ColoreBlu);
                 strcat(riga,"    ");
                 strcat(riga,ColoreDefault);
                 coloriUsati += 2;
@@ -75,6 +78,35 @@ void Update(Partita *partita)
         coloriUsati = 0;
     }
     Stampa("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
-    char*a = "◁ ▷ △ ▽"; 
+    Stampa("");
+    Stampa(" Movimento: \'◁ ▷ △ ▽\'        Ok: 'k' ");
+    char*a = ""; 
+    return;
+}
+
+void inserisciPezzo(Partita* pa, Pezzo* pz)
+{
+    int i, l = pz->tipo == O ? 2 : (pz->tipo == I ? 4 : 3);
+    int *parser = pz->disposizione;
+    for (i = 0; i < l*l; i++)
+        if(*(parser++) == 1) pa->mappa[pz->y + i/l][pz->x + i%l] = 2;
+    return;
+}
+
+void rimuoviPezzo(Partita* pa, Pezzo* pz)
+{
+    int i, l = pz->tipo == O ? 2 : (pz->tipo == I ? 4 : 3);
+    int *parser = pz->disposizione;
+    for (i = 0; i < l*l; i++)
+        if(*(parser++) > 0) pa->mappa[pz->y + i/l][pz->x + i%l] = 0;
+    return;
+}
+
+void confermaPezzo(Partita* pa, Pezzo* pz)
+{
+    int i, l = pz->tipo == O ? 2 : (pz->tipo == I ? 4 : 3);
+    int *parser = pz->disposizione;
+    for (i = 0; i < l*l; i++)
+        if(*(parser++) == 1) pa->mappa[pz->y + i/l][pz->x + i%l] = 1;
     return;
 }

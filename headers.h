@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <termios.h>
 
 // ------------------------------------------------------------------------------------//
 //                        DICHIARAZIONE DELLE VARIABILI LOCALI                         //
@@ -8,13 +9,27 @@
 
 /**colore dello sfondo*/
 extern char ColoreDefault[];
-/**definizione del colore 'rosso'*/
-extern char ColoreRosso[];
+/**definizione del colore 'bianco'*/
+extern char ColoreBianco[];
 /**definizione del colore 'blu'*/
 extern char ColoreBlu[];
 
 /**centro dello schermo in caratteri di distanza del margine destro della console*/
 extern int CentroSchermo;   
+
+extern int I_PATTERN[16];
+
+extern int J_PATTERN[9]; 
+
+extern int L_PATTERN[9]; 
+
+extern int O_PATTERN[4]; 
+
+extern int S_PATTERN[9]; 
+
+extern int T_PATTERN[9]; 
+
+extern int Z_PATTERN[9]; 
 
 // ------------------------------------------------------------------------------------//
 //                  DICHIARAZIONE DELLE STRUCT E DEGLI ENUMERATORS                     //
@@ -49,8 +64,10 @@ typedef struct
 {
     TipoPezzo tipo;                 ///< indica quale dei 7 pezzi è
     Rotazione rotazione;            ///< indica quanto è ruotato
+    int x;                          ///< coordinata x della posizione 
+    int y;                          ///< coordinata y della posizione
 
-    int *disposizione;              ///< la disposizione del pezzo in una griglia 2x2 3x3 4x4
+    int *disposizione;           ///< la disposizione del pezzo in una griglia 2x2 3x3 4x4
 } Pezzo;
 
 // ------------------------------------------------------------------------------------//
@@ -93,3 +110,13 @@ void StampaModalita(Partita *partita);
 *@param *partita puntatore alla struct partita
 */
 void Update(Partita *partita);   
+
+void inserisciPezzo(Partita* pa, Pezzo* pz);
+
+void rimuoviPezzo(Partita* pa, Pezzo* pz);
+
+int isPezzoPosizionabile(Partita* pa, Pezzo* pz);
+
+int muoviPezzo(Partita* pa, Pezzo* pz, int dx, int dy);
+
+void confermaPezzo(Partita* pa, Pezzo* pz);
