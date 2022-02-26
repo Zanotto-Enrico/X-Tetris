@@ -120,3 +120,5 @@ int isPezzoPosizionabile(Partita* pa, Pezzo* pz);
 int muoviPezzo(Partita* pa, Pezzo* pz, int dx, int dy);
 
 void confermaPezzo(Partita* pa, Pezzo* pz);
+
+void gotoxy(int x,int y);
