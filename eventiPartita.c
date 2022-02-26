@@ -8,51 +8,67 @@ void Test()
     for (i = 0; i < 15; i++)
         for (j = 0; j < 10; j++)
             partita->mappa[i][j] = 0;
-    
-    partita->mappa[14][5] = 1;
-    partita->mappa[14][6] = 1;
-    partita->mappa[14][7] = 1;
-    partita->mappa[13][6] = 1;
 
-    partita->mappa[14][0] = 1;
-    partita->mappa[14][1] = 1;
-    partita->mappa[14][2] = 1;
-    partita->mappa[13][2] = 1;
-
-    partita->mappa[8][4] = 1;
-    partita->mappa[7][4] = 1;
-    partita->mappa[7][5] = 1;
-    partita->mappa[6][5] = 1;
-    
-
-    Update(partita);
-
-    Pezzo *p = malloc(sizeof(Pezzo));
-    p->disposizione = Z_PATTERN;
-    p->x = 3;
-    p->y = 0;
-    p->tipo = Z;
-    muoviPezzo(partita,p,0,-1);
-
-    char cmd[2] = "";
     while (1)
     {
+        Pezzo *p = malloc(sizeof(Pezzo));
+        p->x = 3; p->y = 0;
+        p->disposizione = Z_PATTERN;
+        p->tipo = Z;
+
+        srand(time(NULL));
+        int r = rand();
+
+        switch (r%7)
+        {
+        case 0:
+            p->disposizione = O_PATTERN;
+            p->tipo = O;
+            break;
+        case 1:
+            p->disposizione = L_PATTERN;
+            p->tipo = L;
+            break;
+        case 2:
+            p->disposizione = J_PATTERN;
+            p->tipo = J;
+            break;
+        case 3:
+            p->disposizione = I_PATTERN;
+            p->tipo = I;
+            break;
+        case 4:
+            p->disposizione = S_PATTERN;
+            p->tipo = S;
+            break;
+        case 5:
+            p->disposizione = Z_PATTERN;
+            p->tipo = Z;
+            break;
+        case 6:
+            p->disposizione = T_PATTERN;
+            p->tipo = T;
+            break;
+        }
+        muoviPezzo(partita,p,0,0);
         Update(partita);
-        scanf("%1s", cmd);
-        printf(cmd);
-        int fatta = 0;
-        if(cmd[0] == 'A') fatta = muoviPezzo(partita,p,0,-1);
-        if(cmd[0] == 'D') fatta = muoviPezzo(partita,p,-1,0);
-        if(cmd[0] == 'B') fatta = muoviPezzo(partita,p,0,1);
-        if(cmd[0] == 'C') fatta = muoviPezzo(partita,p,1,0);
-        if(cmd[0] == 'k') confermaPezzo(partita,p);
+        char cmd[2] = "";
+        while (cmd[0] != 'k')
+        {
+            Update(partita);
+            scanf("%1s", cmd);
+            printf(cmd);
+            int fatta = 0;
+            if(cmd[0] == 'A') fatta = muoviPezzo(partita,p,0,-1);
+            if(cmd[0] == 'D') fatta = muoviPezzo(partita,p,-1,0);
+            if(cmd[0] == 'B') fatta = muoviPezzo(partita,p,0,1);
+            if(cmd[0] == 'C') fatta = muoviPezzo(partita,p,1,0);
+            if(cmd[0] == 'k') confermaPezzo(partita,p);
+        }
+        free(p);
     }
-
-    muoviPezzo(partita,p,0,1);
     
-
     Update(partita);
-
 
     free(partita);
 }

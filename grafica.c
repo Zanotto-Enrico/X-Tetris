@@ -44,7 +44,7 @@ void StampaTitolo()
     Stampa("  /\\_\\/\\_\\    \\ \\_\\  \\ \\_____\\    \\ \\_\\  \\ \\_\\ \\_\\  \\ \\_\\  \\/\\_____\\ ");
     Stampa("  \\/_/\\/_/     \\/_/   \\/_____/     \\/_/   \\/_/ /_/   \\/_/   \\/_____/ ");
 
-    Stampa("\n");
+    Stampa(" ");Stampa(" ");
  
 }
 
@@ -54,7 +54,7 @@ void StampaModalita(Partita* partita)
         Stampa("Modalita di gioco: SINGLE PLAYER");
     if(partita->Modalita == MULTIPLAYER)
         Stampa("Modalita di gioco: MULTYPLAYER");
-    Stampa("\n");
+    Stampa(" ");Stampa(" ");
 }
 
 void Update(Partita *partita)
@@ -64,7 +64,7 @@ void Update(Partita *partita)
     StampaTitolo();
     StampaModalita(partita);
     Stampa("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-    char riga[150] = "";
+    char riga[200] = "";
     int coloriUsati = 0;
     int i ,j;
     for (i = 0; i < 30; i++)
