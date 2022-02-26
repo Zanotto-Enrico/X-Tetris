@@ -16,6 +16,13 @@ void gotoxy(int x, int y)
     printf("\033[%d;%dH", (y), (x));
 }
 
+void aggiornaCentroSchermo()
+{
+    struct winsize w;
+    ioctl(0, TIOCGWINSZ, &w);
+    CentroSchermo = w.ws_col/2;
+}
+
 void Stampa(char *s)
 {
     printf("%*s", (int)CentroSchermo-(StrLenMB(s)/2), "");
@@ -31,8 +38,6 @@ void StampaConColore(char *s, int NumColoriUsati)
 
 void StampaTitolo()
 {
-    int i;
-    //for (i = 0; i < 50; i++)Stampa("");
     Stampa(" __  __     ______   ______     ______   ______     __     ______    ");
     Stampa("/\\_\\_\\_\\   /\\__  _\\ /\\  ___\\   /\\__  _\\ /\\  == \\   /\\ \\   /\\  ___\\   ");
     Stampa("\\/_/\\_\\/_  \\/_/\\ \\/ \\ \\  __\\   \\/_/\\ \\/ \\ \\  __<   \\ \\ \\  \\ \\___  \\  ");
@@ -54,6 +59,7 @@ void StampaModalita(Partita* partita)
 
 void Update(Partita *partita)
 {
+    aggiornaCentroSchermo();
     gotoxy(0,0);
     StampaTitolo();
     StampaModalita(partita);

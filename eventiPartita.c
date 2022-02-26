@@ -4,8 +4,9 @@ void Test()
 {
     Partita* partita = malloc(sizeof(Partita));
     partita->Modalita = SINGLEPLAYER;
-    for (int i = 0; i < 15; i++)
-        for (int j = 0; j < 10; j++)
+    int i,j;
+    for (i = 0; i < 15; i++)
+        for (j = 0; j < 10; j++)
             partita->mappa[i][j] = 0;
     
     partita->mappa[14][5] = 1;

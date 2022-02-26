@@ -2,10 +2,11 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <termios.h>
+#include <sys/ioctl.h>
 
-// ------------------------------------------------------------------------------------//
-//                        DICHIARAZIONE DELLE VARIABILI LOCALI                         //
-// ------------------------------------------------------------------------------------//
+/* ------------------------------------------------------------------------------------*/
+/*                        DICHIARAZIONE DELLE VARIABILI LOCALI                         */
+/* ------------------------------------------------------------------------------------*/
 
 /**colore dello sfondo*/
 extern char ColoreDefault[];
@@ -31,9 +32,9 @@ extern int T_PATTERN[9];
 
 extern int Z_PATTERN[9]; 
 
-// ------------------------------------------------------------------------------------//
-//                  DICHIARAZIONE DELLE STRUCT E DEGLI ENUMERATORS                     //
-// ------------------------------------------------------------------------------------//
+/* ------------------------------------------------------------------------------------*/
+/*                  DICHIARAZIONE DELLE STRUCT E DEGLI ENUMERATORS                     */
+/* ------------------------------------------------------------------------------------*/
 
 
 /*  ENUMERATOR per gestire i due giocatori*/
@@ -53,26 +54,26 @@ typedef enum {UNO,DUE,TRE,QUATTRO} Rotazione;
 
 typedef struct
 {
-    Modalita Modalita;              ///< modalità di gioco selszionata
-    Giocatore turno;                ///< turno corrente
-    Stato stato;                    ///< stato della partita
+    Modalita Modalita;              /*< modalità di gioco selszionata*/
+    Giocatore turno;                /*< turno corrente*/
+    Stato stato;                    /*< stato della partita*/
 
-    int mappa[15][10];              ///< mappa di 15 righe e 10 colonne
+    int mappa[15][10];              /*< mappa di 15 righe e 10 colonne*/
 } Partita;
 
 typedef struct
 {
-    TipoPezzo tipo;                 ///< indica quale dei 7 pezzi è
-    Rotazione rotazione;            ///< indica quanto è ruotato
-    int x;                          ///< coordinata x della posizione 
-    int y;                          ///< coordinata y della posizione
+    TipoPezzo tipo;                 /*< indica quale dei 7 pezzi è*/
+    Rotazione rotazione;            /*< indica quanto è ruotato*/
+    int x;                          /*< coordinata x della posizione */
+    int y;                          /*< coordinata y della posizione*/
 
-    int *disposizione;           ///< la disposizione del pezzo in una griglia 2x2 3x3 4x4
+    int *disposizione;              /*< la disposizione del pezzo in una griglia 2x2 3x3 4x4*/
 } Pezzo;
 
-// ------------------------------------------------------------------------------------//
-//                            DICHIARAZIONE DELLE FUNZIONI                             //
-// ------------------------------------------------------------------------------------//
+/* ------------------------------------------------------------------------------------*/
+/*                            DICHIARAZIONE DELLE FUNZIONI                             */
+/* ------------------------------------------------------------------------------------*/
 
 /**
 *uno strlen più avanzato che tiene conto dei caratteri speciali in utf8
@@ -122,3 +123,5 @@ int muoviPezzo(Partita* pa, Pezzo* pz, int dx, int dy);
 void confermaPezzo(Partita* pa, Pezzo* pz);
 
 void gotoxy(int x,int y);
+
+void aggiornaCentroSchermo();

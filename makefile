@@ -1,5 +1,5 @@
 FLAGS = -O3
-COMP = gcc
+COMP = gcc -std=c89
 
 all: X-Tetris clean
 
@@ -16,7 +16,7 @@ eventiPartita.o: eventiPartita.c
 	$(COMP) eventiPartita.c -o eventiPartita.o -c $(FLAGS)
 
 X-Tetris: varGlobali.o grafica.o eventiPartita.o main.c 
-	gcc varGlobali.o grafica.o eventiPartita.o main.c -no-pie -o X-Tetris $(FLAGS)
+	$(COMP) varGlobali.o grafica.o eventiPartita.o main.c -no-pie -o X-Tetris $(FLAGS)
 
 clean:
 	rm *.o
