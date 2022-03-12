@@ -64,7 +64,6 @@ typedef struct
 typedef struct
 {
     TipoPezzo tipo;                 /*< indica quale dei 7 pezzi è*/
-    Rotazione rotazione;            /*< indica quanto è ruotato*/
     int x;                          /*< coordinata x della posizione */
     int y;                          /*< coordinata y della posizione*/
 
@@ -125,3 +124,13 @@ void confermaPezzo(Partita* pa, Pezzo* pz);
 void gotoxy(int x,int y);
 
 void aggiornaCentroSchermo();
+
+void abbassaBlocchi(Partita* pa, int linea);
+
+void assegnaDisposizione(Pezzo* pz);
+
+Pezzo* generaPezzo(TipoPezzo tipo);
+
+void distruggiPezzo(Pezzo* pz);
+
+int rimuoviLinee(Partita* pa);
