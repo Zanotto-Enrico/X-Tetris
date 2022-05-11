@@ -1,9 +1,11 @@
 
 # XTetris
 
-X-Tetris is a different implementation of the original Tetris game, written entirely in ANSI C. The project was developed by me as part of the IAP course at the University of Venice. It relies solely on the C standard library, requiring no external dependencies, making it lightweight and easily portable across platforms.
+X-Tetris is a different implementation of the original Tetris game, written entirely in ANSI C. The project was developed by me as part of the IAP course at the University of Venice.
 
-![XTetris screenshot](screenshot.png)
+It runs entirely in the terminal and relies solely on the C standard library, requiring no external dependencies, making it lightweight and easily portable across platforms.
+
+![20240928_11h07m57s_grim](https://github.com/user-attachments/assets/f2c48b2e-20c4-4d4b-98db-5da9c2ff32e2)
 
 ## Features
 - Simple and intuitive interface
