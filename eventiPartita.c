@@ -1,9 +1,10 @@
 #include "headers.h"
 
-void Test()
+void Test(Modalita mode)
 {
+
     Partita* partita = malloc(sizeof(Partita));
-    partita->Modalita = SINGLEPLAYER;
+    partita->Modalita = mode;
     int i,j;
     for (i = 0; i < 15; i++)
         for (j = 0; j < 10; j++)
@@ -51,6 +52,22 @@ void Test()
     Update(partita);
 
     free(partita);
+}
+
+void menuIniziale()
+{
+    Modalita mode = SINGLEPLAYER;
+    char cmd[2] = "";
+    while (cmd[0] != 'k')
+    {
+        StampaMenuIniziale(mode);
+        if(scanf("%1s", cmd) != 1) return;
+        if(cmd[0] == 'A' && mode == MULTIPLAYER)    mode = SINGLEPLAYER;
+        else if(cmd[0] == 'A' && mode == CPU)            mode = MULTIPLAYER;
+        else if(cmd[0] == 'B' && mode == SINGLEPLAYER)   mode = MULTIPLAYER;
+        else if(cmd[0] == 'B' && mode == MULTIPLAYER)    mode = CPU;
+    }
+    Test(mode);
 }
 
 Pezzo* generaPezzo(TipoPezzo tipo)

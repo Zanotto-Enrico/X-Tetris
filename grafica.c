@@ -27,43 +27,110 @@ void Stampa(char *s)
 {
     printf("%*s", (int)CentroSchermo-(StrLenMB(s)/2), "");
     printf("%s",s);
+}
+
+void StampaL(char *s)
+{
+    Stampa(s);
     printf("\n");
 }
-void StampaConColore(char *s, int NumColoriUsati)
+
+void StampaLConColore(char *s, int NumColoriUsati)
 {
     printf("%*s", (int)(CentroSchermo-((StrLenMB(s) - (NumColoriUsati/2 * 13))/2)), "");
     printf("%s",s);
     printf("\n");
 }
 
+void pulisciSchermo()
+{
+    gotoxy(0,0);
+    char* vuoto = malloc(sizeof(char)*CentroSchermo*2+1);
+    vuoto[CentroSchermo*2] = '\0';
+    memset(vuoto,' ',CentroSchermo*2);
+    int i;
+    for (i = 0; i < 45; i++)
+        Stampa(vuoto);
+}
+
 void StampaTitolo()
 {
-    Stampa(" __  __     ______   ______     ______   ______     __     ______    ");
-    Stampa("/\\_\\_\\_\\   /\\__  _\\ /\\  ___\\   /\\__  _\\ /\\  == \\   /\\ \\   /\\  ___\\   ");
-    Stampa("\\/_/\\_\\/_  \\/_/\\ \\/ \\ \\  __\\   \\/_/\\ \\/ \\ \\  __<   \\ \\ \\  \\ \\___  \\  ");
-    Stampa("  /\\_\\/\\_\\    \\ \\_\\  \\ \\_____\\    \\ \\_\\  \\ \\_\\ \\_\\  \\ \\_\\  \\/\\_____\\ ");
-    Stampa("  \\/_/\\/_/     \\/_/   \\/_____/     \\/_/   \\/_/ /_/   \\/_/   \\/_____/ ");
+    StampaL(" __  __     ______   ______     ______   ______     __     ______    ");
+    StampaL("/\\_\\_\\_\\   /\\__  _\\ /\\  ___\\   /\\__  _\\ /\\  == \\   /\\ \\   /\\  ___\\   ");
+    StampaL("\\/_/\\_\\/_  \\/_/\\ \\/ \\ \\  __\\   \\/_/\\ \\/ \\ \\  __<   \\ \\ \\  \\ \\___  \\  ");
+    StampaL("  /\\_\\/\\_\\    \\ \\_\\  \\ \\_____\\    \\ \\_\\  \\ \\_\\ \\_\\  \\ \\_\\  \\/\\_____\\ ");
+    StampaL("  \\/_/\\/_/     \\/_/   \\/_____/     \\/_/   \\/_/ /_/   \\/_/   \\/_____/ ");
 
-    Stampa(" ");Stampa(" ");
+    StampaL(" ");StampaL(" ");
  
+}
+
+void StampaMenuIniziale(Modalita mode)
+{
+    aggiornaCentroSchermo();
+    pulisciSchermo();
+    gotoxy(0,0);
+    StampaTitolo();
+    char Opt1[200] = "┃           ";
+    char Opt2[200] = "┃           ";
+    char Opt3[200] = "┃           ";
+    char* S = "   SINGLE PLAYER              ┃";
+    char* M = "    MULTYPLAYER               ┃";
+    char* C = "        CPU                   ┃";
+    char pointer[] = ">";
+    char nopointer[] = " ";
+
+    if(mode == SINGLEPLAYER) 
+        strcat(Opt1,pointer);
+    else 
+        strcat(Opt1,nopointer);
+    if(mode == MULTIPLAYER)
+        strcat(Opt2,pointer);
+    else 
+        strcat(Opt2,nopointer);
+    if(mode == CPU)
+        strcat(Opt3,pointer);
+    else 
+        strcat(Opt3,nopointer);
+    
+    strcat(Opt1, S);
+    strcat(Opt2, M);
+    strcat(Opt3, C);
+
+    StampaL("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+    StampaL("┃                                          ┃");
+    StampaL("┃      Seleziona la modalità di gioco      ┃");
+    StampaL("┃                                          ┃");
+    StampaL("┃                                          ┃");
+    StampaL(Opt1);
+    StampaL(Opt2);
+    StampaL(Opt3);
+    StampaL("┃                                          ┃");
+    StampaL("┃                                          ┃");
+    StampaL("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+    StampaL("");
+    StampaL(" Movimento: \'△ ▽\'        Ok: 'k' ");
 }
 
 void StampaModalita(Partita* partita)
 {
     if(partita->Modalita == SINGLEPLAYER)
-        Stampa("Modalita di gioco: SINGLE PLAYER");
+        StampaL("Modalita di gioco: SINGLE PLAYER");
     if(partita->Modalita == MULTIPLAYER)
-        Stampa("Modalita di gioco: MULTYPLAYER");
-    Stampa(" ");Stampa(" ");
+        StampaL("Modalita di gioco: MULTYPLAYER");
+        if(partita->Modalita == CPU)
+    StampaL("Modalita di gioco: CPU vs UTENTE");
+    StampaL(" ");StampaL(" ");
 }
 
 void Update(Partita *partita)
 {
     aggiornaCentroSchermo();
+    pulisciSchermo();
     gotoxy(0,0);
     StampaTitolo();
     StampaModalita(partita);
-    Stampa("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+    StampaL("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
     char riga[200] = "";
     int coloriUsati = 0;
     int i ,j;
@@ -87,13 +154,13 @@ void Update(Partita *partita)
             else       strcat(riga,"    ");
         }
         strcat(riga," ┃");
-        StampaConColore(riga,coloriUsati);
+        StampaLConColore(riga,coloriUsati);
         memset(riga, 0, sizeof(riga));
         coloriUsati = 0;
     }
-    Stampa("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
-    Stampa("");
-    Stampa(" Movimento: \'◁ ▷ △ ▽\'        Ok: 'k' ");
+    StampaL("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+    StampaL("");
+    StampaL(" Movimento: \'◁ ▷ △ ▽\'        Ok: 'k' ");
     char*a = ""; 
     gotoxy(0,0);
     return;

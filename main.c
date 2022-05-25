@@ -1,5 +1,4 @@
 #include "headers.h"
-void Test();
 
 int main() 
 {
@@ -12,6 +11,6 @@ int main()
     tcsetattr(0, TCSANOW, &info); /* setto gli attributi */
 
 
-    Test();
+    menuIniziale();
     return 0;
 }

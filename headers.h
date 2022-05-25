@@ -44,7 +44,7 @@ typedef enum {P1,P2} Giocatore;
 typedef enum {I,T,O,L,J,S,Z} TipoPezzo;
 
 /* ENUMERATOR per gestire la modalità di gioco*/
-typedef enum {SINGLEPLAYER,MULTIPLAYER} Modalita;
+typedef enum {SINGLEPLAYER,MULTIPLAYER,CPU} Modalita;
 
 /* ENUMMERATOR per memorizzare lo stato della partita*/
 typedef enum {IN_CORSO,TERMINATA,VITTORIA_P1,VITTORIA_P2} Stato;
@@ -82,16 +82,24 @@ int StrLenMB(char *s);
 
 /**
 *funzione di stampa che allinea la stringa da stampare con il resto del programma
+*senza ritorno a capo
 *@param *s array di caratteri da stampare
 */
 void Stampa(char *s);
+
+/**
+*funzione di stampa che allinea la stringa da stampare con il resto del programma
+*con ritorno a capo
+*@param *s array di caratteri da stampare
+*/
+void StampaL(char *s);
 
 /**
 *simile a funzione Stampa ma tiene conto di caratteri speciali per il colore
 *@param *s array di caratteri da stampare
 *@param NumColoriUsati quantità dei codici colore usati
 */
-void StampaConColore(char *s, int NumColoriUsati);
+void StampaLConColore(char *s, int NumColoriUsati);
 
 /**
 *stampa in ASCII ART il titiolo "X-Tetris"
@@ -138,3 +146,7 @@ void distruggiPezzo(Pezzo* pz);
 int rimuoviLinee(Partita* pa);
 
 int checkIfLost(Partita* pa);
+
+void StampaMenuIniziale(Modalita mode);
+
+void menuIniziale();
