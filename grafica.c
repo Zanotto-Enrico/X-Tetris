@@ -78,11 +78,13 @@ void Update(Partita *partita)
                     strcat(riga,ColoreBianco);
                 if(partita->mappa[i/2][j] == 2)
                     strcat(riga,ColoreBlu);
-                strcat(riga,"    ");
+                if(i == 3) strcat(riga,"▁ ▁ ");
+                else       strcat(riga,"    ");
                 strcat(riga,ColoreDefault);
                 coloriUsati += 2;
             }
-            else strcat(riga,"    ");
+            else if(i == 3) strcat(riga,"▁ ▁ ");
+            else       strcat(riga,"    ");
         }
         strcat(riga," ┃");
         StampaConColore(riga,coloriUsati);

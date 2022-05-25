@@ -115,6 +115,8 @@ void inserisciPezzo(Partita* pa, Pezzo* pz);
 
 void rimuoviPezzo(Partita* pa, Pezzo* pz);
 
+int isPezzoSpostabile(Partita* pa, Pezzo* pz);
+
 int isPezzoPosizionabile(Partita* pa, Pezzo* pz);
 
 int muoviPezzo(Partita* pa, Pezzo* pz, int dx, int dy);
@@ -134,3 +136,5 @@ Pezzo* generaPezzo(TipoPezzo tipo);
 void distruggiPezzo(Pezzo* pz);
 
 int rimuoviLinee(Partita* pa);
+
+int checkIfLost(Partita* pa);

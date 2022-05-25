@@ -8,8 +8,8 @@ void Test()
     for (i = 0; i < 15; i++)
         for (j = 0; j < 10; j++)
             partita->mappa[i][j] = 0;
-
-    while (1)
+    int continua = 1;
+    while (continua)
     {
         Pezzo *pz;
         srand(time(NULL));
@@ -37,10 +37,14 @@ void Test()
             if(cmd[0] == 'D') fatta = muoviPezzo(partita,pz,-1,0);
             if(cmd[0] == 'B') fatta = muoviPezzo(partita,pz,0,1);
             if(cmd[0] == 'C') fatta = muoviPezzo(partita,pz,1,0);
-            if(cmd[0] == 'k') confermaPezzo(partita,pz);
+            if(cmd[0] == 'k') 
+                if(isPezzoPosizionabile(partita,pz))
+                    confermaPezzo(partita,pz);
+                else cmd[0] = ' ';
             if(cmd[0] == 'r') ruotaPezzo(partita, pz);
         }
         rimuoviLinee(partita);
+        if(checkIfLost(partita)) continua = 0;
         distruggiPezzo(pz);
     }
     
@@ -82,27 +86,43 @@ void assegnaDisposizione(Pezzo* pz)
     for(i = 0; i < l; i++) pz->disposizione[i] = schema[i];
 }
 
-int isPezzoPosizionabile(Partita* pa, Pezzo* pz)
+int isPezzoSpostabile(Partita* pa, Pezzo* pz)
 {
     int i, l = pz->tipo == O ? 2 : (pz->tipo == I ? 4 : 3);
-    int posizionabile = 1;
+    int result = 1;
     for ( i = 0; i < l*l; i++)
     {
         int x = pz->x + i%l;
         int y = pz->y + i/l;
         if(x > -1 && y > -1 && x < 10 && y < 15)
-            posizionabile = !(*(pz->disposizione + i) && pa->mappa[pz->y + i/l][pz->x + i%l]) && posizionabile;
-        else if(*(pz->disposizione + i) && posizionabile)
-            posizionabile = !*(pz->disposizione + i);
+            result = !(*(pz->disposizione + i) && pa->mappa[y][x]) && result;
+        else if(*(pz->disposizione + i) && result)
+            result = !*(pz->disposizione + i);
     }
-    return posizionabile;
+    return result;
+}
+
+int isPezzoPosizionabile(Partita* pa, Pezzo* pz)
+{
+    int i, l = pz->tipo == O ? 2 : (pz->tipo == I ? 4 : 3);
+    int result = 0;
+    for ( i = 0; i < l*l; i++)
+    {
+        int x = pz->x + i%l;
+        int y = pz->y + i/l;
+        if(y == 14 && *(pz->disposizione + i)) result = 1;
+        else if(x > -1 && y > -1 && x < 10 && y < 15)
+            result = (*(pz->disposizione + i) && !*(pz->disposizione + l + i) 
+                      && pa->mappa[y + 1][x]) || result;
+    }
+    return result;
 }
 
 int muoviPezzo(Partita* pa, Pezzo* pz, int dx, int dy)
 {
     rimuoviPezzo(pa,pz);
     pz->x += dx; pz->y += dy;
-    if(isPezzoPosizionabile(pa,pz)) 
+    if(isPezzoSpostabile(pa,pz)) 
     {
         inserisciPezzo(pa,pz);
         return 1;
@@ -130,7 +150,7 @@ int ruotaPezzo(Partita* pa, Pezzo* pz)
     }
     int *old = pz->disposizione;
     pz->disposizione = result;
-    if(isPezzoPosizionabile(pa,pz))
+    if(isPezzoSpostabile(pa,pz))
     {
         free(old);
         inserisciPezzo(pa,pz);
@@ -173,4 +193,13 @@ void abbassaBlocchi(Partita* pa, int linea)
             pa->mappa[i][j] = 0;
         }
     }
+}
+
+int checkIfLost(Partita* pa)
+{
+    int i,j;
+    for (i = 0; i < 2; i++)
+        for (j = 0; j < 10; j++)
+            if(pa->mappa[i][j]) return 1;
+    return 0;
 }
