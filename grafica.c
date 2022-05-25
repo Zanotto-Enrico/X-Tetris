@@ -62,7 +62,6 @@ void StampaTitolo()
     StampaL("  \\/_/\\/_/     \\/_/   \\/_____/     \\/_/   \\/_/ /_/   \\/_/   \\/_____/ ");
 
     StampaL(" ");StampaL(" ");
- 
 }
 
 void StampaMenuIniziale(Modalita mode)
@@ -160,7 +159,7 @@ void Update(Partita *partita)
     }
     StampaL("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
     StampaL("");
-    StampaL(" Movimento: \'◁ ▷ △ ▽\'        Ok: 'k' ");
+    StampaL(" Movimento: \'◁ ▷ △ ▽\'   Ruota: 'r'   Ok: 'k' ");
     char*a = ""; 
     gotoxy(0,0);
     return;
