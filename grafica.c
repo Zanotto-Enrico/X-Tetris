@@ -129,7 +129,22 @@ void Update(Partita *partita)
     gotoxy(0,0);
     StampaTitolo();
     StampaModalita(partita);
-    StampaL("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+    if(partita->Modalita == SINGLEPLAYER)
+    {
+        stampaMappa(partita->mappa1, CentroSchermo-22, 11);
+    }
+    else
+    {
+        stampaMappa(partita->mappa1, CentroSchermo-59, 11);
+        stampaMappa(partita->mappa2, CentroSchermo+15, 11);
+    }
+}
+
+void stampaMappa(int mappa[15][10], int x, int y)
+{
+    gotoxy(x,y);
+    printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+    gotoxy(x,++y);
     char riga[200] = "";
     int coloriUsati = 0;
     int i ,j;
@@ -138,11 +153,11 @@ void Update(Partita *partita)
         strcat(riga,"┃ ");
         for (j = 0; j < 10; j++)
         {
-            if(partita->mappa[i/2][j] > 0)
+            if(mappa[i/2][j] > 0)
             {
-                if(partita->mappa[i/2][j] == 1)
+                if(mappa[i/2][j] == 1)
                     strcat(riga,ColoreBianco);
-                if(partita->mappa[i/2][j] == 2)
+                if(mappa[i/2][j] == 2)
                     strcat(riga,ColoreBlu);
                 if(i == 3) strcat(riga,"▁ ▁ ");
                 else       strcat(riga,"    ");
@@ -153,41 +168,15 @@ void Update(Partita *partita)
             else       strcat(riga,"    ");
         }
         strcat(riga," ┃");
-        StampaLConColore(riga,coloriUsati);
+        printf(riga);
+        gotoxy(x,++y);
         memset(riga, 0, sizeof(riga));
         coloriUsati = 0;
     }
-    StampaL("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
-    StampaL("");
-    StampaL(" Movimento: \'◁ ▷ △ ▽\'   Ruota: 'r'   Ok: 'k' ");
-    char*a = ""; 
+    printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+    gotoxy(x,y+2);
+    printf(" Movimento: \'◁ ▷ △ ▽\'   Ruota: 'r'   Ok: 'k' \n");
     gotoxy(0,0);
     return;
 }
 
-void inserisciPezzo(Partita* pa, Pezzo* pz)
-{
-    int i, l = pz->tipo == O ? 2 : (pz->tipo == I ? 4 : 3);
-    int *parser = pz->disposizione;
-    for (i = 0; i < l*l; i++)
-        if(*(parser++) == 1) pa->mappa[pz->y + i/l][pz->x + i%l] = 2;
-    return;
-}
-
-void rimuoviPezzo(Partita* pa, Pezzo* pz)
-{
-    int i, l = pz->tipo == O ? 2 : (pz->tipo == I ? 4 : 3);
-    int *parser = pz->disposizione;
-    for (i = 0; i < l*l; i++)
-        if(*(parser++) > 0) pa->mappa[pz->y + i/l][pz->x + i%l] = 0;
-    return;
-}
-
-void confermaPezzo(Partita* pa, Pezzo* pz)
-{
-    int i, l = pz->tipo == O ? 2 : (pz->tipo == I ? 4 : 3);
-    int *parser = pz->disposizione;
-    for (i = 0; i < l*l; i++)
-        if(*(parser++) == 1) pa->mappa[pz->y + i/l][pz->x + i%l] = 1;
-    return;
-}

@@ -58,7 +58,8 @@ typedef struct
     Giocatore turno;                /*< turno corrente*/
     Stato stato;                    /*< stato della partita*/
 
-    int mappa[15][10];              /*< mappa di 15 righe e 10 colonne*/
+    int mappa1[15][10];              /*< mappa di 15 righe e 10 colonne*/
+    int mappa2[15][10];              /*< mappa di 15 righe e 10 colonne*/
 } Partita;
 
 typedef struct
@@ -150,3 +151,7 @@ int checkIfLost(Partita* pa);
 void StampaMenuIniziale(Modalita mode);
 
 void menuIniziale();
+
+void stampaMappa(int mappa1[15][10], int x, int y);
+
+void ScriviSuMappa(Partita* pa, Pezzo* pz, int valore);

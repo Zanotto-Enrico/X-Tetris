@@ -5,12 +5,15 @@ void Test(Modalita mode)
 
     Partita* partita = malloc(sizeof(Partita));
     partita->Modalita = mode;
+    partita->turno = P2;
+    partita->stato = IN_CORSO;
     int i,j;
     for (i = 0; i < 15; i++)
         for (j = 0; j < 10; j++)
-            partita->mappa[i][j] = 0;
+            partita->mappa1[i][j] = 0;
+            partita->mappa2[i][j] = 0;
     int continua = 1;
-    while (continua)
+    while (partita->stato == IN_CORSO)
     {
         Pezzo *pz;
         srand(time(NULL));
@@ -45,8 +48,10 @@ void Test(Modalita mode)
             if(cmd[0] == 'r') ruotaPezzo(partita, pz);
         }
         rimuoviLinee(partita);
-        if(checkIfLost(partita)) continua = 0;
+        if(checkIfLost(partita)) partita->stato = TERMINATA;
         distruggiPezzo(pz);
+        if(partita->turno == P1) partita->turno = P2;
+        else if(partita->turno == P2) partita->turno = P1;
     }
     
     Update(partita);
@@ -112,7 +117,10 @@ int isPezzoSpostabile(Partita* pa, Pezzo* pz)
         int x = pz->x + i%l;
         int y = pz->y + i/l;
         if(x > -1 && y > -1 && x < 10 && y < 15)
-            result = !(*(pz->disposizione + i) && pa->mappa[y][x]) && result;
+        {
+            if(pa->turno == P1) result = !(*(pz->disposizione + i) && pa->mappa1[y][x]) && result;
+            else                result = !(*(pz->disposizione + i) && pa->mappa2[y][x]) && result;
+        }
         else if(*(pz->disposizione + i) && result)
             result = !*(pz->disposizione + i);
     }
@@ -129,8 +137,11 @@ int isPezzoPosizionabile(Partita* pa, Pezzo* pz)
         int y = pz->y + i/l;
         if(y == 14 && *(pz->disposizione + i)) result = 1;
         else if(x > -1 && y > -1 && x < 10 && y < 15)
-            result = (*(pz->disposizione + i) && !*(pz->disposizione + l + i) 
-                      && pa->mappa[y + 1][x]) || result;
+        {
+            if(pa->turno == P1) result = (*(pz->disposizione + i) && !*(pz->disposizione+l+i) && pa->mappa1[y + 1][x]) || result;
+            else                result = (*(pz->disposizione + i) && !*(pz->disposizione+l+i) && pa->mappa2[y + 1][x]) || result;
+        }
+            
     }
     return result;
 }
@@ -188,12 +199,16 @@ int rimuoviLinee(Partita* pa)
     for (i = 0; i < 15; i++)
     {
         int count = 0;
-        for(j = 0; j < 10; j++)
-            count = count + pa->mappa[i][j];
+        for(j = 0; j < 10; j++){
+            if(pa->turno == P1) count = count + pa->mappa1[i][j];
+            else                count = count + pa->mappa2[i][j];
+        }
         if(count == 10)
         {
-            for (j = 0; j < 10; j++)
-                pa->mappa[i][j] = 0;
+            for (j = 0; j < 10; j++){
+                if(pa->turno == P1) pa->mappa1[i][j] = 0;
+                else                pa->mappa2[i][j] = 0;
+            }
             abbassaBlocchi(pa,i);
         }   
     }
@@ -206,8 +221,16 @@ void abbassaBlocchi(Partita* pa, int linea)
     {
         for (j = 0; j < 10; j++)
         {
-            pa->mappa[i+1][j] = pa->mappa[i][j];
-            pa->mappa[i][j] = 0;
+            if(pa->turno == P1)
+            {
+                pa->mappa1[i+1][j] = pa->mappa1[i][j];
+                pa->mappa1[i][j] = 0;
+            }
+            else 
+            {
+                pa->mappa2[i+1][j] = pa->mappa2[i][j];
+                pa->mappa2[i][j] = 0;
+            }
         }
     }
 }
@@ -217,6 +240,34 @@ int checkIfLost(Partita* pa)
     int i,j;
     for (i = 0; i < 2; i++)
         for (j = 0; j < 10; j++)
-            if(pa->mappa[i][j]) return 1;
+            if(pa->mappa1[i][j] || pa->mappa2[i][j]) return 1;
     return 0;
+}
+
+void inserisciPezzo(Partita* pa, Pezzo* pz)
+{
+    ScriviSuMappa(pa,pz,2);
+}
+
+void rimuoviPezzo(Partita* pa, Pezzo* pz)
+{
+    ScriviSuMappa(pa,pz,0);
+}
+
+void confermaPezzo(Partita* pa, Pezzo* pz)
+{
+    ScriviSuMappa(pa,pz,1);
+}
+
+void ScriviSuMappa(Partita* pa, Pezzo* pz, int valore)
+{
+        int i, l = pz->tipo == O ? 2 : (pz->tipo == I ? 4 : 3);
+    int *parser = pz->disposizione;
+    for (i = 0; i < l*l; i++)
+        if(*(parser++) == 1)
+        {
+            if(pa->turno == P1) pa->mappa1[pz->y + i/l][pz->x + i%l] = valore;
+            else                pa->mappa2[pz->y + i/l][pz->x + i%l] = valore;
+        } 
+    return;
 }
