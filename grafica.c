@@ -168,7 +168,7 @@ void stampaMappa(int mappa[15][10], int x, int y)
             else       strcat(riga,"    ");
         }
         strcat(riga," ┃");
-        printf(riga);
+        printf("%s",riga);
         gotoxy(x,++y);
         memset(riga, 0, sizeof(riga));
         coloriUsati = 0;
