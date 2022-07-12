@@ -5,7 +5,7 @@ void Test(Modalita mode)
 
     Partita* partita = malloc(sizeof(Partita));
     partita->Modalita = mode;
-    partita->turno = P2;
+    partita->turno = P1;
     partita->stato = IN_CORSO;
     int i,j;
     for (i = 0; i < 15; i++)
@@ -31,27 +31,28 @@ void Test(Modalita mode)
         }
         muoviPezzo(partita,pz,0,0);
         Update(partita);
-        char cmd[2] = "";
-        while (cmd[0] != 'k')
+        char cmd = '0';
+        while (cmd != '\n')
         {
             Update(partita);
-            if(scanf("%1s", cmd) != 1) return;
+            cmd = getchar();
             int fatta = 0;
-            if(cmd[0] == 'A') fatta = muoviPezzo(partita,pz,0,-1);
-            if(cmd[0] == 'D') fatta = muoviPezzo(partita,pz,-1,0);
-            if(cmd[0] == 'B') fatta = muoviPezzo(partita,pz,0,1);
-            if(cmd[0] == 'C') fatta = muoviPezzo(partita,pz,1,0);
-            if(cmd[0] == 'k') 
+            if(cmd == 'A') fatta = muoviPezzo(partita,pz,0,-1);
+            if(cmd == 'D') fatta = muoviPezzo(partita,pz,-1,0);
+            if(cmd == 'B') fatta = muoviPezzo(partita,pz,0,1);
+            if(cmd == 'C') fatta = muoviPezzo(partita,pz,1,0);
+            if(cmd == '\n') 
                 if(isPezzoPosizionabile(partita,pz))
                     confermaPezzo(partita,pz);
-                else cmd[0] = ' ';
-            if(cmd[0] == 'r') ruotaPezzo(partita, pz);
+                else cmd = ' ';
+            if(cmd == 'r') ruotaPezzo(partita, pz);
         }
         rimuoviLinee(partita);
         if(checkIfLost(partita)) partita->stato = TERMINATA;
         distruggiPezzo(pz);
         if(partita->turno == P1) partita->turno = P2;
         else if(partita->turno == P2) partita->turno = P1;
+        if(partita->Modalita == SINGLEPLAYER) partita->turno = P1;
     }
     
     Update(partita);
@@ -62,15 +63,15 @@ void Test(Modalita mode)
 void menuIniziale()
 {
     Modalita mode = SINGLEPLAYER;
-    char cmd[2] = "";
-    while (cmd[0] != 'k')
+    char cmd = '0';
+    while (cmd != '\n')
     {
         StampaMenuIniziale(mode);
-        if(scanf("%1s", cmd) != 1) return;
-        if(cmd[0] == 'A' && mode == MULTIPLAYER)    mode = SINGLEPLAYER;
-        else if(cmd[0] == 'A' && mode == CPU)            mode = MULTIPLAYER;
-        else if(cmd[0] == 'B' && mode == SINGLEPLAYER)   mode = MULTIPLAYER;
-        else if(cmd[0] == 'B' && mode == MULTIPLAYER)    mode = CPU;
+        cmd = getchar();
+        if(cmd == 'A' && mode == MULTIPLAYER)    mode = SINGLEPLAYER;
+        else if(cmd == 'A' && mode == CPU)            mode = MULTIPLAYER;
+        else if(cmd == 'B' && mode == SINGLEPLAYER)   mode = MULTIPLAYER;
+        else if(cmd == 'B' && mode == MULTIPLAYER)    mode = CPU;
     }
     Test(mode);
 }
@@ -138,8 +139,8 @@ int isPezzoPosizionabile(Partita* pa, Pezzo* pz)
         if(y == 14 && *(pz->disposizione + i)) result = 1;
         else if(x > -1 && y > -1 && x < 10 && y < 15)
         {
-            if(pa->turno == P1) result = (*(pz->disposizione + i) && !*(pz->disposizione+l+i) && pa->mappa1[y + 1][x]) || result;
-            else                result = (*(pz->disposizione + i) && !*(pz->disposizione+l+i) && pa->mappa2[y + 1][x]) || result;
+            if(pa->turno == P1) result = (*(pz->disposizione + i) && pa->mappa1[y + 1][x] == 1) || result;
+            else                result = (*(pz->disposizione + i) && pa->mappa2[y + 1][x] == 1) || result;
         }
             
     }
