@@ -1,8 +1,94 @@
 #include "headers.h"
 
-void Test(Modalita mode)
+void IniziaPartita(Modalita mode)
 {
+    Partita* partita = inizializzaPartita(mode);
+    while (partita->stato == IN_CORSO)
+    {   
+        richiediSceltaPezzo(partita);
+        Pezzo *pz = generaPezzo(partita->pezzoSelezionato); 
 
+        muoviPezzo(partita,pz,0,0);
+        posizionaPezzo(partita,pz);
+
+        distruggiPezzo(pz);
+        
+        int rimosse = rimuoviLinee(partita);
+        if(partita->turno == P1) 
+        {
+            incrementaPunteggio(&partita->punteggio1, rimosse);
+            if(rimosse >= 3 ) invertiRighe(partita, partita->mappa2, rimosse);
+        }
+        else
+        {
+            incrementaPunteggio(&partita->punteggio2, rimosse);
+            if(rimosse >= 3 ) invertiRighe(partita, partita->mappa1, rimosse);
+        }
+        
+        if(checkIfLost(partita)) partita->stato = TERMINATA;
+        
+        cambiaTurno(partita);
+    }
+    Update(partita);
+    
+    free(partita);
+}
+
+void posizionaPezzo(Partita* partita, Pezzo* pz)
+{
+    char cmd = '0';
+    while (cmd != '\n')
+    {
+        Update(partita);
+        cmd = getchar();
+        int fatta = 0;
+        if(cmd == 'A') fatta = muoviPezzo(partita,pz,0,-1);
+        if(cmd == 'D') fatta = muoviPezzo(partita,pz,-1,0);
+        if(cmd == 'B') fatta = muoviPezzo(partita,pz,0,1);
+        if(cmd == 'C') fatta = muoviPezzo(partita,pz,1,0);
+        if(cmd == '\n') 
+            if(isPezzoPosizionabile(partita,pz))
+                confermaPezzo(partita,pz);
+            else cmd = ' ';
+        if(cmd == 'r') ruotaPezzo(partita, pz);
+    }
+}
+
+void cambiaTurno(Partita* partita)
+{
+    if(partita->turno == P2 || partita->Modalita == SINGLEPLAYER) 
+        partita->turno = P1;
+    else
+        partita->turno = P2;
+}
+
+void richiediSceltaPezzo(Partita* partita)
+{
+    partita->pezzoSelezionato = O;
+    char cmd = '0';
+    int scelto = 0;
+    while (cmd != '\n' || partita->pezziRimasti[scelto] <= 0)
+    {
+        Update(partita);
+        cmd = getchar();
+        if(cmd == 'D') scelto = (scelto+1)%7;
+        if(cmd == 'C') scelto = (scelto+6)%7;
+        switch (scelto)
+        {
+            case 0: partita->pezzoSelezionato = O; break;
+            case 1: partita->pezzoSelezionato = S; break;
+            case 2: partita->pezzoSelezionato = T; break;
+            case 3: partita->pezzoSelezionato = Z; break;
+            case 4: partita->pezzoSelezionato = I; break;
+            case 5: partita->pezzoSelezionato = J; break;
+            case 6: partita->pezzoSelezionato = L; break;
+        }
+    }
+    partita->pezziRimasti[scelto]--;
+}
+
+Partita *inizializzaPartita(Modalita mode)
+{
     Partita* partita = malloc(sizeof(Partita));
     partita->Modalita = mode;
     partita->turno = P1;
@@ -12,53 +98,15 @@ void Test(Modalita mode)
         for (j = 0; j < 10; j++)
             partita->mappa1[i][j] = 0;
             partita->mappa2[i][j] = 0;
-    int continua = 1;
-    while (partita->stato == IN_CORSO)
-    {
-        Pezzo *pz;
-        srand(time(NULL));
-        int r = rand();
 
-        switch (r%7)
-        {
-            case 0: pz = generaPezzo(O); break;
-            case 1: pz = generaPezzo(J); break;
-            case 2: pz = generaPezzo(L); break;
-            case 3: pz = generaPezzo(S); break;
-            case 4: pz = generaPezzo(Z); break;
-            case 5: pz = generaPezzo(I); break;
-            case 6: pz = generaPezzo(T); break;
-        }
-        muoviPezzo(partita,pz,0,0);
-        Update(partita);
-        char cmd = '0';
-        while (cmd != '\n')
-        {
-            Update(partita);
-            cmd = getchar();
-            int fatta = 0;
-            if(cmd == 'A') fatta = muoviPezzo(partita,pz,0,-1);
-            if(cmd == 'D') fatta = muoviPezzo(partita,pz,-1,0);
-            if(cmd == 'B') fatta = muoviPezzo(partita,pz,0,1);
-            if(cmd == 'C') fatta = muoviPezzo(partita,pz,1,0);
-            if(cmd == '\n') 
-                if(isPezzoPosizionabile(partita,pz))
-                    confermaPezzo(partita,pz);
-                else cmd = ' ';
-            if(cmd == 'r') ruotaPezzo(partita, pz);
-        }
-        rimuoviLinee(partita);
-        if(checkIfLost(partita)) partita->stato = TERMINATA;
-        distruggiPezzo(pz);
-        if(partita->turno == P1) partita->turno = P2;
-        else if(partita->turno == P2) partita->turno = P1;
-        if(partita->Modalita == SINGLEPLAYER) partita->turno = P1;
-    }
-    
-    Update(partita);
+    for (i = 0; i < 7; i++)
+        partita->pezziRimasti[i] = 20;
 
-    free(partita);
+    partita->punteggio1 = partita->punteggio2 = 0;
+    partita->pezzoSelezionato = O;
+    return partita;
 }
+
 
 void menuIniziale()
 {
@@ -73,7 +121,7 @@ void menuIniziale()
         else if(cmd == 'B' && mode == SINGLEPLAYER)   mode = MULTIPLAYER;
         else if(cmd == 'B' && mode == MULTIPLAYER)    mode = CPU;
     }
-    Test(mode);
+    IniziaPartita(mode);
 }
 
 Pezzo* generaPezzo(TipoPezzo tipo)
@@ -197,6 +245,7 @@ int ruotaPezzo(Partita* pa, Pezzo* pz)
 int rimuoviLinee(Partita* pa)
 {
     int i,j;
+    int rimosse = 0;
     for (i = 0; i < 15; i++)
     {
         int count = 0;
@@ -210,9 +259,19 @@ int rimuoviLinee(Partita* pa)
                 if(pa->turno == P1) pa->mappa1[i][j] = 0;
                 else                pa->mappa2[i][j] = 0;
             }
+            rimosse++;
             abbassaBlocchi(pa,i);
         }   
     }
+    return rimosse;
+}
+
+void invertiRighe(Partita* pa, int mappa[15][10], int nrighe)
+{
+    int i = 0, j = 0;
+    for (i = 14; i > 14-nrighe; i--)
+        for (j = 0; j < 10; j++) 
+            mappa[i][j] = (mappa[i][j]+1)%2;
 }
 
 void abbassaBlocchi(Partita* pa, int linea)
@@ -233,6 +292,17 @@ void abbassaBlocchi(Partita* pa, int linea)
                 pa->mappa2[i][j] = 0;
             }
         }
+    }
+}
+
+void incrementaPunteggio(int* punteggio, int lineeRimosse)
+{
+    switch (lineeRimosse)
+    {
+        case 1:  *punteggio+=1;  break;
+        case 2:  *punteggio+=3;  break;
+        case 3:  *punteggio+=6;  break;
+        case 4:  *punteggio+=12; break;
     }
 }
 
@@ -262,7 +332,7 @@ void confermaPezzo(Partita* pa, Pezzo* pz)
 
 void ScriviSuMappa(Partita* pa, Pezzo* pz, int valore)
 {
-        int i, l = pz->tipo == O ? 2 : (pz->tipo == I ? 4 : 3);
+    int i, l = pz->tipo == O ? 2 : (pz->tipo == I ? 4 : 3);
     int *parser = pz->disposizione;
     for (i = 0; i < l*l; i++)
         if(*(parser++) == 1)

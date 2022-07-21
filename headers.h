@@ -58,6 +58,13 @@ typedef struct
     Giocatore turno;                /*< turno corrente*/
     Stato stato;                    /*< stato della partita*/
 
+    TipoPezzo pezzoSelezionato;     /*< il tipo del pezzo selezionato*/
+
+    int punteggio1;                 /*< punteggio giocatore uno*/
+    int punteggio2;                 /*< punteggio giocatore due*/
+
+    int pezziRimasti[7];            /*< pezzi ancora disponibili*/
+
     int mappa1[15][10];              /*< mappa di 15 righe e 10 colonne*/
     int mappa2[15][10];              /*< mappa di 15 righe e 10 colonne*/
 } Partita;
@@ -132,15 +139,38 @@ int muoviPezzo(Partita* pa, Pezzo* pz, int dx, int dy);
 
 void confermaPezzo(Partita* pa, Pezzo* pz);
 
+void invertiRighe(Partita* pa, int mappa[15][10], int nrighe);
+
+/**
+*posiziona il cursore in una precisa posizione nel terminale
+*@param int x coordinata x
+*@param int y coordinata y
+*/
 void gotoxy(int x,int y);
 
+/**
+*aggiorna la variabile pubblica CentroSchermo se il terminale
+*ha cambiato dimensione
+*/
 void aggiornaCentroSchermo();
+
+Partita* inizializzaPartita(Modalita mode);
+
+void incrementaPunteggio(int* punteggio, int lineeRimosse);
+
+void posizionaPezzo(Partita* partita, Pezzo* pz);
 
 void abbassaBlocchi(Partita* pa, int linea);
 
 void assegnaDisposizione(Pezzo* pz);
 
+void richiediSceltaPezzo(Partita* partita);
+
+void cambiaTurno(Partita* partita);
+
 Pezzo* generaPezzo(TipoPezzo tipo);
+
+int ruotaPezzo(Partita* pa, Pezzo* pz);
 
 void distruggiPezzo(Pezzo* pz);
 
@@ -151,6 +181,12 @@ int checkIfLost(Partita* pa);
 void StampaMenuIniziale(Modalita mode);
 
 void menuIniziale();
+
+void StampaTurno(Giocatore* g);
+
+void StampaMenuSceltaPezzo(TipoPezzo pz, int pezziRimasti[7]);
+
+void StampaPunteggio(Partita* pa);
 
 void stampaMappa(int mappa1[15][10], int x, int y);
 

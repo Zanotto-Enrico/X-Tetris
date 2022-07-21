@@ -108,7 +108,7 @@ void StampaMenuIniziale(Modalita mode)
     StampaL("┃                                          ┃");
     StampaL("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
     StampaL("");
-    StampaL(" Movimento: \'△ ▽\'        Ok: 'k' ");
+    StampaL(" Movimento: △ ▽        Ok: ⤶ ");
 }
 
 void StampaModalita(Partita* partita)
@@ -137,7 +137,105 @@ void Update(Partita *partita)
     {
         stampaMappa(partita->mappa1, CentroSchermo-59, 11);
         stampaMappa(partita->mappa2, CentroSchermo+15, 11);
+        StampaTurno(&partita->turno);
+        StampaMenuSceltaPezzo(partita->pezzoSelezionato,partita->pezziRimasti);
+        StampaPunteggio(partita);
     }
+}
+
+void StampaMenuSceltaPezzo(TipoPezzo pz, int pezziRimasti[7])
+{
+    int x = CentroSchermo-11, y = 19;
+    gotoxy(x,y);
+    printf("   Scegli un pezzo:   ");gotoxy(x,++y);gotoxy(x,++y);
+    printf("Tipo: O    Rimasti: 0");gotoxy(x,++y);
+    printf("┏━━━━━━━━━━━━━━━━━━━━┓");gotoxy(x,++y);
+    printf("┃                    ┃");gotoxy(x,++y);
+    printf("┃                    ┃");gotoxy(x,++y);
+    printf("┃                    ┃");gotoxy(x,++y);
+    printf("┃                    ┃");gotoxy(x,++y);
+    printf("┃                    ┃");gotoxy(x,++y);
+    printf("┃                    ┃");gotoxy(x,++y);
+    printf("┗━━━━━━━━━━━━━━━━━━━━┛");gotoxy(x,++y);
+    printf("   Scegli:     ◁ ▷  ");gotoxy(x,++y);
+    printf("   Conferma:     ⤶   ");gotoxy(x,++y);
+
+    int* pattern;
+    int numero = 0;
+    switch (pz)
+    {
+        case O: pattern = O_PATTERN; numero = 0; break;
+        case S: pattern = S_PATTERN; numero = 1; break;
+        case T: pattern = T_PATTERN; numero = 2; break;
+        case Z: pattern = Z_PATTERN; numero = 3; break;
+        case I: pattern = I_PATTERN; numero = 4; break;
+        case J: pattern = J_PATTERN; numero = 5; break;
+        case L: pattern = L_PATTERN; numero = 6; break;
+    }
+    gotoxy(x,21);
+    printf("Tipo: O    Rimasti: %d", pezziRimasti[numero]);
+
+
+    x =CentroSchermo-11; y = 24;
+    pz == O ? x+=7 : (pz == I ? x+=3 : (x+=5));
+    gotoxy(x,y);
+    
+    char stampa[400] = "";
+    char* spazio = "    ";
+    int i, l = pz == O ? 2 : (pz == I ? 4 : 3);
+    for(i = 0; i < l*l && i < 8 ; i++)
+    {
+        if(*(pattern + i))
+        {
+            strcat(stampa,ColoreBianco);
+            strcat(stampa,spazio);
+            strcat(stampa,ColoreDefault);
+        }
+        else
+        {
+            strcat(stampa,spazio);
+        }
+        if((i+1)%l == 0)
+        {
+            printf("%s",stampa);gotoxy(x,++y);
+            printf("%s",stampa);gotoxy(x,++y);
+            stampa[0] = '\0';
+            
+        }
+    }
+    printf("%s",stampa);
+    
+
+
+    gotoxy(0,0);
+}
+
+
+void StampaTurno(Giocatore* g)
+{
+    int x =CentroSchermo-11, y = 12;
+    gotoxy(x,y);
+    printf("     TURNO ATTUALE    ");gotoxy(x,++y);gotoxy(x,++y);
+    if(*g == P1)
+    {
+        printf("    ◁ giocatore 1    ");gotoxy(x,++y);
+    }
+    if(*g == P2) 
+    {
+        printf("      giocatore 2 ▷  ");gotoxy(x,++y);
+    }
+
+    gotoxy(0,0);
+}
+
+void StampaPunteggio(Partita* pa)
+{
+        int x =CentroSchermo-11, y = 35;
+    gotoxy(x,y);
+    printf("      PUNTEGGIO     ");gotoxy(x,++y);gotoxy(x,++y);
+    printf("  Giocatore 1:  %d", pa->punteggio1);gotoxy(x,++y);
+    printf("  Giocatore 2:  %d", pa->punteggio2);gotoxy(x,++y);
+    gotoxy(0,0);
 }
 
 void stampaMappa(int mappa[15][10], int x, int y)
@@ -175,7 +273,7 @@ void stampaMappa(int mappa[15][10], int x, int y)
     }
     printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
     gotoxy(x,y+2);
-    printf(" Movimento: \'◁ ▷ △ ▽\'   Ruota: 'r'   Ok: 'k' \n");
+    printf(" Movimento: ◁ ▷ △ ▽   Ruota: r   Ok: ⤶ \n");
     gotoxy(0,0);
     return;
 }
