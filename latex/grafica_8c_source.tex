@@ -1,0 +1,379 @@
+\hypertarget{grafica_8c_source}{}\doxysection{grafica.\+c}
+\mbox{\hyperlink{grafica_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{headers_8h}{headers.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00002}00002 \textcolor{preprocessor}{\#include "{}string.h"{}}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00004}\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{00004}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00005}00005 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00006}00006     \textcolor{comment}{/* utilizzo il carattere \(\backslash\)033[<L>;<C>H per spostare il cursore */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00007}00007     printf(\textcolor{stringliteral}{"{}\(\backslash\)033[\%d;\%dH"{}}, (y), (x));}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00008}00008 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00010}\mbox{\hyperlink{grafica_8c_af9fd89df2dcf2b7fe18d6eac306cbd70}{00010}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_af9fd89df2dcf2b7fe18d6eac306cbd70}{aggiornaCentroSchermo}}()}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00011}00011 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00012}00012     \textcolor{comment}{/*ottengo la larghezza del terminale chiamando la funzione */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00013}00013     \textcolor{comment}{/* ioctl della libreria sys/ioctl.h e divido per 2 per il centroschermo */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00014}00014     \textcolor{keyword}{struct }winsize w;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00015}00015     ioctl(0, TIOCGWINSZ, \&w);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00016}00016     \mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}} = w.ws\_col/2;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00017}00017 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00019}\mbox{\hyperlink{grafica_8c_a3602fc0c6dd5b37a3ea4e41dc9d31c63}{00019}} \textcolor{keywordtype}{int} \mbox{\hyperlink{grafica_8c_a3602fc0c6dd5b37a3ea4e41dc9d31c63}{StrLenMB}}(\textcolor{keywordtype}{char} *s)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00020}00020 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00021}00021     \textcolor{keywordtype}{int} len = strlen(s);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00022}00022     \textcolor{keywordtype}{int} count, i;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00023}00023     count = 0;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00024}00024     \textcolor{comment}{/* nel for conto solo i caratteri che fanno parte del range degli ASCII */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00025}00025     \textcolor{comment}{/* evitando così di contare i codici del cambio colore */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00026}00026     \textcolor{keywordflow}{for}(i = 0; i < len; i++)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00027}00027         count += ((s[i] \& 0xc0) != 0x80) ? 1 : 0;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00028}00028     \textcolor{keywordflow}{return} count;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00029}00029 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00031}\mbox{\hyperlink{grafica_8c_a3643d55f259bc6e310a4aae78e199b4c}{00031}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_a3643d55f259bc6e310a4aae78e199b4c}{Stampa}}(\textcolor{keywordtype}{char} *s)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00032}00032 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00033}00033     \textcolor{comment}{/* prima della stringa stampo una serie di spazi per allinearla al centro */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00034}00034     printf(\textcolor{stringliteral}{"{}\%*s"{}}, (\textcolor{keywordtype}{int})\mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}-\/(\mbox{\hyperlink{grafica_8c_a3602fc0c6dd5b37a3ea4e41dc9d31c63}{StrLenMB}}(s)/2), \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00035}00035     printf(\textcolor{stringliteral}{"{}\%s"{}},s);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00036}00036 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00038}\mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{00038}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{keywordtype}{char} *s)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00039}00039 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00040}00040     \mbox{\hyperlink{grafica_8c_a3643d55f259bc6e310a4aae78e199b4c}{Stampa}}(s);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00041}00041     printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00042}00042 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00044}\mbox{\hyperlink{grafica_8c_a1e0ab7d58dc648a857033796bebc8c44}{00044}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_a1e0ab7d58dc648a857033796bebc8c44}{StampaLConColore}}(\textcolor{keywordtype}{char} *s, \textcolor{keywordtype}{int} NumColoriUsati)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00045}00045 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00046}00046     \textcolor{comment}{/* prima della stringa stampo una serie di spazi per allinearla al centro */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00047}00047     printf(\textcolor{stringliteral}{"{}\%*s"{}}, (\textcolor{keywordtype}{int})(\mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}-\/((\mbox{\hyperlink{grafica_8c_a3602fc0c6dd5b37a3ea4e41dc9d31c63}{StrLenMB}}(s) -\/ (NumColoriUsati/2 * 13))/2)), \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00048}00048     printf(\textcolor{stringliteral}{"{}\%s"{}},s);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00049}00049     printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00050}00050 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00052}\mbox{\hyperlink{grafica_8c_af6f0d5767349bbc19df9486c71f32b09}{00052}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_af6f0d5767349bbc19df9486c71f32b09}{pulisciSchermo}}()}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00053}00053 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00054}00054     \textcolor{comment}{/* costruisco una stringa di spazi lunga quanto il terminale */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00055}00055     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00056}00056     \textcolor{keywordtype}{char}* vuoto = malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})*\mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}*2+1);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00057}00057     vuoto[\mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}*2] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00058}00058     memset(vuoto,\textcolor{charliteral}{' '},\mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}*2);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00059}00059     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00060}00060     \textcolor{comment}{/* stampo la stringa vuota più volte per pulire il terminale */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00061}00061     \textcolor{keywordflow}{for} (i = 0; i < 45; i++)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00062}00062         \mbox{\hyperlink{grafica_8c_a3643d55f259bc6e310a4aae78e199b4c}{Stampa}}(vuoto);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00063}00063 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00065}\mbox{\hyperlink{grafica_8c_a014659789ddcd7e2285393ff76d1e978}{00065}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_a014659789ddcd7e2285393ff76d1e978}{StampaTitolo}}()}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00066}00066 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00067}00067     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{} \_\_  \_\_     \_\_\_\_\_\_   \_\_\_\_\_\_     \_\_\_\_\_\_   \_\_\_\_\_\_     \_\_     \_\_\_\_\_\_    "{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00068}00068     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}/\(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)   /\(\backslash\)\(\backslash\)\_\_  \_\(\backslash\)\(\backslash\) /\(\backslash\)\(\backslash\)  \_\_\_\(\backslash\)\(\backslash\)   /\(\backslash\)\(\backslash\)\_\_  \_\(\backslash\)\(\backslash\) /\(\backslash\)\(\backslash\)  == \(\backslash\)\(\backslash\)   /\(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)   /\(\backslash\)\(\backslash\)  \_\_\_\(\backslash\)\(\backslash\)   "{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00069}00069     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)/\_/\(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)/\_  \(\backslash\)\(\backslash\)/\_/\(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)/ \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)  \_\_\(\backslash\)\(\backslash\)   \(\backslash\)\(\backslash\)/\_/\(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)/ \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)  \_\_<   \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)  \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\_\_  \(\backslash\)\(\backslash\)  "{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00070}00070     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}  /\(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)/\(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)    \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)  \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\_\_\_\_\(\backslash\)\(\backslash\)    \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)  \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)  \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)  \(\backslash\)\(\backslash\)/\(\backslash\)\(\backslash\)\_\_\_\_\_\(\backslash\)\(\backslash\) "{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00071}00071     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}  \(\backslash\)\(\backslash\)/\_/\(\backslash\)\(\backslash\)/\_/     \(\backslash\)\(\backslash\)/\_/   \(\backslash\)\(\backslash\)/\_\_\_\_\_/     \(\backslash\)\(\backslash\)/\_/   \(\backslash\)\(\backslash\)/\_/ /\_/   \(\backslash\)\(\backslash\)/\_/   \(\backslash\)\(\backslash\)/\_\_\_\_\_/ "{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00073}00073     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{} "{}});\mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00074}00074 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00076}\mbox{\hyperlink{grafica_8c_a3f5a170d8ea031166b5f9748e9678057}{00076}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_a3f5a170d8ea031166b5f9748e9678057}{StampaMenuIniziale}}(\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}} mode)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00077}00077 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00078}00078     \mbox{\hyperlink{grafica_8c_af9fd89df2dcf2b7fe18d6eac306cbd70}{aggiornaCentroSchermo}}();}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00079}00079     \mbox{\hyperlink{grafica_8c_af6f0d5767349bbc19df9486c71f32b09}{pulisciSchermo}}();}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00080}00080     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00081}00081     \mbox{\hyperlink{grafica_8c_a014659789ddcd7e2285393ff76d1e978}{StampaTitolo}}();}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00083}00083     \textcolor{comment}{/* la stringa da stampare varia in base alla scelta corrente dell'utente */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00084}00084     \textcolor{keywordtype}{char} Opt1[200] = \textcolor{stringliteral}{"{}┃           "{}};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00085}00085     \textcolor{keywordtype}{char} Opt2[200] = \textcolor{stringliteral}{"{}┃           "{}};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00086}00086     \textcolor{keywordtype}{char} Opt3[200] = \textcolor{stringliteral}{"{}┃           "{}};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00087}00087     \textcolor{keywordtype}{char}* \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}{S}} = \textcolor{stringliteral}{"{}   SINGLE PLAYER              ┃"{}};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00088}00088     \textcolor{keywordtype}{char}* M = \textcolor{stringliteral}{"{}    MULTYPLAYER               ┃"{}};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00089}00089     \textcolor{keywordtype}{char}* C = \textcolor{stringliteral}{"{}        CPU                   ┃"{}};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00091}00091     \textcolor{comment}{/* la posizione del puntatore dipende dalla scelta dell'utente */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00092}00092     \textcolor{keywordtype}{char} pointer[] = \textcolor{stringliteral}{"{}>"{}};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00093}00093     \textcolor{keywordtype}{char} nopointer[] = \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00096}00096     \textcolor{keywordflow}{if}(mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}})     \textcolor{comment}{/* inserisco il puntatore alla prima opzione */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00097}00097         strcat(Opt1,pointer);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00098}00098     \textcolor{keywordflow}{else} }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00099}00099         strcat(Opt1,nopointer);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00100}00100     \textcolor{keywordflow}{if}(mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}})      \textcolor{comment}{/* inserisco il puntatore alla seconda opzione */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00101}00101         strcat(Opt2,pointer);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00102}00102     \textcolor{keywordflow}{else} }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00103}00103         strcat(Opt2,nopointer);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00104}00104     \textcolor{keywordflow}{if}(mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}})              \textcolor{comment}{/* inserisco il puntatore alla terza opzione */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00105}00105         strcat(Opt3,pointer);  }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00106}00106     \textcolor{keywordflow}{else} }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00107}00107         strcat(Opt3,nopointer);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00108}00108     }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00109}00109     strcat(Opt1, \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}{S}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00110}00110     strcat(Opt2, M);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00111}00111     strcat(Opt3, C);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00113}00113     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00114}00114     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┃                                          ┃"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00115}00115     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┃      Seleziona la modalità di gioco      ┃"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00116}00116     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┃                                          ┃"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00117}00117     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┃                                          ┃"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00118}00118     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(Opt1);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00119}00119     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(Opt2);     \textcolor{comment}{/* stampo le 3 scelte */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00120}00120     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(Opt3);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00121}00121     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┃                                          ┃"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00122}00122     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┃                                          ┃"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00123}00123     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00124}00124     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00125}00125     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{} Movimento: △ ▽        Ok: ⤶ "{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00126}00126 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00128}\mbox{\hyperlink{grafica_8c_a7423c11fab2fe524ca3ce48cd52d8976}{00128}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_a7423c11fab2fe524ca3ce48cd52d8976}{StampaModalita}}(\mbox{\hyperlink{structPartita}{Partita}}* partita)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00129}00129 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00130}00130     \textcolor{comment}{/* stampo la modalità corrente al di sotto del titolo dell'applicazione */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00131}00131     \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}})}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00132}00132         \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}Modalita di gioco: SINGLE PLAYER"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00133}00133     \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}})}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00134}00134         \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}Modalita di gioco: MULTYPLAYER"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00135}00135         \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}})}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00136}00136     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}Modalita di gioco: CPU vs UTENTE"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00137}00137     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{} "{}});\mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00138}00138 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00139}00139 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00140}\mbox{\hyperlink{grafica_8c_a010bf1806ab2d2e0767a91438f2cb675}{00140}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_a010bf1806ab2d2e0767a91438f2cb675}{Update}}(\mbox{\hyperlink{structPartita}{Partita}} *partita)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00141}00141 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00142}00142     \textcolor{comment}{/* eseguo il refresh dell'intera schermata */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00143}00143     \mbox{\hyperlink{grafica_8c_af9fd89df2dcf2b7fe18d6eac306cbd70}{aggiornaCentroSchermo}}();}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00144}00144     \mbox{\hyperlink{grafica_8c_af6f0d5767349bbc19df9486c71f32b09}{pulisciSchermo}}();}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00145}00145     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00146}00146     \mbox{\hyperlink{grafica_8c_a014659789ddcd7e2285393ff76d1e978}{StampaTitolo}}();}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00147}00147     \mbox{\hyperlink{grafica_8c_a7423c11fab2fe524ca3ce48cd52d8976}{StampaModalita}}(partita);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00148}00148     \textcolor{keywordtype}{int} posizioneMenu;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00149}00149     }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00150}00150     \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}})}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00151}00151     \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00152}00152         \textcolor{comment}{/* se la partita è singleplayer stampo una sola mappa*/}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00153}00153         \mbox{\hyperlink{grafica_8c_a9a576d9d4b0be31cdf7044c303445546}{stampaMappa}}(partita-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}, \mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}-\/7, 11);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00154}00154         \textcolor{comment}{/* in una partita singleplayer posiziono il menù a sx della mappa */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00155}00155         posizioneMenu = \mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}} -\/ 33;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00156}00156     \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00157}00157     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00158}00158     \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00159}00159         \textcolor{comment}{/* se la partita è multiplayer stampo le due mappe */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00160}00160         \mbox{\hyperlink{grafica_8c_a9a576d9d4b0be31cdf7044c303445546}{stampaMappa}}(partita-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}, \mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}-\/59, 11);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00161}00161         \mbox{\hyperlink{grafica_8c_a9a576d9d4b0be31cdf7044c303445546}{stampaMappa}}(partita-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}, \mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}+15, 11);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00162}00162         \textcolor{comment}{/* in una partita multiplayer posiziono il menù tra le due mappe */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00163}00163         posizioneMenu = \mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}} -\/ 11;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00164}00164     \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00165}00165 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00166}00166     \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} == \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361baaee25f5c8faad8c33ffb82478b0a8a38}{IN\_CORSO}})}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00167}00167     \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00168}00168         \textcolor{comment}{/* se la partita è in corso stampo il menù di gioco */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00169}00169         \mbox{\hyperlink{grafica_8c_a437eadc82c33c207a08c56dd45047a2c}{StampaTurno}}(\&partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}}, posizioneMenu);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00170}00170         \mbox{\hyperlink{grafica_8c_a4bd11352e0ae411c0317ee40ef25abac}{StampaMenuSceltaPezzo}}(partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}},partita-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}, posizioneMenu);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00171}00171         \mbox{\hyperlink{grafica_8c_a0e38291646160c1fdca0ee549bcfc3e5}{StampaPunteggio}}(partita, posizioneMenu);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00172}00172     \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00173}00173     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00174}00174         \textcolor{comment}{/* se la partita è finita stampo il menù finale con il resoconto */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00175}00175         \mbox{\hyperlink{grafica_8c_a9ff0ad714c4ea83ccd8f0295c35a7422}{stampaFine}}(partita, posizioneMenu);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00176}00176 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00177}00177 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00178}\mbox{\hyperlink{grafica_8c_a4bd11352e0ae411c0317ee40ef25abac}{00178}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_a4bd11352e0ae411c0317ee40ef25abac}{StampaMenuSceltaPezzo}}(\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2}{TipoPezzo}} pz, \textcolor{keywordtype}{int} pezziRimasti[7], \textcolor{keywordtype}{int} x)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00179}00179 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00180}00180     \textcolor{comment}{/* prima stampo il riquadro che conterrà il pezzo */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00181}00181     \textcolor{comment}{/* poi mi riposiziono al suo interno per stampare il pezzo */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00182}00182     \textcolor{keywordtype}{int} y = 19;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00183}00183     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00184}00184     printf(\textcolor{stringliteral}{"{}   Scegli un pezzo:   "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00185}00185     printf(\textcolor{stringliteral}{"{}Tipo: O    Rimasti: 0"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00186}00186     printf(\textcolor{stringliteral}{"{}┏━━━━━━━━━━━━━━━━━━━━┓"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00187}00187     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00188}00188     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00189}00189     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00190}00190     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00191}00191     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00192}00192     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00193}00193     printf(\textcolor{stringliteral}{"{}┗━━━━━━━━━━━━━━━━━━━━┛"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00194}00194     printf(\textcolor{stringliteral}{"{}   Scegli:     ◁ ▷  "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00195}00195     printf(\textcolor{stringliteral}{"{}   Conferma:     ⤶   "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00196}00196 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00197}00197     \textcolor{keywordtype}{int}* pattern;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00198}00198     \textcolor{keywordtype}{char} letter = \textcolor{charliteral}{'O'};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00199}00199     \textcolor{comment}{/* il pattern che devo stampare dipende dalla tipologia del pezzo attualmente */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00200}00200     \textcolor{comment}{/* selezionato dall'utente. ottengo il pattern dalle variabili globali */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00201}00201     \textcolor{keywordflow}{switch} (pz)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00202}00202     \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00203}00203         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}}: pattern = \mbox{\hyperlink{headers_8h_a3c60ea2336411654a38e6769a81508c4}{O\_PATTERN}}; letter = \textcolor{charliteral}{'O'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00204}00204         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}{S}}: pattern = \mbox{\hyperlink{headers_8h_a5ffdaacb539cbe809c60e8a843475ca5}{S\_PATTERN}}; letter = \textcolor{charliteral}{'S'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00205}00205         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a21f40778b7db9343a6ca75ec2c41ccce}{T}}: pattern = \mbox{\hyperlink{headers_8h_a4c1274994abe8752c6ea6faf62056bd7}{T\_PATTERN}}; letter = \textcolor{charliteral}{'T'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00206}00206         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aa70478ce277ffc322f8e1e3418e07355}{Z}}: pattern = \mbox{\hyperlink{headers_8h_a0b63803eaf8d8879554a48ac6680c9c2}{Z\_PATTERN}}; letter = \textcolor{charliteral}{'Z'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00207}00207         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}}: pattern = \mbox{\hyperlink{headers_8h_a70305e061fda1d93d73c5cb4b801aebb}{I\_PATTERN}}; letter = \textcolor{charliteral}{'I'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00208}00208         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a03605500b0c55f3d95874e8edfcf4e30}{J}}: pattern = \mbox{\hyperlink{headers_8h_a032ebef625b5b16829f5901c0cf47438}{J\_PATTERN}}; letter = \textcolor{charliteral}{'J'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00209}00209         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aef31cc6fe9479955961311ee18ac205f}{L}}: pattern = \mbox{\hyperlink{headers_8h_a6177a638bb33cbc9d931c74f6c8576b2}{L\_PATTERN}}; letter = \textcolor{charliteral}{'L'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00210}00210     \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00211}00211     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,21);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00212}00212     printf(\textcolor{stringliteral}{"{}Tipo: \%c    Rimasti: \%d"{}},letter, pezziRimasti[pz]);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00213}00213 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00214}00214 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00215}00215     y = 24;                                         \textcolor{comment}{/* mi posiziono sempre ad altezza 24 */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00216}00216     pz == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? x+=7 : (pz == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? x+=3 : (x+=5));     \textcolor{comment}{/* orizzontalmente mi posiziono in funzione del pezzo che devo stampare*/}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00217}00217     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00218}00218     }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00219}00219     \textcolor{keywordtype}{char} stampa[400] = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00220}00220     \textcolor{keywordtype}{char}* spazio = \textcolor{stringliteral}{"{}    "{}};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00221}00221     \textcolor{keywordtype}{int} i, l = pz == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00222}00222     \textcolor{keywordflow}{for}(i = 0; i < l*l \&\& i < 8 ; i++)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00223}00223     \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00224}00224         \textcolor{keywordflow}{if}(*(pattern + i))  \textcolor{comment}{/*se il pattern in posizione i è uguale a 1 stampo con il colore*/}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00225}00225         \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00226}00226             strcat(stampa,\mbox{\hyperlink{headers_8h_ace47038d69331e8d3d310749c8452224}{ColoreBianco}}); \textcolor{comment}{/* attivo il colore bianco */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00227}00227             strcat(stampa,spazio);       \textcolor{comment}{/* concateno un blocco bianco alla stringa finale */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00228}00228             strcat(stampa,\mbox{\hyperlink{headers_8h_a5708c0924ebd1d9475c7baf8b1e29774}{ColoreDefault}});\textcolor{comment}{/* attivo il colore default */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00229}00229         \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00230}00230         \textcolor{keywordflow}{else}                \textcolor{comment}{/*altrimenti stampo senza colore*/}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00231}00231         \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00232}00232             strcat(stampa,spazio);      \textcolor{comment}{/* concateno un blocco vuoto alla stringa finale */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00233}00233         \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00234}00234         \textcolor{keywordflow}{if}((i+1)\%l == 0)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00235}00235         \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00236}00236             \textcolor{comment}{/* stampo due volte perchè ogni "{}unità"{} che compone i blocchi è alta 2 caratteri */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00237}00237             printf(\textcolor{stringliteral}{"{}\%s"{}},stampa);\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00238}00238             printf(\textcolor{stringliteral}{"{}\%s"{}},stampa);\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00239}00239             stampa[0] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00240}00240             }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00241}00241         \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00242}00242     \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00243}00243     printf(\textcolor{stringliteral}{"{}\%s"{}},stampa);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00244}00244     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00245}00245 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00246}00246 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00247}00247 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00248}\mbox{\hyperlink{grafica_8c_a437eadc82c33c207a08c56dd45047a2c}{00248}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_a437eadc82c33c207a08c56dd45047a2c}{StampaTurno}}(\mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71}{Giocatore}}* g, \textcolor{keywordtype}{int} x)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00249}00249 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00250}00250     \textcolor{keywordtype}{int} y = 12;     \textcolor{comment}{/* mi posiziono ad altezza 12 per stampare il turno */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00251}00251     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00252}00252     printf(\textcolor{stringliteral}{"{}     TURNO ATTUALE    "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00253}00253 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00254}00254     \textcolor{keywordflow}{if}(*g == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}})    \textcolor{comment}{/* se è il turno del giocatore uno stampo giocatore 1 */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00255}00255     \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00256}00256         printf(\textcolor{stringliteral}{"{}    ◁ giocatore 1    "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00257}00257     \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00258}00258     \textcolor{keywordflow}{if}(*g == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}{P2}})    \textcolor{comment}{/* se è il turno del giocatore due stampo giocatore 2 */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00259}00259     \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00260}00260         printf(\textcolor{stringliteral}{"{}      giocatore 2 ▷  "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00261}00261     \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00262}00262 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00263}00263     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00264}00264 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00265}00265 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00266}\mbox{\hyperlink{grafica_8c_a0e38291646160c1fdca0ee549bcfc3e5}{00266}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_a0e38291646160c1fdca0ee549bcfc3e5}{StampaPunteggio}}(\mbox{\hyperlink{structPartita}{Partita}}* pa, \textcolor{keywordtype}{int} x)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00267}00267 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00268}00268     \textcolor{keywordtype}{int} y = 35;     \textcolor{comment}{/* mi posiziono ad altezza 35 per stampare il punteggio */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00269}00269     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00270}00270     printf(\textcolor{stringliteral}{"{}      PUNTEGGIO     "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);         \textcolor{comment}{/* ottengo il punteggio dei giocatori */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00271}00271     printf(\textcolor{stringliteral}{"{}  Giocatore 1:  \%d"{}}, pa-\/>\mbox{\hyperlink{structPartita_ae53779d2d90a0232675ae2b8aa3b384d}{punteggio1}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);         \textcolor{comment}{/*       dalla struct partita         */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00272}00272     \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}}) }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00273}00273         printf(\textcolor{stringliteral}{"{}  Giocatore 2:  \%d"{}}, pa-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}});                   \textcolor{comment}{/* se sto giocando contro un altro    */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00274}00274     \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}})                                             \textcolor{comment}{/* giocatore stampo giocatore 2       */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00275}00275         printf(\textcolor{stringliteral}{"{}      CPU    :  \%d"{}}, pa-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}});                   \textcolor{comment}{/* altrimenti stampo CPU              */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00276}00276     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00277}00277 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00278}00278 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00279}\mbox{\hyperlink{grafica_8c_a9a576d9d4b0be31cdf7044c303445546}{00279}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_a9a576d9d4b0be31cdf7044c303445546}{stampaMappa}}(\textcolor{keywordtype}{int} mappa[15][10], \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00280}00280 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00281}00281     \textcolor{comment}{/* Questa funzione stampa la mappa fornitale costruendo ogni singola  */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00282}00282     \textcolor{comment}{/* riga da stampare in base al contenuto della matrice mappa          */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00283}00283 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00284}00284     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00285}00285     printf(\textcolor{stringliteral}{"{}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00286}00286     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00287}00287     \textcolor{keywordtype}{char} riga[200] = \textcolor{stringliteral}{"{}"{}};                        \textcolor{comment}{/* questa è la riga che al termine di ogni ciclo rappresenterà la i-\/esima riga della mappa che stiamo stampando */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00288}00288     \textcolor{keywordtype}{int} i ,j;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00289}00289     \textcolor{keywordtype}{int} coloriUsati = 0;                }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00290}00290     \textcolor{keywordflow}{for} (i = 0; i < 30; i++)                    \textcolor{comment}{/* ogni riga della mappa è alta 2 caratteri quindi questo for viene eseguito 30 volte */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00291}00291     \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00292}00292         strcat(riga,\textcolor{stringliteral}{"{}┃ "{}});                      \textcolor{comment}{/* inizio concatenando il bordo sinistro della mappa*/}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00293}00293                                                 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00294}00294         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)                \textcolor{comment}{/*i "{}blocchi"{} contenuti in una riga della mappa sono 10, eseguo il ciclo per ognuno */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00295}00295         \{ }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00296}00296             \textcolor{keywordflow}{if}(mappa[i/2][j] > 0)               \textcolor{comment}{/* se la mappa in posizione [i/2][j] non è zero devo stampare un blocco colorato */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00297}00297             \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00298}00298                 \textcolor{keywordflow}{if}(mappa[i/2][j] == 1)          \textcolor{comment}{/* se il valore è == 1 appartiene ad un blocco confermato */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00299}00299                     strcat(riga,\mbox{\hyperlink{headers_8h_ace47038d69331e8d3d310749c8452224}{ColoreBianco}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00300}00300                 \textcolor{keywordflow}{if}(mappa[i/2][j] == 2)          \textcolor{comment}{/* se il valore è == 2 appartiene ad un blocco non ancora confermato */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00301}00301                     strcat(riga,\mbox{\hyperlink{headers_8h_a11b630e4c5eba8076c9a53e5b513a159}{ColoreBlu}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00302}00302                 \textcolor{keywordflow}{if}(i == 3) strcat(riga,\textcolor{stringliteral}{"{}▁ ▁ "{}}); \textcolor{comment}{/* se staiamo stampando la 3a stringa aggiungo trateggio di limite superiore */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00303}00303                 \textcolor{keywordflow}{else}       strcat(riga,\textcolor{stringliteral}{"{}    "{}}); \textcolor{comment}{/* se è un qualunque altro blocco stampo solo uno spazio */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00304}00304 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00305}00305                 strcat(riga,\mbox{\hyperlink{headers_8h_a5708c0924ebd1d9475c7baf8b1e29774}{ColoreDefault}});     \textcolor{comment}{/* in ogni caso resetto il colore */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00306}00306                 coloriUsati += 2;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00307}00307             \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00308}00308             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(i == 3) strcat(riga,\textcolor{stringliteral}{"{}▁ ▁ "{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00309}00309             \textcolor{keywordflow}{else}       strcat(riga,\textcolor{stringliteral}{"{}    "{}});     \textcolor{comment}{/* se invece il valore è zero aggiungo un blocco senza colorarlo */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00310}00310         \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00311}00311         strcat(riga,\textcolor{stringliteral}{"{} ┃"{}});                      \textcolor{comment}{/* concludo la riga concatenando il bordo destro della mappa */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00312}00312 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00313}00313         printf(\textcolor{stringliteral}{"{}\%s"{}},riga);                      \textcolor{comment}{/*   stampo    */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00314}00314         \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);                          \textcolor{comment}{/* cambio riga */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00315}00315         memset(riga, 0, \textcolor{keyword}{sizeof}(riga));          \textcolor{comment}{/*  resestto   */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00316}00316         coloriUsati = 0;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00317}00317     \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00318}00318     printf(\textcolor{stringliteral}{"{}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00319}00319     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y+2);                                                              \textcolor{comment}{/* stampo il bordo inferiore */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00320}00320     printf(\textcolor{stringliteral}{"{} Movimento: ◁ ▷ △ ▽   Ruota: r   Ok: ⤶ \(\backslash\)n"{}});                        \textcolor{comment}{/* e aggiungo una legenda    */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00321}00321     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00322}00322     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00323}00323 \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00324}00324 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00325}\mbox{\hyperlink{grafica_8c_a9ff0ad714c4ea83ccd8f0295c35a7422}{00325}} \textcolor{keywordtype}{void} \mbox{\hyperlink{grafica_8c_a9ff0ad714c4ea83ccd8f0295c35a7422}{stampaFine}}(\mbox{\hyperlink{structPartita}{Partita}} *pa, \textcolor{keywordtype}{int} x)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00326}00326 \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00327}00327     \textcolor{comment}{/* stampo il resoconto finale in modo simile alla stampa degli altri menù */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00328}00328     \textcolor{keywordtype}{int} i,y = 12;}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00329}00329     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00330}00330     \textcolor{comment}{/*  cancello il menù di gioco stampato precendentemente */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00331}00331     \textcolor{keywordflow}{for} (i = 0; i < 5; i++) }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00332}00332     \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00333}00333         printf(\textcolor{stringliteral}{"{}                      "{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00334}00334         \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00335}00335     \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00336}00336     printf(\textcolor{stringliteral}{"{}  PARTITA TERMINATA!  "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00337}00337     printf(\textcolor{stringliteral}{"{}┏━━━━━━━━━━━━━━━━━━━━┓"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00338}00338     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00339}00339     printf(\textcolor{stringliteral}{"{}┃  PUNTEGGIO FINALE  ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00340}00340     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00341}00341     printf(\textcolor{stringliteral}{"{}┃     Giocatore 1    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00342}00342     printf(\textcolor{stringliteral}{"{}┃         \%02d         ┃"{}},pa-\/>\mbox{\hyperlink{structPartita_ae53779d2d90a0232675ae2b8aa3b384d}{punteggio1}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);            \textcolor{comment}{/* ottengo il punteggio del giocatore 1 dalla struct */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00343}00343     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00344}00344     \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} != \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}})                                            \textcolor{comment}{/* se non sono in modalità multiplayer non mostro i seguenti dati */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00345}00345     \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00346}00346         printf(\textcolor{stringliteral}{"{}┃     Giocatore 2    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00347}00347         printf(\textcolor{stringliteral}{"{}┃         \%02d         ┃"{}},pa-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);        \textcolor{comment}{/* ottengo il punteggio del giocatore 2 dalla struct */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00348}00348         printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00349}00349         printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00350}00350         printf(\textcolor{stringliteral}{"{}┃      VINCITORE     ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00351}00351         \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} == \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba74ef188effc4ac9e6105377323e3f2c6}{VITTORIA\_P1}})}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00352}00352             printf(\textcolor{stringliteral}{"{}┃     Giocatore 1    ┃"{}});                                   \textcolor{comment}{/* in base ha chi a vinto stampo giocatore 1 , 2 o CPU */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00353}00353         \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} == \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba41386872ebe4dff73280be09b76c422d}{VITTORIA\_P2}} \&\& pa-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}})                                         }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00354}00354             printf(\textcolor{stringliteral}{"{}┃     Giocatore 2    ┃"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00355}00355         \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} == \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba41386872ebe4dff73280be09b76c422d}{VITTORIA\_P2}} \&\& pa-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}})                                         }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00356}00356             printf(\textcolor{stringliteral}{"{}┃         CPU        ┃"{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00357}00357         \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00358}00358         printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);    }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00359}00359         printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);   }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00360}00360     \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00361}00361     printf(\textcolor{stringliteral}{"{}┃       Menu: ⤶      ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00362}00362     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);    }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00363}00363     printf(\textcolor{stringliteral}{"{}┗━━━━━━━━━━━━━━━━━━━━┛"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00364}00364 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00365}00365 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00366}00366     \textcolor{comment}{/*  cancello il menù di gioco stampato precendentemente */}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00367}00367     \textcolor{keywordflow}{for} (i = 0; i < 5; i++)}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00368}00368     \{}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00369}00369         printf(\textcolor{stringliteral}{"{}                      "{}});}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00370}00370         \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00371}00371     \}}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00372}00372 }
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00373}00373     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{\Hypertarget{grafica_8c_source_l00374}00374 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,10 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/mnt/data/zan/Documenti/scuola/unive/gitRep/X-Tetris'
+gcc -std=c89 varGlobali.c -o varGlobali.o -c -O3
+gcc -std=c89 grafica.c -o grafica.o -c -O3
+gcc -std=c89 eventiPartita.c -o eventiPartita.o -c -O3
+gcc -std=c89 funzioniCpu.c -o funzioniCpu.o -c -O3
+gcc -std=c89 varGlobali.o grafica.o eventiPartita.o main.c funzioniCpu.o -no-pie -o X-Tetris -O3
+rm *.o
+make: Leaving directory '/mnt/data/zan/Documenti/scuola/unive/gitRep/X-Tetris'
+ 

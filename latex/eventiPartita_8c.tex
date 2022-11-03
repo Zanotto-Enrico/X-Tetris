@@ -1,0 +1,879 @@
+\hypertarget{eventiPartita_8c}{}\doxysection{eventi\+Partita.\+c File Reference}
+\label{eventiPartita_8c}\index{eventiPartita.c@{eventiPartita.c}}
+{\ttfamily \#include \char`\"{}headers.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_a16eee978e1d4a24b6335088b46abaafc}{Inizia\+Partita}} (\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}} mode)
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_a61652e02ad29691cdddaeb081e43d09a}{menu\+Iniziale}} ()
+\item 
+\mbox{\hyperlink{structPartita}{Partita}} $\ast$ \mbox{\hyperlink{eventiPartita_8c_af28aaf1726d8ec86c3a5cb151f957618}{inizializza\+Partita}} (\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}} mode)
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_a3ca0a7e37697fea638822a12904faa47}{incrementa\+Punteggio}} (int $\ast$punteggio, int linee\+Rimosse)
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_a0644bf5c04860d153c63e55276965bf7}{richiedi\+Scelta\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$partita)
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_abb3eccb7d44151f49d0c51aeb419a253}{cambia\+Turno}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$partita)
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}{Scrivi\+Su\+Mappa}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz, int valore)
+\item 
+\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$ \mbox{\hyperlink{eventiPartita_8c_a65b7a5ca94c38ebee4a890329fdc42d1}{genera\+Pezzo}} (\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2}{Tipo\+Pezzo}} tipo)
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_ae447353be6acd2ec2f2511845f79a6f1}{assegna\+Disposizione}} (\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_a72ae0f2c84722d8faecac7c208d9382a}{distruggi\+Pezzo}} (\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisci\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_af372721013335e373c8a79a1af8b804d}{rimuovi\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_aea8e121a46998b4ba6e499c3ad6217de}{conferma\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_a50acfd52e1f4d0b9b1b7abdaa5887fb5}{posiziona\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$partita, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+int \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muovi\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz, int dx, int dy)
+\item 
+int \mbox{\hyperlink{eventiPartita_8c_a6bb98f39b683d3b6d4b66be58dbc583e}{ruota\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+int \mbox{\hyperlink{eventiPartita_8c_a9a2a1a8dc3e71a104d0f831a6a1f9620}{is\+Pezzo\+Spostabile}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+int \mbox{\hyperlink{eventiPartita_8c_a286cba791d3dfa4c618f2aedce8aa9af}{is\+Pezzo\+Posizionabile}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_a3462860dd63effd24a917b2dfd8e3dab}{inverti\+Righe}} (int mappa\mbox{[}15\mbox{]}\mbox{[}10\mbox{]}, int nrighe)
+\item 
+int \mbox{\hyperlink{eventiPartita_8c_a974c16f6eb2db617d5f61d7eec167d48}{rimuovi\+Linee}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa)
+\item 
+void \mbox{\hyperlink{eventiPartita_8c_a93c77b7b4c510aa276e702f60c03e056}{abbassa\+Blocchi}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, int linea)
+\item 
+int \mbox{\hyperlink{eventiPartita_8c_a4f8797e090e14386ed5ec0aaf75233ad}{check\+Game\+End}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{eventiPartita_8c_a93c77b7b4c510aa276e702f60c03e056}\label{eventiPartita_8c_a93c77b7b4c510aa276e702f60c03e056}} 
+\index{eventiPartita.c@{eventiPartita.c}!abbassaBlocchi@{abbassaBlocchi}}
+\index{abbassaBlocchi@{abbassaBlocchi}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{abbassaBlocchi()}{abbassaBlocchi()}}
+{\footnotesize\ttfamily void abbassa\+Blocchi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{int}]{linea }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di abbassare righe di blocchi, in genere invocata dopo che una o più righe sono state eliminate 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em linea} & altezza dell\textquotesingle{}ultima riga da abbassare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00348}{348}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00349 \{}
+\DoxyCodeLine{00350     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{00351     \textcolor{keywordflow}{for} (i = linea-\/1; i > -\/1; i-\/-\/)                             \textcolor{comment}{/* scorro tutte le righe a partire da quella da elminiare   */}}
+\DoxyCodeLine{00352     \{                                                          \textcolor{comment}{/* verso l'alto e le muovo in basso di una posizione ognuna */} }
+\DoxyCodeLine{00353         }
+\DoxyCodeLine{00354         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)                               \textcolor{comment}{/* scorro ogni cella di ogni riga */}          }
+\DoxyCodeLine{00355         \{                                               }
+\DoxyCodeLine{00356             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}})                                \textcolor{comment}{/* la mappa su cui lavoro dipende dal turno attuale */}}
+\DoxyCodeLine{00357             \{}
+\DoxyCodeLine{00358                 pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i+1][j] = pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j];         \textcolor{comment}{/* copio la cella superiore in quella dove sono */}}
+\DoxyCodeLine{00359                 pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j] = 0;                          \textcolor{comment}{/* setto la cella superiore pari a zero */}}
+\DoxyCodeLine{00360             \}}
+\DoxyCodeLine{00361             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00362             \{}
+\DoxyCodeLine{00363                 pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i+1][j] = pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j];          \textcolor{comment}{/* stesso procedimento per il giocatore 2 */}}
+\DoxyCodeLine{00364                 pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j] = 0;                           }
+\DoxyCodeLine{00365             \}}
+\DoxyCodeLine{00366         \}}
+\DoxyCodeLine{00367     \}}
+\DoxyCodeLine{00368 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_ae447353be6acd2ec2f2511845f79a6f1}\label{eventiPartita_8c_ae447353be6acd2ec2f2511845f79a6f1}} 
+\index{eventiPartita.c@{eventiPartita.c}!assegnaDisposizione@{assegnaDisposizione}}
+\index{assegnaDisposizione@{assegnaDisposizione}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{assegnaDisposizione()}{assegnaDisposizione()}}
+{\footnotesize\ttfamily void assegna\+Disposizione (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di copiare una delle matrici globali nella matrice di disposzione del pezzo La diposizione di interi nella matrice rappresenta il pattern e la forma del pezzo stesso nel momento in cui dovrà essere stampato nella mappa 
+\begin{DoxyParams}{Parameters}
+{\em pz} & pointer alla struct \mbox{\hyperlink{structPezzo}{Pezzo}} da aggionrnare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00149}{149}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00150 \{}
+\DoxyCodeLine{00151     \textcolor{comment}{/* la dimensione della disposizione di un pezzo dipende dal tipo di pezzo */}}
+\DoxyCodeLine{00152     \textcolor{keywordtype}{int} i, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 4 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 16 : 9);}
+\DoxyCodeLine{00153     \textcolor{keywordtype}{int} *schema;}
+\DoxyCodeLine{00154     \textcolor{keywordflow}{switch} (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}})}
+\DoxyCodeLine{00155     \{}
+\DoxyCodeLine{00156         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}}: schema = \mbox{\hyperlink{headers_8h_a3c60ea2336411654a38e6769a81508c4}{O\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00157         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}}: schema = \mbox{\hyperlink{headers_8h_a70305e061fda1d93d73c5cb4b801aebb}{I\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00158         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aa70478ce277ffc322f8e1e3418e07355}{Z}}: schema = \mbox{\hyperlink{headers_8h_a0b63803eaf8d8879554a48ac6680c9c2}{Z\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00159         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}{S}}: schema = \mbox{\hyperlink{headers_8h_a5ffdaacb539cbe809c60e8a843475ca5}{S\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00160         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aef31cc6fe9479955961311ee18ac205f}{L}}: schema = \mbox{\hyperlink{headers_8h_a6177a638bb33cbc9d931c74f6c8576b2}{L\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00161         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a21f40778b7db9343a6ca75ec2c41ccce}{T}}: schema = \mbox{\hyperlink{headers_8h_a4c1274994abe8752c6ea6faf62056bd7}{T\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00162         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a03605500b0c55f3d95874e8edfcf4e30}{J}}: schema = \mbox{\hyperlink{headers_8h_a032ebef625b5b16829f5901c0cf47438}{J\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00163     \}}
+\DoxyCodeLine{00164     pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} = malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int})*l);                   \textcolor{comment}{/* alloco memoria per salvare la disposizione del pezzo nella sua struct */}}
+\DoxyCodeLine{00165     \textcolor{keywordflow}{for}(i = 0; i < l; i++) pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}}[i] = schema[i];     \textcolor{comment}{/* e copio la disposizione standard del suo tipo nella sua struct*/}}
+\DoxyCodeLine{00166 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_abb3eccb7d44151f49d0c51aeb419a253}\label{eventiPartita_8c_abb3eccb7d44151f49d0c51aeb419a253}} 
+\index{eventiPartita.c@{eventiPartita.c}!cambiaTurno@{cambiaTurno}}
+\index{cambiaTurno@{cambiaTurno}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{cambiaTurno()}{cambiaTurno()}}
+{\footnotesize\ttfamily void cambia\+Turno (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{partita }\end{DoxyParamCaption})}
+
+Funzione con il semplice scopo di passare il turno all\textquotesingle{}altro giocatore aggiornando la relativa variabile nella struct partita 
+\begin{DoxyParams}{Parameters}
+{\em partita} & puntatore alla struct partita \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00114}{114}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00115 \{}
+\DoxyCodeLine{00116     \textcolor{comment}{/* se è il turno del giocatore 2 passo al giocatore 1 */}}
+\DoxyCodeLine{00117     \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}{P2}} || partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}}) }
+\DoxyCodeLine{00118         partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} = \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}};}
+\DoxyCodeLine{00119     \textcolor{keywordflow}{else}    \textcolor{comment}{/*altrimenti passo al giocatore 2*/}}
+\DoxyCodeLine{00120         partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} = \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}{P2}};}
+\DoxyCodeLine{00121 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a4f8797e090e14386ed5ec0aaf75233ad}\label{eventiPartita_8c_a4f8797e090e14386ed5ec0aaf75233ad}} 
+\index{eventiPartita.c@{eventiPartita.c}!checkGameEnd@{checkGameEnd}}
+\index{checkGameEnd@{checkGameEnd}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{checkGameEnd()}{checkGameEnd()}}
+{\footnotesize\ttfamily int check\+Game\+End (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa }\end{DoxyParamCaption})}
+
+Verifica se la partita è giunta al termine o meno e determina il vincitore. Invocata in genere dopo ogni turno. La partita termina se un giocatore supera il limite superiore o TUTTI i blocchi finiscono 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & se la partita non è ancora terminata \\
+\hline
+{\em 1} & se il giocatore 1 ha perso \\
+\hline
+{\em 2} & se il giocatore 2 ha perso \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00370}{370}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00371 \{}
+\DoxyCodeLine{00372     \textcolor{comment}{/* la partita termina in 2 casi:   superato limite superiore    blocchi esauriti  */}}
+\DoxyCodeLine{00373     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{00374     \textcolor{keywordflow}{for} (i = 0; i < 2; i++)     \textcolor{comment}{/* scorro le due righe della mappa "{}vietate"{} */}}
+\DoxyCodeLine{00375     \{}
+\DoxyCodeLine{00376         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)}
+\DoxyCodeLine{00377         \{}
+\DoxyCodeLine{00378             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j]) \textcolor{keywordflow}{return} 1;      \textcolor{comment}{/* se nella mappa1 la zona vietata è stata superata il giocatore 1 ha perso */}}
+\DoxyCodeLine{00379             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j]) \textcolor{keywordflow}{return} 2;      \textcolor{comment}{/* se nella mappa2 la zona vietata è stata superata il giocatore 2 ha perso */}}
+\DoxyCodeLine{00380         \}}
+\DoxyCodeLine{00381     \}}
+\DoxyCodeLine{00382     \textcolor{keywordtype}{int} sum = 0;}
+\DoxyCodeLine{00383     \textcolor{keywordflow}{for} (i = 0; i < 7; i++) }
+\DoxyCodeLine{00384         sum += pa-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[i];                         \textcolor{comment}{/* sommo tutti i pezzi rimasti insieme               */}}
+\DoxyCodeLine{00385 }
+\DoxyCodeLine{00386     \textcolor{keywordflow}{if}(sum == 0)                                            \textcolor{comment}{/* verifico se sono uguali a zero                    */}}
+\DoxyCodeLine{00387         \textcolor{keywordflow}{return} pa-\/>\mbox{\hyperlink{structPartita_ae53779d2d90a0232675ae2b8aa3b384d}{punteggio1}} > pa-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}} ? 2 : 1 ;    \textcolor{comment}{/* se questo accade vince il giocatore con più punti */}}
+\DoxyCodeLine{00388 }
+\DoxyCodeLine{00389     \textcolor{keywordflow}{return} 0;                                               \textcolor{comment}{/* se niente di tutto ciò accade la partita continua */}}
+\DoxyCodeLine{00390 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_aea8e121a46998b4ba6e499c3ad6217de}\label{eventiPartita_8c_aea8e121a46998b4ba6e499c3ad6217de}} 
+\index{eventiPartita.c@{eventiPartita.c}!confermaPezzo@{confermaPezzo}}
+\index{confermaPezzo@{confermaPezzo}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{confermaPezzo()}{confermaPezzo()}}
+{\footnotesize\ttfamily void conferma\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di confermare nella mappa un pezzo non ancora confermato. Ciò vinene fatto invocando la funzione Scrivi\+Su\+Mappa sul pezzo pz con valore 1 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer al pezzo da inserire \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00189}{189}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00190 \{}
+\DoxyCodeLine{00191     \textcolor{comment}{/* scrivo sulla mappa il valore 1 che rappresenta un pezzo confermato     */}}
+\DoxyCodeLine{00192     \textcolor{comment}{/* passo il pezzo stesso come maschera per la stampa                      */}}
+\DoxyCodeLine{00193     \mbox{\hyperlink{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}{ScriviSuMappa}}(pa,pz,1);}
+\DoxyCodeLine{00194 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a72ae0f2c84722d8faecac7c208d9382a}\label{eventiPartita_8c_a72ae0f2c84722d8faecac7c208d9382a}} 
+\index{eventiPartita.c@{eventiPartita.c}!distruggiPezzo@{distruggiPezzo}}
+\index{distruggiPezzo@{distruggiPezzo}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{distruggiPezzo()}{distruggiPezzo()}}
+{\footnotesize\ttfamily void distruggi\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di liberare la memoria occupata da una struct pezzo non più necessaria. Viene liberata anche la matrice dispozine contenuta nella struct 
+\begin{DoxyParams}{Parameters}
+{\em pz} & pointer alla struct \mbox{\hyperlink{structPezzo}{Pezzo}} da eliminare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00168}{168}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00169 \{}
+\DoxyCodeLine{00170     \textcolor{comment}{/* libero la memoria occupata da un pezzo */}}
+\DoxyCodeLine{00171     free(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}});}
+\DoxyCodeLine{00172     free(pz);}
+\DoxyCodeLine{00173 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a65b7a5ca94c38ebee4a890329fdc42d1}\label{eventiPartita_8c_a65b7a5ca94c38ebee4a890329fdc42d1}} 
+\index{eventiPartita.c@{eventiPartita.c}!generaPezzo@{generaPezzo}}
+\index{generaPezzo@{generaPezzo}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{generaPezzo()}{generaPezzo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$ genera\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2}{Tipo\+Pezzo}}}]{tipo }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di allocare memoria per una nuova struct pezzo e assegnargli come disposizione una delle matrici globali rappresentanti i vari pattern 
+\begin{DoxyParams}{Parameters}
+{\em tipo} & enumerator rappresentante il tipo di pezzo che di vuole generare \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Pezzo$\ast$} & pointer alla struct \mbox{\hyperlink{structPezzo}{Pezzo}} appena creata \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00139}{139}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00140 \{}
+\DoxyCodeLine{00141     \textcolor{comment}{/*  alloco memoria per la struct del nuovo pezzo */}}
+\DoxyCodeLine{00142     \mbox{\hyperlink{structPezzo}{Pezzo}} *pz = malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structPezzo}{Pezzo}}));}
+\DoxyCodeLine{00143     pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} = tipo;}
+\DoxyCodeLine{00144     pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} = 3; pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} = 0;   \textcolor{comment}{/* posiziono il nuovo pezzo in centro in alto alla mappa */}}
+\DoxyCodeLine{00145     \mbox{\hyperlink{eventiPartita_8c_ae447353be6acd2ec2f2511845f79a6f1}{assegnaDisposizione}}(pz);\textcolor{comment}{/* e gli assegno la dispozione in base al suo tipo */}}
+\DoxyCodeLine{00146     \textcolor{keywordflow}{return} pz;}
+\DoxyCodeLine{00147 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a3ca0a7e37697fea638822a12904faa47}\label{eventiPartita_8c_a3ca0a7e37697fea638822a12904faa47}} 
+\index{eventiPartita.c@{eventiPartita.c}!incrementaPunteggio@{incrementaPunteggio}}
+\index{incrementaPunteggio@{incrementaPunteggio}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{incrementaPunteggio()}{incrementaPunteggio()}}
+{\footnotesize\ttfamily void incrementa\+Punteggio (\begin{DoxyParamCaption}\item[{int $\ast$}]{punteggio,  }\item[{int}]{linee\+Rimosse }\end{DoxyParamCaption})}
+
+Incrementa il punteggio di un giocatore in funzione di quante righe ha rimosso in questo turno. 1 riga -\/\texorpdfstring{$>$}{>} 1 punto 2 righe -\/\texorpdfstring{$>$}{>} 3 punti 3 righe -\/\texorpdfstring{$>$}{>} 6 punti 4 righe -\/\texorpdfstring{$>$}{>} 12 punti 
+\begin{DoxyParams}{Parameters}
+{\em int} & puntatore alla var contenente il punteggio del giocatore \\
+\hline
+{\em int} & righe rimosse dal giocatore in questo turno \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00084}{84}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085 \{}
+\DoxyCodeLine{00086     \textcolor{comment}{/* aumento il punteggio del giocatore in funzione delle righe che ha rimosso*/}}
+\DoxyCodeLine{00087     \textcolor{keywordflow}{switch} (lineeRimosse)}
+\DoxyCodeLine{00088     \{}
+\DoxyCodeLine{00089         \textcolor{keywordflow}{case} 1:  *punteggio+=1;  \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00090         \textcolor{keywordflow}{case} 2:  *punteggio+=3;  \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00091         \textcolor{keywordflow}{case} 3:  *punteggio+=6;  \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00092         \textcolor{keywordflow}{case} 4:  *punteggio+=12; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00093     \}}
+\DoxyCodeLine{00094 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_af28aaf1726d8ec86c3a5cb151f957618}\label{eventiPartita_8c_af28aaf1726d8ec86c3a5cb151f957618}} 
+\index{eventiPartita.c@{eventiPartita.c}!inizializzaPartita@{inizializzaPartita}}
+\index{inizializzaPartita@{inizializzaPartita}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{inizializzaPartita()}{inizializzaPartita()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPartita}{Partita}} $\ast$ inizializza\+Partita (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}}}]{mode }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di allocare memoria per una nuova struct partita e inizializzare le varie strutture dati presenti in essa, contenenti informazioni come la mappa di gioco e l\textquotesingle{}array di pezzi rimasti 
+\begin{DoxyParams}{Parameters}
+{\em mode} & modalità scelta per la nuova partita \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Partita$\ast$} & pointer alla struct \mbox{\hyperlink{structPartita}{Partita}} appena creata \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00062}{62}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063 \{}
+\DoxyCodeLine{00064     \textcolor{comment}{/* alloco memoria per la struct partita e setto le variabili principali */}}
+\DoxyCodeLine{00065     \mbox{\hyperlink{structPartita}{Partita}}* partita = malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structPartita}{Partita}}));}
+\DoxyCodeLine{00066     partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} = mode;}
+\DoxyCodeLine{00067     partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} = \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}};}
+\DoxyCodeLine{00068     partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} = \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361baaee25f5c8faad8c33ffb82478b0a8a38}{IN\_CORSO}};}
+\DoxyCodeLine{00069     \textcolor{comment}{/* riempo entrambi i campi di gioco con zeri */}}
+\DoxyCodeLine{00070     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{00071     \textcolor{keywordflow}{for} (i = 0; i < 15; i++)}
+\DoxyCodeLine{00072         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)}
+\DoxyCodeLine{00073             partita-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j] = 0;}
+\DoxyCodeLine{00074             partita-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j] = 0;}
+\DoxyCodeLine{00075     \textcolor{comment}{/* setto la quantità massima di ogni pezzo a 20 */}}
+\DoxyCodeLine{00076     for (i = 0; i < 7; i++)}
+\DoxyCodeLine{00077         partita-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[i] = 20;}
+\DoxyCodeLine{00078     \textcolor{comment}{/* setto i punteggi dei giocatori entrambi a 0 */}}
+\DoxyCodeLine{00079     partita-\/>\mbox{\hyperlink{structPartita_ae53779d2d90a0232675ae2b8aa3b384d}{punteggio1}} = partita-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}} = 0;}
+\DoxyCodeLine{00080     partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}} = 0;}
+\DoxyCodeLine{00081     \textcolor{keywordflow}{return} partita;}
+\DoxyCodeLine{00082 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a16eee978e1d4a24b6335088b46abaafc}\label{eventiPartita_8c_a16eee978e1d4a24b6335088b46abaafc}} 
+\index{eventiPartita.c@{eventiPartita.c}!IniziaPartita@{IniziaPartita}}
+\index{IniziaPartita@{IniziaPartita}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{IniziaPartita()}{IniziaPartita()}}
+{\footnotesize\ttfamily void Inizia\+Partita (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}}}]{mode }\end{DoxyParamCaption})}
+
+Funzione principale che viene chiamata all\textquotesingle{}inizio di una nuova partita e che termina con la conclusione della stessa. Si occuppa di chiamare tutte le funzioni per inizializzare e e gestire lo svolgimento dell\textquotesingle{}intera partita 
+\begin{DoxyParams}{Parameters}
+{\em mode} & modalità scelta per la nuova partita \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00003}{3}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004 \{}
+\DoxyCodeLine{00005     \mbox{\hyperlink{structPartita}{Partita}}* partita = \mbox{\hyperlink{eventiPartita_8c_af28aaf1726d8ec86c3a5cb151f957618}{inizializzaPartita}}(mode);                       \textcolor{comment}{/* inizializzo la struct partita                     */}}
+\DoxyCodeLine{00006     \textcolor{keywordflow}{while} (partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} == \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361baaee25f5c8faad8c33ffb82478b0a8a38}{IN\_CORSO}})                                 \textcolor{comment}{/* ciclo fino alla fine della partita                */}}
+\DoxyCodeLine{00007     \{   }
+\DoxyCodeLine{00008         \mbox{\hyperlink{structPezzo}{Pezzo}} *pz = NULL;}
+\DoxyCodeLine{00009         \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}} \&\& partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}{P2}})           \textcolor{comment}{/* se è il turno del computer                        */}}
+\DoxyCodeLine{00010             \mbox{\hyperlink{funzioniCpu_8c_a3b56bd58ab71c11366cddcf03ca3b4d2}{eseguiMossaCPU}}(partita);                                   \textcolor{comment}{/* chiedo alla macchina di fare una mossa            */}}
+\DoxyCodeLine{00011         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00012         \{                                                              \textcolor{comment}{/* altrimenti, se è il turno di un giocatore         */}}
+\DoxyCodeLine{00013             \mbox{\hyperlink{eventiPartita_8c_a0644bf5c04860d153c63e55276965bf7}{richiediSceltaPezzo}}(partita);                              \textcolor{comment}{/* richiedo al giocatore di scegliere un pezzo       */}}
+\DoxyCodeLine{00014             pz = \mbox{\hyperlink{eventiPartita_8c_a65b7a5ca94c38ebee4a890329fdc42d1}{generaPezzo}}(partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}});               \textcolor{comment}{/* genero un pezzo del tipo selezionato dall'utente  */}}
+\DoxyCodeLine{00015             \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,0,0);                                \textcolor{comment}{/* posiziono il pezzo appena creato nella mappa      */}}
+\DoxyCodeLine{00016             \mbox{\hyperlink{eventiPartita_8c_a50acfd52e1f4d0b9b1b7abdaa5887fb5}{posizionaPezzo}}(partita,pz);                                \textcolor{comment}{/* chiedo al giocatore di posizionarlo e confermarlo */}}
+\DoxyCodeLine{00017             \mbox{\hyperlink{eventiPartita_8c_a72ae0f2c84722d8faecac7c208d9382a}{distruggiPezzo}}(pz);                                        \textcolor{comment}{/* distruggo il pezzo che non serve più              */}}
+\DoxyCodeLine{00018         \}}
+\DoxyCodeLine{00019         }
+\DoxyCodeLine{00020         \textcolor{keywordtype}{int} rimosse = \mbox{\hyperlink{eventiPartita_8c_a974c16f6eb2db617d5f61d7eec167d48}{rimuoviLinee}}(partita);                              \textcolor{comment}{/* verifico se ci sono righe da eliminare e salvo la quantità    */}}
+\DoxyCodeLine{00021         \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) }
+\DoxyCodeLine{00022         \{}
+\DoxyCodeLine{00023             \mbox{\hyperlink{eventiPartita_8c_a3ca0a7e37697fea638822a12904faa47}{incrementaPunteggio}}(\&partita-\/>\mbox{\hyperlink{structPartita_ae53779d2d90a0232675ae2b8aa3b384d}{punteggio1}}, rimosse);                       \textcolor{comment}{/* se il turno è del giocatore 1 aumento il suo punteggio in     */}}
+\DoxyCodeLine{00024             \textcolor{keywordflow}{if}(rimosse >= 3 ) \mbox{\hyperlink{eventiPartita_8c_a3462860dd63effd24a917b2dfd8e3dab}{invertiRighe}}(partita-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}, rimosse);                 \textcolor{comment}{/* base alle righe rimosse e eventualmente se il numero è        */}}
+\DoxyCodeLine{00025         \}                                                                             \textcolor{comment}{/* maggiore di 3 inverto le medesime righe nel campo avversario  */}}
+\DoxyCodeLine{00026         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00027         \{}
+\DoxyCodeLine{00028             \mbox{\hyperlink{eventiPartita_8c_a3ca0a7e37697fea638822a12904faa47}{incrementaPunteggio}}(\&partita-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}}, rimosse);                       \textcolor{comment}{/* se il turno è del giocatore 2 aumento il suo punteggio in     */}}
+\DoxyCodeLine{00029             \textcolor{keywordflow}{if}(rimosse >= 3 ) \mbox{\hyperlink{eventiPartita_8c_a3462860dd63effd24a917b2dfd8e3dab}{invertiRighe}}(partita-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}, rimosse);                 \textcolor{comment}{/* base alle righe rimosse e eventualmente se il numero è        */}}
+\DoxyCodeLine{00030         \}                                                                             \textcolor{comment}{/* maggiore di 3 inverto le medesime righe nel campo avversario  */}}
+\DoxyCodeLine{00031         }
+\DoxyCodeLine{00032         \mbox{\hyperlink{eventiPartita_8c_abb3eccb7d44151f49d0c51aeb419a253}{cambiaTurno}}(partita);                                                         \textcolor{comment}{/* terminata la mossa cambio il turno                            */}}
+\DoxyCodeLine{00033         \mbox{\hyperlink{eventiPartita_8c_a974c16f6eb2db617d5f61d7eec167d48}{rimuoviLinee}}(partita);                                                        \textcolor{comment}{/* verifico se dopo l'inversione ci sono righe da rimuovere      */}}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035         \textcolor{keywordtype}{int} end = \mbox{\hyperlink{eventiPartita_8c_a4f8797e090e14386ed5ec0aaf75233ad}{checkGameEnd}}(partita);                                              \textcolor{comment}{/* verifico se la partita è giunta al termine                    */}}
+\DoxyCodeLine{00036         \textcolor{keywordflow}{if}(end == 1) partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} = \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba41386872ebe4dff73280be09b76c422d}{VITTORIA\_P2}};                                    \textcolor{comment}{/* se la funzione ritorna 1 ha vinto il giocatore 2              */}}
+\DoxyCodeLine{00037         \textcolor{keywordflow}{if}(end == 2) partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} = \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba74ef188effc4ac9e6105377323e3f2c6}{VITTORIA\_P1}};                                    \textcolor{comment}{/* se ritnorna 2 ha vinto il giocatore 1                         */}}
+\DoxyCodeLine{00038     \}}
+\DoxyCodeLine{00039     \mbox{\hyperlink{grafica_8c_a010bf1806ab2d2e0767a91438f2cb675}{Update}}(partita);                                                                  \textcolor{comment}{/* terminata la partita aggiorno lo schermo per il menù finale   */}}
+\DoxyCodeLine{00040     \mbox{\hyperlink{eventiPartita_8c_a0644bf5c04860d153c63e55276965bf7}{richiediSceltaPezzo}}(partita);                                                     \textcolor{comment}{/* utilizzo questa funzione per attendere un "{}invio"{} dall'utente */}}
+\DoxyCodeLine{00041     free(partita);                                                                    \textcolor{comment}{/* la partita è terminata quindi libero la memoria               */}}
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}\label{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}} 
+\index{eventiPartita.c@{eventiPartita.c}!inserisciPezzo@{inserisciPezzo}}
+\index{inserisciPezzo@{inserisciPezzo}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{inserisciPezzo()}{inserisciPezzo()}}
+{\footnotesize\ttfamily void inserisci\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di inserire nella mappa un pezzo non ancora confermato. Ciò vinene fatto invocando la funzione Scrivi\+Su\+Mappa sul pezzo pz con valore 2 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer al pezzo da inserire \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00175}{175}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00176 \{}
+\DoxyCodeLine{00177     \textcolor{comment}{/* scrivo sulla mappa il valore 2 che rappresenta un pezzo non confermato */}}
+\DoxyCodeLine{00178     \textcolor{comment}{/* passo il pezzo stesso come maschera per la stampa                      */}}
+\DoxyCodeLine{00179     \mbox{\hyperlink{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}{ScriviSuMappa}}(pa,pz,2);}
+\DoxyCodeLine{00180 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a3462860dd63effd24a917b2dfd8e3dab}\label{eventiPartita_8c_a3462860dd63effd24a917b2dfd8e3dab}} 
+\index{eventiPartita.c@{eventiPartita.c}!invertiRighe@{invertiRighe}}
+\index{invertiRighe@{invertiRighe}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{invertiRighe()}{invertiRighe()}}
+{\footnotesize\ttfamily void inverti\+Righe (\begin{DoxyParamCaption}\item[{int}]{mappa\mbox{[}15\mbox{]}\mbox{[}10\mbox{]},  }\item[{int}]{nrighe }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di invertire n righe in una data mappa a partire dal findo mappa. Viene invocata dopo che un giocatore ha eliminato 3 o più righe dal suo campo 
+\begin{DoxyParams}{Parameters}
+{\em mappa\mbox{[}15\mbox{]}\mbox{[}10\mbox{]}} & mappa da invertire \\
+\hline
+{\em nrighe} & numero di righe da eliminare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00313}{313}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00314 \{}
+\DoxyCodeLine{00315     \textcolor{keywordtype}{int} i = 0, j = 0;}
+\DoxyCodeLine{00316     \textcolor{keywordflow}{for} (i = 14; i > 14-\/nrighe; i-\/-\/)            \textcolor{comment}{/* scorro solo le righe richieste */}}
+\DoxyCodeLine{00317         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)                \textcolor{comment}{/* scorro tutta la riga */}}
+\DoxyCodeLine{00318             mappa[i][j] = (mappa[i][j]+1)\%2;    \textcolor{comment}{/* se il valore è 1 diventa 0 e viceversa */}}
+\DoxyCodeLine{00319     }
+\DoxyCodeLine{00320 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a286cba791d3dfa4c618f2aedce8aa9af}\label{eventiPartita_8c_a286cba791d3dfa4c618f2aedce8aa9af}} 
+\index{eventiPartita.c@{eventiPartita.c}!isPezzoPosizionabile@{isPezzoPosizionabile}}
+\index{isPezzoPosizionabile@{isPezzoPosizionabile}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{isPezzoPosizionabile()}{isPezzoPosizionabile()}}
+{\footnotesize\ttfamily int is\+Pezzo\+Posizionabile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di verificare se è possibile confermare un pezzo nella posizione in cui si trova. Perchè ciò sia possibile il pezzo deve essere \char`\"{}appoggiato\char`\"{} su un altro blocco o sul fondo mappa 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer alla struct del pezzo \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 1} & se il pezzo è confermabile \\
+\hline
+{\em 0} & se il pezzo non è confermabile \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00289}{289}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00290 \{}
+\DoxyCodeLine{00291     \textcolor{comment}{/* per verificare se il pezzo è posizionabile ovvero confermabile devo scorrere la matrice rappresentante la */}}
+\DoxyCodeLine{00292     \textcolor{comment}{/* sua disposizione sovrapponendola alla mappa di gioco per vedere se è appoggiato a qualcosa o è fluttuante */}}
+\DoxyCodeLine{00293     \textcolor{keywordtype}{int} i, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3);\textcolor{comment}{/* ottengo la dimensione della dispozisione del pezzo */}}
+\DoxyCodeLine{00294     \textcolor{keywordtype}{int} result = 0;\textcolor{comment}{/* variabile rappresentante la proprietà esistenziale inizialmente falsa */}}
+\DoxyCodeLine{00295     \textcolor{comment}{/* scorro la disposizione del pezzo */}}
+\DoxyCodeLine{00296     \textcolor{keywordflow}{for} ( i = 0; i < l*l; i++)}
+\DoxyCodeLine{00297     \{}
+\DoxyCodeLine{00298         \textcolor{keywordtype}{int} x = pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} + i\%l;                            \textcolor{comment}{/* ottengo le corrispondenti coordinate  */}}
+\DoxyCodeLine{00299         \textcolor{keywordtype}{int} y = pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} + i/l;                            \textcolor{comment}{/* in relazione alla mappa               */}}
+\DoxyCodeLine{00300 }
+\DoxyCodeLine{00301         \textcolor{keywordflow}{if}(y == 14 \&\& *(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i)) result = 1;      \textcolor{comment}{/* se è appoggiato al fondo mappa ho già risolto */}}
+\DoxyCodeLine{00302         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(x > -\/1 \&\& y > -\/1 \&\& x < 10 \&\& y < 15)}
+\DoxyCodeLine{00303         \{}
+\DoxyCodeLine{00304             \textcolor{comment}{/* osservo la mappa del giocatore che sta giocando */}}
+\DoxyCodeLine{00305             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) result = (*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[y + 1][x] == 1) || result;      \textcolor{comment}{/* per ogni "{}blocco"{} che forma il pezzo */}}
+\DoxyCodeLine{00306             \textcolor{keywordflow}{else}                result = (*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[y + 1][x] == 1) || result;      \textcolor{comment}{/* guardo se sotto di esso c'è qualcosa */}}
+\DoxyCodeLine{00307         \}}
+\DoxyCodeLine{00308             }
+\DoxyCodeLine{00309     \}}
+\DoxyCodeLine{00310     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00311 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a9a2a1a8dc3e71a104d0f831a6a1f9620}\label{eventiPartita_8c_a9a2a1a8dc3e71a104d0f831a6a1f9620}} 
+\index{eventiPartita.c@{eventiPartita.c}!isPezzoSpostabile@{isPezzoSpostabile}}
+\index{isPezzoSpostabile@{isPezzoSpostabile}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{isPezzoSpostabile()}{isPezzoSpostabile()}}
+{\footnotesize\ttfamily int is\+Pezzo\+Spostabile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di verificare se un pezzo NON ancora confermato è spostabile nella posizione indicata dalle sue coordinate presenti all\textquotesingle{}interno della sua struct. Se il pezzo si sovrappone ad altri pezzi o è fuori dalla mappa il pezzo non è inseribile 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer alla struct del pezzo \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 1} & se il pezzo è spostabile \\
+\hline
+{\em 0} & se il pezzo non è spostabile \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00265}{265}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00266 \{}
+\DoxyCodeLine{00267     \textcolor{comment}{/* per verificare se il pezzo è spostabile in una data posizione devo scorrere la matrice rappresentante la       */}}
+\DoxyCodeLine{00268     \textcolor{comment}{/* sua disposizione sovrapponendola alla mappa di gioco per vedere se esce dai bordi o se collide con altri pezzi */}}
+\DoxyCodeLine{00269     \textcolor{keywordtype}{int} i, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3); \textcolor{comment}{/* ottengo la dimensione della dispozisione del pezzo */}}
+\DoxyCodeLine{00270     \textcolor{keywordtype}{int} result = 1;  \textcolor{comment}{/* variabile rappresentante la proprietà universale inizialmente vera*/}}
+\DoxyCodeLine{00271     \textcolor{comment}{/* scorro la disposizione del pezzo */}}
+\DoxyCodeLine{00272     \textcolor{keywordflow}{for} ( i = 0; i < l*l; i++)}
+\DoxyCodeLine{00273     \{}
+\DoxyCodeLine{00274         \textcolor{keywordtype}{int} x = pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} + i\%l;                            \textcolor{comment}{/* ottengo le corrispondenti coordinate  */}}
+\DoxyCodeLine{00275         \textcolor{keywordtype}{int} y = pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} + i/l;                            \textcolor{comment}{/* in relazione alla mappa               */}}
+\DoxyCodeLine{00276 }
+\DoxyCodeLine{00277         \textcolor{keywordflow}{if}(x > -\/1 \&\& y > -\/1 \&\& x < 10 \&\& y < 15)        \textcolor{comment}{/* verifico di essere entro i limiti della mappa di gioco */}}
+\DoxyCodeLine{00278         \{}
+\DoxyCodeLine{00279             \textcolor{comment}{/* osservo la mappa del giocatore che sta giocando */}}
+\DoxyCodeLine{00280             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) result = !(*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[y][x]) \&\& result;  \textcolor{comment}{/* verifico se in questa coordinata specifica */}}
+\DoxyCodeLine{00281             \textcolor{keywordflow}{else}                result = !(*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[y][x]) \&\& result;  \textcolor{comment}{/* si verifica una collisione tra due pezzi   */}}
+\DoxyCodeLine{00282         \}}
+\DoxyCodeLine{00283         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& result)  \textcolor{comment}{/* controllo se il pezzo esiste fuori dai limiti della mappa */}}
+\DoxyCodeLine{00284             result = !*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i);      \textcolor{comment}{/* se ciò accade la mossa diventa illegale */}}
+\DoxyCodeLine{00285     \}}
+\DoxyCodeLine{00286     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00287 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a61652e02ad29691cdddaeb081e43d09a}\label{eventiPartita_8c_a61652e02ad29691cdddaeb081e43d09a}} 
+\index{eventiPartita.c@{eventiPartita.c}!menuIniziale@{menuIniziale}}
+\index{menuIniziale@{menuIniziale}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{menuIniziale()}{menuIniziale()}}
+{\footnotesize\ttfamily void menu\+Iniziale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Attende l\textquotesingle{}input dell\textquotesingle{}utente e richiama la funzione di stampa menu iniziale ogni volta che l\textquotesingle{}utente effettua un cambiamento nella selezione della modalità 
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00044}{44}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045 \{}
+\DoxyCodeLine{00046     \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}} mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}};}
+\DoxyCodeLine{00047     \textcolor{keywordtype}{char} cmd = \textcolor{charliteral}{'0'};     \textcolor{comment}{/* variabile per memorizzare l'input */}}
+\DoxyCodeLine{00048    }
+\DoxyCodeLine{00049     \textcolor{keywordflow}{while} (cmd != \textcolor{charliteral}{'\(\backslash\)n'})             \textcolor{comment}{/* fino a che l'utente non preme invio attendo l'input */}}
+\DoxyCodeLine{00050     \{}
+\DoxyCodeLine{00051         \mbox{\hyperlink{grafica_8c_a3f5a170d8ea031166b5f9748e9678057}{StampaMenuIniziale}}(mode);   \textcolor{comment}{/* stampo la grafica del menù */}}
+\DoxyCodeLine{00052         cmd = getchar();            \textcolor{comment}{/*ottengo l'input utente*/}}
+\DoxyCodeLine{00053         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'A'} \&\& mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}})    mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}};           \textcolor{comment}{/* se l'utente preme la freccia verso l'alto   */}}
+\DoxyCodeLine{00054         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'A'} \&\& mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}})            mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}};       \textcolor{comment}{/* ciclo verso l'alto l'opzione selezionata    */}}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00056         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'B'} \&\& mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}})   mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}};       \textcolor{comment}{/* se l'utente preme la freccia verso il basso */}}
+\DoxyCodeLine{00057         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'B'} \&\& mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}})    mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}};               \textcolor{comment}{/* ciclo verso il basso l'opzione selezionata  */}}
+\DoxyCodeLine{00058     \}}
+\DoxyCodeLine{00059     \mbox{\hyperlink{eventiPartita_8c_a16eee978e1d4a24b6335088b46abaafc}{IniziaPartita}}(mode);}
+\DoxyCodeLine{00060 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}\label{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}} 
+\index{eventiPartita.c@{eventiPartita.c}!muoviPezzo@{muoviPezzo}}
+\index{muoviPezzo@{muoviPezzo}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{muoviPezzo()}{muoviPezzo()}}
+{\footnotesize\ttfamily int muovi\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz,  }\item[{int}]{dx,  }\item[{int}]{dy }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di muovere un pezzo presente nella mappa di un dato delta x e delta y rispetto alla sua attuale posizione. Prima di fare ciò si accerta che l\textquotesingle{}operazione sia legale invocando la funzione is\+Pezzo\+Spostabile 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer al pezzo non confermato da muovere \\
+\hline
+{\em dx} & delta x \\
+\hline
+{\em dy} & delta y \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00217}{217}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00218 \{}
+\DoxyCodeLine{00219     \mbox{\hyperlink{eventiPartita_8c_af372721013335e373c8a79a1af8b804d}{rimuoviPezzo}}(pa,pz);                \textcolor{comment}{/* rimuovo il pezzo dalla mappa */}}
+\DoxyCodeLine{00220     pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} += dx; pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} += dy;           \textcolor{comment}{/* muovo il pezzo di dy e dx senza modificare la mappa */}}
+\DoxyCodeLine{00221     \textcolor{keywordflow}{if}(\mbox{\hyperlink{eventiPartita_8c_a9a2a1a8dc3e71a104d0f831a6a1f9620}{isPezzoSpostabile}}(pa,pz))        \textcolor{comment}{/* verifico se il pezzo in questa posizione è spostabile */}}
+\DoxyCodeLine{00222     \{}
+\DoxyCodeLine{00223         \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(pa,pz);          \textcolor{comment}{/* se è così, aggiorno la sua posizione anche nella mappa */}}
+\DoxyCodeLine{00224         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00225     \}}
+\DoxyCodeLine{00226     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00227     \{}
+\DoxyCodeLine{00228         pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} -\/= dx; pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} -\/= dy;       \textcolor{comment}{/* altrimenti lo faccio tornare dove era */}}
+\DoxyCodeLine{00229         \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(pa,pz);          \textcolor{comment}{/* e lo inserisco nuovamente nella mappa */}}
+\DoxyCodeLine{00230         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00231     \}}
+\DoxyCodeLine{00232 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a50acfd52e1f4d0b9b1b7abdaa5887fb5}\label{eventiPartita_8c_a50acfd52e1f4d0b9b1b7abdaa5887fb5}} 
+\index{eventiPartita.c@{eventiPartita.c}!posizionaPezzo@{posizionaPezzo}}
+\index{posizionaPezzo@{posizionaPezzo}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{posizionaPezzo()}{posizionaPezzo()}}
+{\footnotesize\ttfamily void posiziona\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{partita,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Attende l\textquotesingle{}input dell\textquotesingle{}utente per muovere un pezzo non ancora confermato. Ogni volta che l\textquotesingle{}utente preme una freccetta direzionale viene invocata la funzione muovi\+Pezzo che proverà, se possibile, a muovere il pezzo nella direzione indicata. Se l\textquotesingle{}utente preme invio invece il pezzo viene confermato (sempre se possibile) 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer al pezzo non confermato da muovere \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00196}{196}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00197 \{}
+\DoxyCodeLine{00198     \textcolor{keywordtype}{char} cmd = \textcolor{charliteral}{'0'};\textcolor{comment}{/* variabile per memorizzare l'input */}}
+\DoxyCodeLine{00199     \textcolor{comment}{/* fino a che l'utente non preme invio continuo ad attendere l'input */}}
+\DoxyCodeLine{00200     \textcolor{keywordflow}{while} (cmd != \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{00201     \{}
+\DoxyCodeLine{00202         \mbox{\hyperlink{grafica_8c_a010bf1806ab2d2e0767a91438f2cb675}{Update}}(partita); \textcolor{comment}{/* aggiorno la grafica perchè l'utente deve vedere il pezzo che ha appena mosso */}}
+\DoxyCodeLine{00203         cmd = getchar(); }
+\DoxyCodeLine{00204         \textcolor{keywordtype}{int} fatta = 0;}
+\DoxyCodeLine{00205         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'A'}) fatta = \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,0,-\/1);         \textcolor{comment}{/* questi sono i quattro casi che rappresentano */}}
+\DoxyCodeLine{00206         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'D'}) fatta = \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,-\/1,0);         \textcolor{comment}{/* le quattro direzioni in qui un utente può    */}}
+\DoxyCodeLine{00207         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'B'}) fatta = \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,0,1);          \textcolor{comment}{/* muovere ogni pezzo tramite le 4 freccette    */}}
+\DoxyCodeLine{00208         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'C'}) fatta = \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,1,0);          \textcolor{comment}{/* direzionali                                  */}}
+\DoxyCodeLine{00209         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'\(\backslash\)n'}) }
+\DoxyCodeLine{00210             \textcolor{keywordflow}{if}(\mbox{\hyperlink{eventiPartita_8c_a286cba791d3dfa4c618f2aedce8aa9af}{isPezzoPosizionabile}}(partita,pz))                    \textcolor{comment}{/* se l'utente preme invio controllo che il pezzo */}}
+\DoxyCodeLine{00211                 \mbox{\hyperlink{eventiPartita_8c_aea8e121a46998b4ba6e499c3ad6217de}{confermaPezzo}}(partita,pz);                          \textcolor{comment}{/* sia posizionabile ed eventualmente lo confermo */}}
+\DoxyCodeLine{00212             \textcolor{keywordflow}{else} cmd = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{00213         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'r'}) \mbox{\hyperlink{eventiPartita_8c_a6bb98f39b683d3b6d4b66be58dbc583e}{ruotaPezzo}}(partita, pz);                     \textcolor{comment}{/* se invece l'utente preme il tasto r ruoto il pezzo (sempre se possibile) */}}
+\DoxyCodeLine{00214     \}}
+\DoxyCodeLine{00215 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a0644bf5c04860d153c63e55276965bf7}\label{eventiPartita_8c_a0644bf5c04860d153c63e55276965bf7}} 
+\index{eventiPartita.c@{eventiPartita.c}!richiediSceltaPezzo@{richiediSceltaPezzo}}
+\index{richiediSceltaPezzo@{richiediSceltaPezzo}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{richiediSceltaPezzo()}{richiediSceltaPezzo()}}
+{\footnotesize\ttfamily void richiedi\+Scelta\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{partita }\end{DoxyParamCaption})}
+
+Attende l\textquotesingle{}input utente riguardo alla scelta del pezzo e aggiorna lo schermo ogni volta che la scelta cambia. Premendo invio la funzione conferma la selezione e decremena i pezzi rimanenti di quello specifico tipo 
+\begin{DoxyParams}{Parameters}
+{\em partita} & puntatore alla struct partita \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00096}{96}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097 \{}
+\DoxyCodeLine{00098     partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}} = 0;}
+\DoxyCodeLine{00099     \textcolor{keywordtype}{char} cmd = \textcolor{charliteral}{'0'};    \textcolor{comment}{/* variabile per memorizzare l'input */}}
+\DoxyCodeLine{00100     \textcolor{keywordtype}{int} scelto = 0;}
+\DoxyCodeLine{00101     \textcolor{comment}{/* fino a che l'utente non preme invio o sceglie un pezzo non esaurito attendo l'input */}}
+\DoxyCodeLine{00102     \textcolor{keywordflow}{while} (cmd != \textcolor{charliteral}{'\(\backslash\)n'} || partita-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[scelto] <= 0)}
+\DoxyCodeLine{00103     \{}
+\DoxyCodeLine{00104         \mbox{\hyperlink{grafica_8c_a010bf1806ab2d2e0767a91438f2cb675}{Update}}(partita);}
+\DoxyCodeLine{00105         cmd = getchar(); \textcolor{comment}{/* ottengo l'input */}}
+\DoxyCodeLine{00106         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'D'}) scelto = (scelto+1)\%7;       \textcolor{comment}{/* se l'utente preme il la freccia destra o sinistra */}}
+\DoxyCodeLine{00107         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'C'}) scelto = (scelto+6)\%7;       \textcolor{comment}{/* continuo a ciclare la lista di pezzi dispobiibli  */}}
+\DoxyCodeLine{00108         partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}} = scelto;}
+\DoxyCodeLine{00109     \}}
+\DoxyCodeLine{00110     \textcolor{comment}{/* una volta che il pezzo è confermato diminuisco la quantità disponibile per lo stesso tipo */}}
+\DoxyCodeLine{00111     partita-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[scelto]-\/-\/;}
+\DoxyCodeLine{00112 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a974c16f6eb2db617d5f61d7eec167d48}\label{eventiPartita_8c_a974c16f6eb2db617d5f61d7eec167d48}} 
+\index{eventiPartita.c@{eventiPartita.c}!rimuoviLinee@{rimuoviLinee}}
+\index{rimuoviLinee@{rimuoviLinee}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{rimuoviLinee()}{rimuoviLinee()}}
+{\footnotesize\ttfamily int rimuovi\+Linee (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa }\end{DoxyParamCaption})}
+
+Funzione creata per scorrere le righe della mappa eliminando quelle che sono complete. Ogni volta che ciò accade invoca abbassa\+Blocchi per abbassare i blocchi al di sopra della linea. Ritorna in oltre il numero di righe eliminate necessarie alla modifica dei punteggi 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & rappresentante il numero di righe eliminate \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00322}{322}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00323 \{}
+\DoxyCodeLine{00324     \textcolor{comment}{/* questa funzione ha lo scopo di verificare le righe che sono da rimuovere prima di rimuoverle     */}}
+\DoxyCodeLine{00325     \textcolor{comment}{/* lo fa contando quanti "{}1"{} sono presenti in una riga: se il valore è pari a 10 la riga va rimossa */}}
+\DoxyCodeLine{00326     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{00327     \textcolor{keywordtype}{int} rimosse = 0;}
+\DoxyCodeLine{00328     \textcolor{keywordflow}{for} (i = 0; i < 15; i++)                                                \textcolor{comment}{/* passo ogni riga della matrice */}}
+\DoxyCodeLine{00329     \{}
+\DoxyCodeLine{00330         \textcolor{keywordtype}{int} count = 0;}
+\DoxyCodeLine{00331         \textcolor{keywordflow}{for}(j = 0; j < 10; j++)\{                                            \textcolor{comment}{/* per ogni riga scorro le celle */}}
+\DoxyCodeLine{00332             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) count = count + pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j];           \textcolor{comment}{/* e tengo il conto di quante    */}}
+\DoxyCodeLine{00333             \textcolor{keywordflow}{else}                count = count + pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j];           \textcolor{comment}{/* di queste hanno valore 1      */}}
+\DoxyCodeLine{00334         \}}
+\DoxyCodeLine{00335         \textcolor{keywordflow}{if}(count == 10)                                                     \textcolor{comment}{/* se la somma fa 10 la riga va rimossa */}}
+\DoxyCodeLine{00336         \{}
+\DoxyCodeLine{00337             \textcolor{keywordflow}{for} (j = 0; j < 10; j++)\{                                       \textcolor{comment}{/* scorro nuovamente la riga e   */}}
+\DoxyCodeLine{00338                 \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j] = 0;                   \textcolor{comment}{/* setto a zero tutti i valori   */}}
+\DoxyCodeLine{00339                 \textcolor{keywordflow}{else}                pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j] = 0;}
+\DoxyCodeLine{00340             \}}
+\DoxyCodeLine{00341             rimosse++;                                                      \textcolor{comment}{/* incremento il contatore righe rimosse */}  }
+\DoxyCodeLine{00342             \mbox{\hyperlink{eventiPartita_8c_a93c77b7b4c510aa276e702f60c03e056}{abbassaBlocchi}}(pa,i);                                           \textcolor{comment}{/* abbasso i blocchi superiori alla riga tolta */}}
+\DoxyCodeLine{00343         \}   }
+\DoxyCodeLine{00344     \}}
+\DoxyCodeLine{00345     \textcolor{keywordflow}{return} rimosse;}
+\DoxyCodeLine{00346 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_af372721013335e373c8a79a1af8b804d}\label{eventiPartita_8c_af372721013335e373c8a79a1af8b804d}} 
+\index{eventiPartita.c@{eventiPartita.c}!rimuoviPezzo@{rimuoviPezzo}}
+\index{rimuoviPezzo@{rimuoviPezzo}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{rimuoviPezzo()}{rimuoviPezzo()}}
+{\footnotesize\ttfamily void rimuovi\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di rimuovere dalla mappa un pezzo. Ciò vinene fatto invocando la funzione Scrivi\+Su\+Mappa sul pezzo pz con valore 0 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer al pezzo da inserire \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00182}{182}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00183 \{}
+\DoxyCodeLine{00184     \textcolor{comment}{/* scrivo sulla mappa il valore 0 che rappresenta uno spazio vuoto        */}}
+\DoxyCodeLine{00185     \textcolor{comment}{/* passo il pezzo stesso come maschera per la stampa                      */}}
+\DoxyCodeLine{00186     \mbox{\hyperlink{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}{ScriviSuMappa}}(pa,pz,0);}
+\DoxyCodeLine{00187 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_a6bb98f39b683d3b6d4b66be58dbc583e}\label{eventiPartita_8c_a6bb98f39b683d3b6d4b66be58dbc583e}} 
+\index{eventiPartita.c@{eventiPartita.c}!ruotaPezzo@{ruotaPezzo}}
+\index{ruotaPezzo@{ruotaPezzo}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{ruotaPezzo()}{ruotaPezzo()}}
+{\footnotesize\ttfamily int ruota\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di ruotare un pezzo presente nella mappa in senso orario di 90 gradi. Prima di fare ciò si accerta che l\textquotesingle{}operazione sia legale invocando la funzione is\+Pezzo\+Spostabile 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer al pezzo non confermato da muovere \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00234}{234}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00235 \{}
+\DoxyCodeLine{00236     \mbox{\hyperlink{eventiPartita_8c_af372721013335e373c8a79a1af8b804d}{rimuoviPezzo}}(pa,pz); \textcolor{comment}{/* rimuovo il pezzo dalla mappa */}}
+\DoxyCodeLine{00237 }
+\DoxyCodeLine{00238     \textcolor{keywordtype}{int} i,j, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3);               \textcolor{comment}{/*                                             */}}
+\DoxyCodeLine{00239     \textcolor{keywordtype}{int} *result = malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int})*l*l);                                  \textcolor{comment}{/* in questa sezione applico un algoritmo per  */}}
+\DoxyCodeLine{00240     \textcolor{keywordtype}{int} n = 0;                                                              \textcolor{comment}{/* ruotare la matrice che rappresenta la       */}}
+\DoxyCodeLine{00241     \textcolor{keywordflow}{for}(i = 0; i < l; i++)                                                  \textcolor{comment}{/* disposizione del blocco. E salvo la matrice */}}
+\DoxyCodeLine{00242     \{                                                                       \textcolor{comment}{/* ruotata in una variabile a parte            */}        }
+\DoxyCodeLine{00243         \textcolor{keywordflow}{for}(j = l-\/1; j >= 0; j-\/-\/)                                           \textcolor{comment}{/*                                             */}}
+\DoxyCodeLine{00244         \{}
+\DoxyCodeLine{00245             result[n++] = pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}}[j*l + i];}
+\DoxyCodeLine{00246         \}}
+\DoxyCodeLine{00247     \}   }
+\DoxyCodeLine{00248     \textcolor{keywordtype}{int} *old = pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}};                                            \textcolor{comment}{/* tuttavia non elimino la vecchia disposizione  */}}
+\DoxyCodeLine{00249     pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} = result;}
+\DoxyCodeLine{00250     \textcolor{keywordflow}{if}(\mbox{\hyperlink{eventiPartita_8c_a9a2a1a8dc3e71a104d0f831a6a1f9620}{isPezzoSpostabile}}(pa,pz))                                            \textcolor{comment}{/* verifico se è possibile inserire il pezzo con */}}
+\DoxyCodeLine{00251     \{                                                                       \textcolor{comment}{/* la nuova disposizione                         */}}
+\DoxyCodeLine{00252         free(old);                                                          \textcolor{comment}{/* se posso elimino la vecchia disposizione      */}}
+\DoxyCodeLine{00253         \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(pa,pz);}
+\DoxyCodeLine{00254         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00255     \}}
+\DoxyCodeLine{00256     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00257     \{   }
+\DoxyCodeLine{00258         pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} = old;                                             \textcolor{comment}{/* altrimenti annullo le modifiche fatte al pezzo */}}
+\DoxyCodeLine{00259         free(result);                                                       \textcolor{comment}{/* elimino la nuova disposizione                  */}}
+\DoxyCodeLine{00260         \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(pa,pz);                                              \textcolor{comment}{/* e inserisco di nuovo il pezzo                  */}}
+\DoxyCodeLine{00261         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00262     \}}
+\DoxyCodeLine{00263 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}\label{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}} 
+\index{eventiPartita.c@{eventiPartita.c}!ScriviSuMappa@{ScriviSuMappa}}
+\index{ScriviSuMappa@{ScriviSuMappa}!eventiPartita.c@{eventiPartita.c}}
+\doxysubsubsection{\texorpdfstring{ScriviSuMappa()}{ScriviSuMappa()}}
+{\footnotesize\ttfamily void Scrivi\+Su\+Mappa (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz,  }\item[{int}]{valore }\end{DoxyParamCaption})}
+
+Funzione con il compito di inserire un pezzo nella matrice rappresenante la mappa . In base allo stato del pezzo (confermato o non confermato) il valore con la quale il pezzo viene inserito nella mappa cambia. 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pezzo rappresentante l\textquotesingle{}area e la posizione di scrittura \\
+\hline
+{\em valore} & stato del pezzo che si sta inserendo (1 = confermato, 2 = non confermato, 0 = spazio vuoto) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00123}{123}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124 \{}
+\DoxyCodeLine{00125     \textcolor{comment}{/* la dimensione del lato l del quadrato dell'area della matrice su cui devo scivere varia */}}
+\DoxyCodeLine{00126     \textcolor{comment}{/* in base al tipo del pezzo che uso come maschera */}}
+\DoxyCodeLine{00127     \textcolor{keywordtype}{int} i, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3);}
+\DoxyCodeLine{00128     \textcolor{comment}{/* uso un cursore per scorrere la matrice che rappresenta la disposizione del pezzo  */}}
+\DoxyCodeLine{00129     \textcolor{keywordtype}{int} *parser = pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}};}
+\DoxyCodeLine{00130     \textcolor{keywordflow}{for} (i = 0; i < l*l; i++)}
+\DoxyCodeLine{00131         \textcolor{keywordflow}{if}(*(parser++) == 1)    \textcolor{comment}{/* se in quel punto il pezzo esiste stampo sulla mappa il valore richiesto */}}
+\DoxyCodeLine{00132         \{}
+\DoxyCodeLine{00133             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} + i/l][pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} + i\%l] = valore;  }
+\DoxyCodeLine{00134             \textcolor{keywordflow}{else}                pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} + i/l][pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} + i\%l] = valore;}
+\DoxyCodeLine{00135         \} }
+\DoxyCodeLine{00136     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00137 \}}
+
+\end{DoxyCode}

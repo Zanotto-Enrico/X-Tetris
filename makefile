@@ -15,8 +15,11 @@ grafica.o: grafica.c
 eventiPartita.o: eventiPartita.c
 	$(COMP) eventiPartita.c -o eventiPartita.o -c $(FLAGS)
 
-X-Tetris: varGlobali.o grafica.o eventiPartita.o main.c 
-	$(COMP) varGlobali.o grafica.o eventiPartita.o main.c -no-pie -o X-Tetris $(FLAGS)
+funzioniCpu.o: funzioniCpu.c
+	$(COMP) funzioniCpu.c -o funzioniCpu.o -c $(FLAGS)
+
+X-Tetris: varGlobali.o grafica.o eventiPartita.o funzioniCpu.o main.c 
+	$(COMP) varGlobali.o grafica.o eventiPartita.o main.c funzioniCpu.o -no-pie -o X-Tetris $(FLAGS)
 
 clean:
 	rm *.o

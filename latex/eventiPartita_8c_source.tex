@@ -1,0 +1,398 @@
+\hypertarget{eventiPartita_8c_source}{}\doxysection{eventi\+Partita.\+c}
+\mbox{\hyperlink{eventiPartita_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{headers_8h}{headers.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00003}\mbox{\hyperlink{eventiPartita_8c_a16eee978e1d4a24b6335088b46abaafc}{00003}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_a16eee978e1d4a24b6335088b46abaafc}{IniziaPartita}}(\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}} mode)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00004}00004 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00005}00005     \mbox{\hyperlink{structPartita}{Partita}}* partita = \mbox{\hyperlink{eventiPartita_8c_af28aaf1726d8ec86c3a5cb151f957618}{inizializzaPartita}}(mode);                       \textcolor{comment}{/* inizializzo la struct partita                     */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00006}00006     \textcolor{keywordflow}{while} (partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} == \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361baaee25f5c8faad8c33ffb82478b0a8a38}{IN\_CORSO}})                                 \textcolor{comment}{/* ciclo fino alla fine della partita                */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00007}00007     \{   }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00008}00008         \mbox{\hyperlink{structPezzo}{Pezzo}} *pz = NULL;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00009}00009         \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}} \&\& partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}{P2}})           \textcolor{comment}{/* se è il turno del computer                        */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00010}00010             \mbox{\hyperlink{funzioniCpu_8c_a3b56bd58ab71c11366cddcf03ca3b4d2}{eseguiMossaCPU}}(partita);                                   \textcolor{comment}{/* chiedo alla macchina di fare una mossa            */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00011}00011         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00012}00012         \{                                                              \textcolor{comment}{/* altrimenti, se è il turno di un giocatore         */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00013}00013             \mbox{\hyperlink{eventiPartita_8c_a0644bf5c04860d153c63e55276965bf7}{richiediSceltaPezzo}}(partita);                              \textcolor{comment}{/* richiedo al giocatore di scegliere un pezzo       */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00014}00014             pz = \mbox{\hyperlink{eventiPartita_8c_a65b7a5ca94c38ebee4a890329fdc42d1}{generaPezzo}}(partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}});               \textcolor{comment}{/* genero un pezzo del tipo selezionato dall'utente  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00015}00015             \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,0,0);                                \textcolor{comment}{/* posiziono il pezzo appena creato nella mappa      */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00016}00016             \mbox{\hyperlink{eventiPartita_8c_a50acfd52e1f4d0b9b1b7abdaa5887fb5}{posizionaPezzo}}(partita,pz);                                \textcolor{comment}{/* chiedo al giocatore di posizionarlo e confermarlo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00017}00017             \mbox{\hyperlink{eventiPartita_8c_a72ae0f2c84722d8faecac7c208d9382a}{distruggiPezzo}}(pz);                                        \textcolor{comment}{/* distruggo il pezzo che non serve più              */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00018}00018         \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00019}00019         }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00020}00020         \textcolor{keywordtype}{int} rimosse = \mbox{\hyperlink{eventiPartita_8c_a974c16f6eb2db617d5f61d7eec167d48}{rimuoviLinee}}(partita);                              \textcolor{comment}{/* verifico se ci sono righe da eliminare e salvo la quantità    */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00021}00021         \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00022}00022         \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00023}00023             \mbox{\hyperlink{eventiPartita_8c_a3ca0a7e37697fea638822a12904faa47}{incrementaPunteggio}}(\&partita-\/>\mbox{\hyperlink{structPartita_ae53779d2d90a0232675ae2b8aa3b384d}{punteggio1}}, rimosse);                       \textcolor{comment}{/* se il turno è del giocatore 1 aumento il suo punteggio in     */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00024}00024             \textcolor{keywordflow}{if}(rimosse >= 3 ) \mbox{\hyperlink{eventiPartita_8c_a3462860dd63effd24a917b2dfd8e3dab}{invertiRighe}}(partita-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}, rimosse);                 \textcolor{comment}{/* base alle righe rimosse e eventualmente se il numero è        */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00025}00025         \}                                                                             \textcolor{comment}{/* maggiore di 3 inverto le medesime righe nel campo avversario  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00026}00026         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00027}00027         \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00028}00028             \mbox{\hyperlink{eventiPartita_8c_a3ca0a7e37697fea638822a12904faa47}{incrementaPunteggio}}(\&partita-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}}, rimosse);                       \textcolor{comment}{/* se il turno è del giocatore 2 aumento il suo punteggio in     */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00029}00029             \textcolor{keywordflow}{if}(rimosse >= 3 ) \mbox{\hyperlink{eventiPartita_8c_a3462860dd63effd24a917b2dfd8e3dab}{invertiRighe}}(partita-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}, rimosse);                 \textcolor{comment}{/* base alle righe rimosse e eventualmente se il numero è        */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00030}00030         \}                                                                             \textcolor{comment}{/* maggiore di 3 inverto le medesime righe nel campo avversario  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00031}00031         }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00032}00032         \mbox{\hyperlink{eventiPartita_8c_abb3eccb7d44151f49d0c51aeb419a253}{cambiaTurno}}(partita);                                                         \textcolor{comment}{/* terminata la mossa cambio il turno                            */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00033}00033         \mbox{\hyperlink{eventiPartita_8c_a974c16f6eb2db617d5f61d7eec167d48}{rimuoviLinee}}(partita);                                                        \textcolor{comment}{/* verifico se dopo l'inversione ci sono righe da rimuovere      */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00035}00035         \textcolor{keywordtype}{int} end = \mbox{\hyperlink{eventiPartita_8c_a4f8797e090e14386ed5ec0aaf75233ad}{checkGameEnd}}(partita);                                              \textcolor{comment}{/* verifico se la partita è giunta al termine                    */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00036}00036         \textcolor{keywordflow}{if}(end == 1) partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} = \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba41386872ebe4dff73280be09b76c422d}{VITTORIA\_P2}};                                    \textcolor{comment}{/* se la funzione ritorna 1 ha vinto il giocatore 2              */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00037}00037         \textcolor{keywordflow}{if}(end == 2) partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} = \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba74ef188effc4ac9e6105377323e3f2c6}{VITTORIA\_P1}};                                    \textcolor{comment}{/* se ritnorna 2 ha vinto il giocatore 1                         */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00038}00038     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00039}00039     \mbox{\hyperlink{grafica_8c_a010bf1806ab2d2e0767a91438f2cb675}{Update}}(partita);                                                                  \textcolor{comment}{/* terminata la partita aggiorno lo schermo per il menù finale   */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00040}00040     \mbox{\hyperlink{eventiPartita_8c_a0644bf5c04860d153c63e55276965bf7}{richiediSceltaPezzo}}(partita);                                                     \textcolor{comment}{/* utilizzo questa funzione per attendere un "{}invio"{} dall'utente */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00041}00041     free(partita);                                                                    \textcolor{comment}{/* la partita è terminata quindi libero la memoria               */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00042}00042 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00044}\mbox{\hyperlink{eventiPartita_8c_a61652e02ad29691cdddaeb081e43d09a}{00044}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_a61652e02ad29691cdddaeb081e43d09a}{menuIniziale}}()}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00045}00045 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00046}00046     \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}} mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00047}00047     \textcolor{keywordtype}{char} cmd = \textcolor{charliteral}{'0'};     \textcolor{comment}{/* variabile per memorizzare l'input */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00048}00048    }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00049}00049     \textcolor{keywordflow}{while} (cmd != \textcolor{charliteral}{'\(\backslash\)n'})             \textcolor{comment}{/* fino a che l'utente non preme invio attendo l'input */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00050}00050     \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00051}00051         \mbox{\hyperlink{grafica_8c_a3f5a170d8ea031166b5f9748e9678057}{StampaMenuIniziale}}(mode);   \textcolor{comment}{/* stampo la grafica del menù */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00052}00052         cmd = getchar();            \textcolor{comment}{/*ottengo l'input utente*/}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00053}00053         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'A'} \&\& mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}})    mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}};           \textcolor{comment}{/* se l'utente preme la freccia verso l'alto   */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00054}00054         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'A'} \&\& mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}})            mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}};       \textcolor{comment}{/* ciclo verso l'alto l'opzione selezionata    */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00056}00056         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'B'} \&\& mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}})   mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}};       \textcolor{comment}{/* se l'utente preme la freccia verso il basso */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00057}00057         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'B'} \&\& mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}})    mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}};               \textcolor{comment}{/* ciclo verso il basso l'opzione selezionata  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00058}00058     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00059}00059     \mbox{\hyperlink{eventiPartita_8c_a16eee978e1d4a24b6335088b46abaafc}{IniziaPartita}}(mode);}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00060}00060 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00062}\mbox{\hyperlink{eventiPartita_8c_af28aaf1726d8ec86c3a5cb151f957618}{00062}} \mbox{\hyperlink{structPartita}{Partita}} *\mbox{\hyperlink{eventiPartita_8c_af28aaf1726d8ec86c3a5cb151f957618}{inizializzaPartita}}(\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}} mode)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00063}00063 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00064}00064     \textcolor{comment}{/* alloco memoria per la struct partita e setto le variabili principali */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00065}00065     \mbox{\hyperlink{structPartita}{Partita}}* partita = malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structPartita}{Partita}}));}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00066}00066     partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} = mode;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00067}00067     partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} = \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00068}00068     partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} = \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361baaee25f5c8faad8c33ffb82478b0a8a38}{IN\_CORSO}};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00069}00069     \textcolor{comment}{/* riempo entrambi i campi di gioco con zeri */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00070}00070     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00071}00071     \textcolor{keywordflow}{for} (i = 0; i < 15; i++)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00072}00072         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00073}00073             partita-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j] = 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00074}00074             partita-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j] = 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00075}00075     \textcolor{comment}{/* setto la quantità massima di ogni pezzo a 20 */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00076}00076     for (i = 0; i < 7; i++)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00077}00077         partita-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[i] = 20;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00078}00078     \textcolor{comment}{/* setto i punteggi dei giocatori entrambi a 0 */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00079}00079     partita-\/>\mbox{\hyperlink{structPartita_ae53779d2d90a0232675ae2b8aa3b384d}{punteggio1}} = partita-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}} = 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00080}00080     partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}} = 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00081}00081     \textcolor{keywordflow}{return} partita;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00082}00082 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00084}\mbox{\hyperlink{eventiPartita_8c_a3ca0a7e37697fea638822a12904faa47}{00084}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_a3ca0a7e37697fea638822a12904faa47}{incrementaPunteggio}}(\textcolor{keywordtype}{int}* punteggio, \textcolor{keywordtype}{int} lineeRimosse)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00085}00085 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00086}00086     \textcolor{comment}{/* aumento il punteggio del giocatore in funzione delle righe che ha rimosso*/}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00087}00087     \textcolor{keywordflow}{switch} (lineeRimosse)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00088}00088     \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00089}00089         \textcolor{keywordflow}{case} 1:  *punteggio+=1;  \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00090}00090         \textcolor{keywordflow}{case} 2:  *punteggio+=3;  \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00091}00091         \textcolor{keywordflow}{case} 3:  *punteggio+=6;  \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00092}00092         \textcolor{keywordflow}{case} 4:  *punteggio+=12; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00093}00093     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00094}00094 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00096}\mbox{\hyperlink{eventiPartita_8c_a0644bf5c04860d153c63e55276965bf7}{00096}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_a0644bf5c04860d153c63e55276965bf7}{richiediSceltaPezzo}}(\mbox{\hyperlink{structPartita}{Partita}}* partita)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00097}00097 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00098}00098     partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}} = 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00099}00099     \textcolor{keywordtype}{char} cmd = \textcolor{charliteral}{'0'};    \textcolor{comment}{/* variabile per memorizzare l'input */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00100}00100     \textcolor{keywordtype}{int} scelto = 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00101}00101     \textcolor{comment}{/* fino a che l'utente non preme invio o sceglie un pezzo non esaurito attendo l'input */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00102}00102     \textcolor{keywordflow}{while} (cmd != \textcolor{charliteral}{'\(\backslash\)n'} || partita-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[scelto] <= 0)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00103}00103     \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00104}00104         \mbox{\hyperlink{grafica_8c_a010bf1806ab2d2e0767a91438f2cb675}{Update}}(partita);}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00105}00105         cmd = getchar(); \textcolor{comment}{/* ottengo l'input */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00106}00106         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'D'}) scelto = (scelto+1)\%7;       \textcolor{comment}{/* se l'utente preme il la freccia destra o sinistra */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00107}00107         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'C'}) scelto = (scelto+6)\%7;       \textcolor{comment}{/* continuo a ciclare la lista di pezzi dispobiibli  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00108}00108         partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}} = scelto;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00109}00109     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00110}00110     \textcolor{comment}{/* una volta che il pezzo è confermato diminuisco la quantità disponibile per lo stesso tipo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00111}00111     partita-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[scelto]-\/-\/;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00112}00112 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00113}00113 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00114}\mbox{\hyperlink{eventiPartita_8c_abb3eccb7d44151f49d0c51aeb419a253}{00114}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_abb3eccb7d44151f49d0c51aeb419a253}{cambiaTurno}}(\mbox{\hyperlink{structPartita}{Partita}}* partita)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00115}00115 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00116}00116     \textcolor{comment}{/* se è il turno del giocatore 2 passo al giocatore 1 */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00117}00117     \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}{P2}} || partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}}) }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00118}00118         partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} = \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00119}00119     \textcolor{keywordflow}{else}    \textcolor{comment}{/*altrimenti passo al giocatore 2*/}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00120}00120         partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} = \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}{P2}};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00121}00121 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00123}\mbox{\hyperlink{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}{00123}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}{ScriviSuMappa}}(\mbox{\hyperlink{structPartita}{Partita}}* pa, \mbox{\hyperlink{structPezzo}{Pezzo}}* pz, \textcolor{keywordtype}{int} valore)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00124}00124 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00125}00125     \textcolor{comment}{/* la dimensione del lato l del quadrato dell'area della matrice su cui devo scivere varia */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00126}00126     \textcolor{comment}{/* in base al tipo del pezzo che uso come maschera */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00127}00127     \textcolor{keywordtype}{int} i, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3);}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00128}00128     \textcolor{comment}{/* uso un cursore per scorrere la matrice che rappresenta la disposizione del pezzo  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00129}00129     \textcolor{keywordtype}{int} *parser = pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00130}00130     \textcolor{keywordflow}{for} (i = 0; i < l*l; i++)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00131}00131         \textcolor{keywordflow}{if}(*(parser++) == 1)    \textcolor{comment}{/* se in quel punto il pezzo esiste stampo sulla mappa il valore richiesto */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00132}00132         \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00133}00133             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} + i/l][pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} + i\%l] = valore;  }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00134}00134             \textcolor{keywordflow}{else}                pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} + i/l][pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} + i\%l] = valore;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00135}00135         \} }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00136}00136     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00137}00137 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00138}00138 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00139}\mbox{\hyperlink{eventiPartita_8c_a65b7a5ca94c38ebee4a890329fdc42d1}{00139}} \mbox{\hyperlink{structPezzo}{Pezzo}}* \mbox{\hyperlink{eventiPartita_8c_a65b7a5ca94c38ebee4a890329fdc42d1}{generaPezzo}}(\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2}{TipoPezzo}} tipo)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00140}00140 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00141}00141     \textcolor{comment}{/*  alloco memoria per la struct del nuovo pezzo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00142}00142     \mbox{\hyperlink{structPezzo}{Pezzo}} *pz = malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structPezzo}{Pezzo}}));}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00143}00143     pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} = tipo;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00144}00144     pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} = 3; pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} = 0;   \textcolor{comment}{/* posiziono il nuovo pezzo in centro in alto alla mappa */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00145}00145     \mbox{\hyperlink{eventiPartita_8c_ae447353be6acd2ec2f2511845f79a6f1}{assegnaDisposizione}}(pz);\textcolor{comment}{/* e gli assegno la dispozione in base al suo tipo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00146}00146     \textcolor{keywordflow}{return} pz;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00147}00147 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00149}\mbox{\hyperlink{eventiPartita_8c_ae447353be6acd2ec2f2511845f79a6f1}{00149}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_ae447353be6acd2ec2f2511845f79a6f1}{assegnaDisposizione}}(\mbox{\hyperlink{structPezzo}{Pezzo}}* pz)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00150}00150 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00151}00151     \textcolor{comment}{/* la dimensione della disposizione di un pezzo dipende dal tipo di pezzo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00152}00152     \textcolor{keywordtype}{int} i, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 4 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 16 : 9);}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00153}00153     \textcolor{keywordtype}{int} *schema;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00154}00154     \textcolor{keywordflow}{switch} (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}})}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00155}00155     \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00156}00156         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}}: schema = \mbox{\hyperlink{headers_8h_a3c60ea2336411654a38e6769a81508c4}{O\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00157}00157         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}}: schema = \mbox{\hyperlink{headers_8h_a70305e061fda1d93d73c5cb4b801aebb}{I\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00158}00158         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aa70478ce277ffc322f8e1e3418e07355}{Z}}: schema = \mbox{\hyperlink{headers_8h_a0b63803eaf8d8879554a48ac6680c9c2}{Z\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00159}00159         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}{S}}: schema = \mbox{\hyperlink{headers_8h_a5ffdaacb539cbe809c60e8a843475ca5}{S\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00160}00160         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aef31cc6fe9479955961311ee18ac205f}{L}}: schema = \mbox{\hyperlink{headers_8h_a6177a638bb33cbc9d931c74f6c8576b2}{L\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00161}00161         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a21f40778b7db9343a6ca75ec2c41ccce}{T}}: schema = \mbox{\hyperlink{headers_8h_a4c1274994abe8752c6ea6faf62056bd7}{T\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00162}00162         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a03605500b0c55f3d95874e8edfcf4e30}{J}}: schema = \mbox{\hyperlink{headers_8h_a032ebef625b5b16829f5901c0cf47438}{J\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00163}00163     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00164}00164     pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} = malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int})*l);                   \textcolor{comment}{/* alloco memoria per salvare la disposizione del pezzo nella sua struct */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00165}00165     \textcolor{keywordflow}{for}(i = 0; i < l; i++) pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}}[i] = schema[i];     \textcolor{comment}{/* e copio la disposizione standard del suo tipo nella sua struct*/}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00166}00166 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00167}00167 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00168}\mbox{\hyperlink{eventiPartita_8c_a72ae0f2c84722d8faecac7c208d9382a}{00168}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_a72ae0f2c84722d8faecac7c208d9382a}{distruggiPezzo}}(\mbox{\hyperlink{structPezzo}{Pezzo}}* pz)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00169}00169 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00170}00170     \textcolor{comment}{/* libero la memoria occupata da un pezzo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00171}00171     free(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}});}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00172}00172     free(pz);}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00173}00173 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00174}00174 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00175}\mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{00175}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(\mbox{\hyperlink{structPartita}{Partita}}* pa, \mbox{\hyperlink{structPezzo}{Pezzo}}* pz)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00176}00176 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00177}00177     \textcolor{comment}{/* scrivo sulla mappa il valore 2 che rappresenta un pezzo non confermato */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00178}00178     \textcolor{comment}{/* passo il pezzo stesso come maschera per la stampa                      */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00179}00179     \mbox{\hyperlink{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}{ScriviSuMappa}}(pa,pz,2);}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00180}00180 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00181}00181 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00182}\mbox{\hyperlink{eventiPartita_8c_af372721013335e373c8a79a1af8b804d}{00182}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_af372721013335e373c8a79a1af8b804d}{rimuoviPezzo}}(\mbox{\hyperlink{structPartita}{Partita}}* pa, \mbox{\hyperlink{structPezzo}{Pezzo}}* pz)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00183}00183 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00184}00184     \textcolor{comment}{/* scrivo sulla mappa il valore 0 che rappresenta uno spazio vuoto        */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00185}00185     \textcolor{comment}{/* passo il pezzo stesso come maschera per la stampa                      */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00186}00186     \mbox{\hyperlink{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}{ScriviSuMappa}}(pa,pz,0);}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00187}00187 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00188}00188 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00189}\mbox{\hyperlink{eventiPartita_8c_aea8e121a46998b4ba6e499c3ad6217de}{00189}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_aea8e121a46998b4ba6e499c3ad6217de}{confermaPezzo}}(\mbox{\hyperlink{structPartita}{Partita}}* pa, \mbox{\hyperlink{structPezzo}{Pezzo}}* pz)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00190}00190 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00191}00191     \textcolor{comment}{/* scrivo sulla mappa il valore 1 che rappresenta un pezzo confermato     */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00192}00192     \textcolor{comment}{/* passo il pezzo stesso come maschera per la stampa                      */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00193}00193     \mbox{\hyperlink{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}{ScriviSuMappa}}(pa,pz,1);}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00194}00194 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00195}00195 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00196}\mbox{\hyperlink{eventiPartita_8c_a50acfd52e1f4d0b9b1b7abdaa5887fb5}{00196}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_a50acfd52e1f4d0b9b1b7abdaa5887fb5}{posizionaPezzo}}(\mbox{\hyperlink{structPartita}{Partita}}* partita, \mbox{\hyperlink{structPezzo}{Pezzo}}* pz)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00197}00197 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00198}00198     \textcolor{keywordtype}{char} cmd = \textcolor{charliteral}{'0'};\textcolor{comment}{/* variabile per memorizzare l'input */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00199}00199     \textcolor{comment}{/* fino a che l'utente non preme invio continuo ad attendere l'input */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00200}00200     \textcolor{keywordflow}{while} (cmd != \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00201}00201     \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00202}00202         \mbox{\hyperlink{grafica_8c_a010bf1806ab2d2e0767a91438f2cb675}{Update}}(partita); \textcolor{comment}{/* aggiorno la grafica perchè l'utente deve vedere il pezzo che ha appena mosso */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00203}00203         cmd = getchar(); }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00204}00204         \textcolor{keywordtype}{int} fatta = 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00205}00205         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'A'}) fatta = \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,0,-\/1);         \textcolor{comment}{/* questi sono i quattro casi che rappresentano */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00206}00206         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'D'}) fatta = \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,-\/1,0);         \textcolor{comment}{/* le quattro direzioni in qui un utente può    */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00207}00207         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'B'}) fatta = \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,0,1);          \textcolor{comment}{/* muovere ogni pezzo tramite le 4 freccette    */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00208}00208         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'C'}) fatta = \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,1,0);          \textcolor{comment}{/* direzionali                                  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00209}00209         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'\(\backslash\)n'}) }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00210}00210             \textcolor{keywordflow}{if}(\mbox{\hyperlink{eventiPartita_8c_a286cba791d3dfa4c618f2aedce8aa9af}{isPezzoPosizionabile}}(partita,pz))                    \textcolor{comment}{/* se l'utente preme invio controllo che il pezzo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00211}00211                 \mbox{\hyperlink{eventiPartita_8c_aea8e121a46998b4ba6e499c3ad6217de}{confermaPezzo}}(partita,pz);                          \textcolor{comment}{/* sia posizionabile ed eventualmente lo confermo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00212}00212             \textcolor{keywordflow}{else} cmd = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00213}00213         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'r'}) \mbox{\hyperlink{eventiPartita_8c_a6bb98f39b683d3b6d4b66be58dbc583e}{ruotaPezzo}}(partita, pz);                     \textcolor{comment}{/* se invece l'utente preme il tasto r ruoto il pezzo (sempre se possibile) */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00214}00214     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00215}00215 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00216}00216 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00217}\mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{00217}} \textcolor{keywordtype}{int} \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(\mbox{\hyperlink{structPartita}{Partita}}* pa, \mbox{\hyperlink{structPezzo}{Pezzo}}* pz, \textcolor{keywordtype}{int} dx, \textcolor{keywordtype}{int} dy)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00218}00218 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00219}00219     \mbox{\hyperlink{eventiPartita_8c_af372721013335e373c8a79a1af8b804d}{rimuoviPezzo}}(pa,pz);                \textcolor{comment}{/* rimuovo il pezzo dalla mappa */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00220}00220     pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} += dx; pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} += dy;           \textcolor{comment}{/* muovo il pezzo di dy e dx senza modificare la mappa */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00221}00221     \textcolor{keywordflow}{if}(\mbox{\hyperlink{eventiPartita_8c_a9a2a1a8dc3e71a104d0f831a6a1f9620}{isPezzoSpostabile}}(pa,pz))        \textcolor{comment}{/* verifico se il pezzo in questa posizione è spostabile */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00222}00222     \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00223}00223         \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(pa,pz);          \textcolor{comment}{/* se è così, aggiorno la sua posizione anche nella mappa */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00224}00224         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00225}00225     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00226}00226     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00227}00227     \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00228}00228         pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} -\/= dx; pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} -\/= dy;       \textcolor{comment}{/* altrimenti lo faccio tornare dove era */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00229}00229         \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(pa,pz);          \textcolor{comment}{/* e lo inserisco nuovamente nella mappa */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00230}00230         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00231}00231     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00232}00232 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00233}00233 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00234}\mbox{\hyperlink{eventiPartita_8c_a6bb98f39b683d3b6d4b66be58dbc583e}{00234}} \textcolor{keywordtype}{int} \mbox{\hyperlink{eventiPartita_8c_a6bb98f39b683d3b6d4b66be58dbc583e}{ruotaPezzo}}(\mbox{\hyperlink{structPartita}{Partita}}* pa, \mbox{\hyperlink{structPezzo}{Pezzo}}* pz)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00235}00235 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00236}00236     \mbox{\hyperlink{eventiPartita_8c_af372721013335e373c8a79a1af8b804d}{rimuoviPezzo}}(pa,pz); \textcolor{comment}{/* rimuovo il pezzo dalla mappa */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00237}00237 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00238}00238     \textcolor{keywordtype}{int} i,j, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3);               \textcolor{comment}{/*                                             */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00239}00239     \textcolor{keywordtype}{int} *result = malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int})*l*l);                                  \textcolor{comment}{/* in questa sezione applico un algoritmo per  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00240}00240     \textcolor{keywordtype}{int} n = 0;                                                              \textcolor{comment}{/* ruotare la matrice che rappresenta la       */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00241}00241     \textcolor{keywordflow}{for}(i = 0; i < l; i++)                                                  \textcolor{comment}{/* disposizione del blocco. E salvo la matrice */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00242}00242     \{                                                                       \textcolor{comment}{/* ruotata in una variabile a parte            */}        }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00243}00243         \textcolor{keywordflow}{for}(j = l-\/1; j >= 0; j-\/-\/)                                           \textcolor{comment}{/*                                             */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00244}00244         \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00245}00245             result[n++] = pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}}[j*l + i];}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00246}00246         \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00247}00247     \}   }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00248}00248     \textcolor{keywordtype}{int} *old = pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}};                                            \textcolor{comment}{/* tuttavia non elimino la vecchia disposizione  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00249}00249     pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} = result;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00250}00250     \textcolor{keywordflow}{if}(\mbox{\hyperlink{eventiPartita_8c_a9a2a1a8dc3e71a104d0f831a6a1f9620}{isPezzoSpostabile}}(pa,pz))                                            \textcolor{comment}{/* verifico se è possibile inserire il pezzo con */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00251}00251     \{                                                                       \textcolor{comment}{/* la nuova disposizione                         */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00252}00252         free(old);                                                          \textcolor{comment}{/* se posso elimino la vecchia disposizione      */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00253}00253         \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(pa,pz);}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00254}00254         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00255}00255     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00256}00256     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00257}00257     \{   }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00258}00258         pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} = old;                                             \textcolor{comment}{/* altrimenti annullo le modifiche fatte al pezzo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00259}00259         free(result);                                                       \textcolor{comment}{/* elimino la nuova disposizione                  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00260}00260         \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(pa,pz);                                              \textcolor{comment}{/* e inserisco di nuovo il pezzo                  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00261}00261         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00262}00262     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00263}00263 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00264}00264 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00265}\mbox{\hyperlink{eventiPartita_8c_a9a2a1a8dc3e71a104d0f831a6a1f9620}{00265}} \textcolor{keywordtype}{int} \mbox{\hyperlink{eventiPartita_8c_a9a2a1a8dc3e71a104d0f831a6a1f9620}{isPezzoSpostabile}}(\mbox{\hyperlink{structPartita}{Partita}}* pa, \mbox{\hyperlink{structPezzo}{Pezzo}}* pz)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00266}00266 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00267}00267     \textcolor{comment}{/* per verificare se il pezzo è spostabile in una data posizione devo scorrere la matrice rappresentante la       */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00268}00268     \textcolor{comment}{/* sua disposizione sovrapponendola alla mappa di gioco per vedere se esce dai bordi o se collide con altri pezzi */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00269}00269     \textcolor{keywordtype}{int} i, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3); \textcolor{comment}{/* ottengo la dimensione della dispozisione del pezzo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00270}00270     \textcolor{keywordtype}{int} result = 1;  \textcolor{comment}{/* variabile rappresentante la proprietà universale inizialmente vera*/}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00271}00271     \textcolor{comment}{/* scorro la disposizione del pezzo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00272}00272     \textcolor{keywordflow}{for} ( i = 0; i < l*l; i++)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00273}00273     \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00274}00274         \textcolor{keywordtype}{int} x = pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} + i\%l;                            \textcolor{comment}{/* ottengo le corrispondenti coordinate  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00275}00275         \textcolor{keywordtype}{int} y = pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} + i/l;                            \textcolor{comment}{/* in relazione alla mappa               */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00276}00276 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00277}00277         \textcolor{keywordflow}{if}(x > -\/1 \&\& y > -\/1 \&\& x < 10 \&\& y < 15)        \textcolor{comment}{/* verifico di essere entro i limiti della mappa di gioco */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00278}00278         \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00279}00279             \textcolor{comment}{/* osservo la mappa del giocatore che sta giocando */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00280}00280             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) result = !(*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[y][x]) \&\& result;  \textcolor{comment}{/* verifico se in questa coordinata specifica */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00281}00281             \textcolor{keywordflow}{else}                result = !(*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[y][x]) \&\& result;  \textcolor{comment}{/* si verifica una collisione tra due pezzi   */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00282}00282         \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00283}00283         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& result)  \textcolor{comment}{/* controllo se il pezzo esiste fuori dai limiti della mappa */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00284}00284             result = !*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i);      \textcolor{comment}{/* se ciò accade la mossa diventa illegale */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00285}00285     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00286}00286     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00287}00287 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00288}00288 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00289}\mbox{\hyperlink{eventiPartita_8c_a286cba791d3dfa4c618f2aedce8aa9af}{00289}} \textcolor{keywordtype}{int} \mbox{\hyperlink{eventiPartita_8c_a286cba791d3dfa4c618f2aedce8aa9af}{isPezzoPosizionabile}}(\mbox{\hyperlink{structPartita}{Partita}}* pa, \mbox{\hyperlink{structPezzo}{Pezzo}}* pz)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00290}00290 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00291}00291     \textcolor{comment}{/* per verificare se il pezzo è posizionabile ovvero confermabile devo scorrere la matrice rappresentante la */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00292}00292     \textcolor{comment}{/* sua disposizione sovrapponendola alla mappa di gioco per vedere se è appoggiato a qualcosa o è fluttuante */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00293}00293     \textcolor{keywordtype}{int} i, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3);\textcolor{comment}{/* ottengo la dimensione della dispozisione del pezzo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00294}00294     \textcolor{keywordtype}{int} result = 0;\textcolor{comment}{/* variabile rappresentante la proprietà esistenziale inizialmente falsa */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00295}00295     \textcolor{comment}{/* scorro la disposizione del pezzo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00296}00296     \textcolor{keywordflow}{for} ( i = 0; i < l*l; i++)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00297}00297     \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00298}00298         \textcolor{keywordtype}{int} x = pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} + i\%l;                            \textcolor{comment}{/* ottengo le corrispondenti coordinate  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00299}00299         \textcolor{keywordtype}{int} y = pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} + i/l;                            \textcolor{comment}{/* in relazione alla mappa               */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00300}00300 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00301}00301         \textcolor{keywordflow}{if}(y == 14 \&\& *(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i)) result = 1;      \textcolor{comment}{/* se è appoggiato al fondo mappa ho già risolto */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00302}00302         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(x > -\/1 \&\& y > -\/1 \&\& x < 10 \&\& y < 15)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00303}00303         \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00304}00304             \textcolor{comment}{/* osservo la mappa del giocatore che sta giocando */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00305}00305             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) result = (*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[y + 1][x] == 1) || result;      \textcolor{comment}{/* per ogni "{}blocco"{} che forma il pezzo */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00306}00306             \textcolor{keywordflow}{else}                result = (*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[y + 1][x] == 1) || result;      \textcolor{comment}{/* guardo se sotto di esso c'è qualcosa */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00307}00307         \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00308}00308             }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00309}00309     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00310}00310     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00311}00311 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00312}00312 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00313}\mbox{\hyperlink{eventiPartita_8c_a3462860dd63effd24a917b2dfd8e3dab}{00313}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_a3462860dd63effd24a917b2dfd8e3dab}{invertiRighe}}(\textcolor{keywordtype}{int} mappa[15][10], \textcolor{keywordtype}{int} nrighe)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00314}00314 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00315}00315     \textcolor{keywordtype}{int} i = 0, j = 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00316}00316     \textcolor{keywordflow}{for} (i = 14; i > 14-\/nrighe; i-\/-\/)            \textcolor{comment}{/* scorro solo le righe richieste */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00317}00317         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)                \textcolor{comment}{/* scorro tutta la riga */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00318}00318             mappa[i][j] = (mappa[i][j]+1)\%2;    \textcolor{comment}{/* se il valore è 1 diventa 0 e viceversa */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00319}00319     }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00320}00320 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00321}00321 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00322}\mbox{\hyperlink{eventiPartita_8c_a974c16f6eb2db617d5f61d7eec167d48}{00322}} \textcolor{keywordtype}{int} \mbox{\hyperlink{eventiPartita_8c_a974c16f6eb2db617d5f61d7eec167d48}{rimuoviLinee}}(\mbox{\hyperlink{structPartita}{Partita}}* pa)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00323}00323 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00324}00324     \textcolor{comment}{/* questa funzione ha lo scopo di verificare le righe che sono da rimuovere prima di rimuoverle     */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00325}00325     \textcolor{comment}{/* lo fa contando quanti "{}1"{} sono presenti in una riga: se il valore è pari a 10 la riga va rimossa */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00326}00326     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00327}00327     \textcolor{keywordtype}{int} rimosse = 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00328}00328     \textcolor{keywordflow}{for} (i = 0; i < 15; i++)                                                \textcolor{comment}{/* passo ogni riga della matrice */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00329}00329     \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00330}00330         \textcolor{keywordtype}{int} count = 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00331}00331         \textcolor{keywordflow}{for}(j = 0; j < 10; j++)\{                                            \textcolor{comment}{/* per ogni riga scorro le celle */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00332}00332             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) count = count + pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j];           \textcolor{comment}{/* e tengo il conto di quante    */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00333}00333             \textcolor{keywordflow}{else}                count = count + pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j];           \textcolor{comment}{/* di queste hanno valore 1      */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00334}00334         \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00335}00335         \textcolor{keywordflow}{if}(count == 10)                                                     \textcolor{comment}{/* se la somma fa 10 la riga va rimossa */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00336}00336         \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00337}00337             \textcolor{keywordflow}{for} (j = 0; j < 10; j++)\{                                       \textcolor{comment}{/* scorro nuovamente la riga e   */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00338}00338                 \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j] = 0;                   \textcolor{comment}{/* setto a zero tutti i valori   */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00339}00339                 \textcolor{keywordflow}{else}                pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j] = 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00340}00340             \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00341}00341             rimosse++;                                                      \textcolor{comment}{/* incremento il contatore righe rimosse */}  }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00342}00342             \mbox{\hyperlink{eventiPartita_8c_a93c77b7b4c510aa276e702f60c03e056}{abbassaBlocchi}}(pa,i);                                           \textcolor{comment}{/* abbasso i blocchi superiori alla riga tolta */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00343}00343         \}   }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00344}00344     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00345}00345     \textcolor{keywordflow}{return} rimosse;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00346}00346 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00347}00347 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00348}\mbox{\hyperlink{eventiPartita_8c_a93c77b7b4c510aa276e702f60c03e056}{00348}} \textcolor{keywordtype}{void} \mbox{\hyperlink{eventiPartita_8c_a93c77b7b4c510aa276e702f60c03e056}{abbassaBlocchi}}(\mbox{\hyperlink{structPartita}{Partita}}* pa, \textcolor{keywordtype}{int} linea)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00349}00349 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00350}00350     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00351}00351     \textcolor{keywordflow}{for} (i = linea-\/1; i > -\/1; i-\/-\/)                             \textcolor{comment}{/* scorro tutte le righe a partire da quella da elminiare   */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00352}00352     \{                                                          \textcolor{comment}{/* verso l'alto e le muovo in basso di una posizione ognuna */} }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00353}00353         }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00354}00354         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)                               \textcolor{comment}{/* scorro ogni cella di ogni riga */}          }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00355}00355         \{                                               }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00356}00356             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}})                                \textcolor{comment}{/* la mappa su cui lavoro dipende dal turno attuale */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00357}00357             \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00358}00358                 pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i+1][j] = pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j];         \textcolor{comment}{/* copio la cella superiore in quella dove sono */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00359}00359                 pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j] = 0;                          \textcolor{comment}{/* setto la cella superiore pari a zero */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00360}00360             \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00361}00361             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00362}00362             \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00363}00363                 pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i+1][j] = pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j];          \textcolor{comment}{/* stesso procedimento per il giocatore 2 */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00364}00364                 pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j] = 0;                           }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00365}00365             \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00366}00366         \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00367}00367     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00368}00368 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00369}00369 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00370}\mbox{\hyperlink{eventiPartita_8c_a4f8797e090e14386ed5ec0aaf75233ad}{00370}} \textcolor{keywordtype}{int} \mbox{\hyperlink{eventiPartita_8c_a4f8797e090e14386ed5ec0aaf75233ad}{checkGameEnd}}(\mbox{\hyperlink{structPartita}{Partita}}* pa)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00371}00371 \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00372}00372     \textcolor{comment}{/* la partita termina in 2 casi:   superato limite superiore    blocchi esauriti  */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00373}00373     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00374}00374     \textcolor{keywordflow}{for} (i = 0; i < 2; i++)     \textcolor{comment}{/* scorro le due righe della mappa "{}vietate"{} */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00375}00375     \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00376}00376         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00377}00377         \{}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00378}00378             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j]) \textcolor{keywordflow}{return} 1;      \textcolor{comment}{/* se nella mappa1 la zona vietata è stata superata il giocatore 1 ha perso */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00379}00379             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j]) \textcolor{keywordflow}{return} 2;      \textcolor{comment}{/* se nella mappa2 la zona vietata è stata superata il giocatore 2 ha perso */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00380}00380         \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00381}00381     \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00382}00382     \textcolor{keywordtype}{int} sum = 0;}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00383}00383     \textcolor{keywordflow}{for} (i = 0; i < 7; i++) }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00384}00384         sum += pa-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[i];                         \textcolor{comment}{/* sommo tutti i pezzi rimasti insieme               */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00385}00385 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00386}00386     \textcolor{keywordflow}{if}(sum == 0)                                            \textcolor{comment}{/* verifico se sono uguali a zero                    */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00387}00387         \textcolor{keywordflow}{return} pa-\/>\mbox{\hyperlink{structPartita_ae53779d2d90a0232675ae2b8aa3b384d}{punteggio1}} > pa-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}} ? 2 : 1 ;    \textcolor{comment}{/* se questo accade vince il giocatore con più punti */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00388}00388 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00389}00389     \textcolor{keywordflow}{return} 0;                                               \textcolor{comment}{/* se niente di tutto ciò accade la partita continua */}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00390}00390 \}}
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00391}00391 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00392}00392 }
+\DoxyCodeLine{\Hypertarget{eventiPartita_8c_source_l00393}00393 }
+
+\end{DoxyCode}

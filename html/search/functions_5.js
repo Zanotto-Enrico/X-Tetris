@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['incrementapunteggio_0',['incrementaPunteggio',['../eventiPartita_8c.html#a3ca0a7e37697fea638822a12904faa47',1,'incrementaPunteggio(int *punteggio, int lineeRimosse):&#160;eventiPartita.c'],['../headers_8h.html#a3ca0a7e37697fea638822a12904faa47',1,'incrementaPunteggio(int *punteggio, int lineeRimosse):&#160;eventiPartita.c']]],
+  ['inizializzapartita_1',['inizializzaPartita',['../eventiPartita_8c.html#af28aaf1726d8ec86c3a5cb151f957618',1,'inizializzaPartita(Modalita mode):&#160;eventiPartita.c'],['../headers_8h.html#af28aaf1726d8ec86c3a5cb151f957618',1,'inizializzaPartita(Modalita mode):&#160;eventiPartita.c']]],
+  ['iniziapartita_2',['IniziaPartita',['../eventiPartita_8c.html#a16eee978e1d4a24b6335088b46abaafc',1,'IniziaPartita(Modalita mode):&#160;eventiPartita.c'],['../headers_8h.html#a16eee978e1d4a24b6335088b46abaafc',1,'IniziaPartita(Modalita mode):&#160;eventiPartita.c']]],
+  ['inseriscipezzo_3',['inserisciPezzo',['../eventiPartita_8c.html#af0a6d2f6a14a4e9883a40322b586c699',1,'inserisciPezzo(Partita *pa, Pezzo *pz):&#160;eventiPartita.c'],['../headers_8h.html#af0a6d2f6a14a4e9883a40322b586c699',1,'inserisciPezzo(Partita *pa, Pezzo *pz):&#160;eventiPartita.c']]],
+  ['invertirighe_4',['invertiRighe',['../eventiPartita_8c.html#a3462860dd63effd24a917b2dfd8e3dab',1,'invertiRighe(int mappa[15][10], int nrighe):&#160;eventiPartita.c'],['../headers_8h.html#a3462860dd63effd24a917b2dfd8e3dab',1,'invertiRighe(int mappa[15][10], int nrighe):&#160;eventiPartita.c']]],
+  ['ispezzoposizionabile_5',['isPezzoPosizionabile',['../eventiPartita_8c.html#a286cba791d3dfa4c618f2aedce8aa9af',1,'isPezzoPosizionabile(Partita *pa, Pezzo *pz):&#160;eventiPartita.c'],['../headers_8h.html#a286cba791d3dfa4c618f2aedce8aa9af',1,'isPezzoPosizionabile(Partita *pa, Pezzo *pz):&#160;eventiPartita.c']]],
+  ['ispezzospostabile_6',['isPezzoSpostabile',['../eventiPartita_8c.html#a9a2a1a8dc3e71a104d0f831a6a1f9620',1,'isPezzoSpostabile(Partita *pa, Pezzo *pz):&#160;eventiPartita.c'],['../headers_8h.html#a9a2a1a8dc3e71a104d0f831a6a1f9620',1,'isPezzoSpostabile(Partita *pa, Pezzo *pz):&#160;eventiPartita.c']]]
+];

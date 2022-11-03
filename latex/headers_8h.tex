@@ -1,0 +1,2015 @@
+\hypertarget{headers_8h}{}\doxysection{headers.\+h File Reference}
+\label{headers_8h}\index{headers.h@{headers.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$termios.\+h$>$}\newline
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPartita}{Partita}}
+\item 
+struct \mbox{\hyperlink{structPezzo}{Pezzo}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71}{Giocatore}} \{ \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}
+, \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}{P2}}
+ \}
+\item 
+enum \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2}{Tipo\+Pezzo}} \{ \newline
+\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}}
+, \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a21f40778b7db9343a6ca75ec2c41ccce}{T}}
+, \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}}
+, \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aef31cc6fe9479955961311ee18ac205f}{L}}
+, \newline
+\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a03605500b0c55f3d95874e8edfcf4e30}{J}}
+, \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}{S}}
+, \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aa70478ce277ffc322f8e1e3418e07355}{Z}}
+ \}
+\item 
+enum \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}} \{ \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}}
+, \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}}
+, \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}}
+ \}
+\item 
+enum \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361b}{Stato}} \{ \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361baaee25f5c8faad8c33ffb82478b0a8a38}{IN\+\_\+\+CORSO}}
+, \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba1869bf781a45310b54779a2d2bfc17ae}{TERMINATA}}
+, \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba74ef188effc4ac9e6105377323e3f2c6}{VITTORIA\+\_\+\+P1}}
+, \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba41386872ebe4dff73280be09b76c422d}{VITTORIA\+\_\+\+P2}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{headers_8h_a010bf1806ab2d2e0767a91438f2cb675}{Update}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$partita)
+\item 
+void \mbox{\hyperlink{headers_8h_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}} (int x, int y)
+\item 
+void \mbox{\hyperlink{headers_8h_af9fd89df2dcf2b7fe18d6eac306cbd70}{aggiorna\+Centro\+Schermo}} ()
+\item 
+int \mbox{\hyperlink{headers_8h_a3602fc0c6dd5b37a3ea4e41dc9d31c63}{Str\+Len\+MB}} (char $\ast$s)
+\item 
+void \mbox{\hyperlink{headers_8h_a3643d55f259bc6e310a4aae78e199b4c}{Stampa}} (char $\ast$s)
+\item 
+void \mbox{\hyperlink{headers_8h_a90ae96fa446382b324d95fe843d77bf3}{StampaL}} (char $\ast$s)
+\item 
+void \mbox{\hyperlink{headers_8h_a1e0ab7d58dc648a857033796bebc8c44}{Stampa\+LCon\+Colore}} (char $\ast$s, int Num\+Colori\+Usati)
+\item 
+void \mbox{\hyperlink{headers_8h_af6f0d5767349bbc19df9486c71f32b09}{pulisci\+Schermo}} ()
+\item 
+void \mbox{\hyperlink{headers_8h_a014659789ddcd7e2285393ff76d1e978}{Stampa\+Titolo}} ()
+\item 
+void \mbox{\hyperlink{headers_8h_a3f5a170d8ea031166b5f9748e9678057}{Stampa\+Menu\+Iniziale}} (\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}} mode)
+\item 
+void \mbox{\hyperlink{headers_8h_a7423c11fab2fe524ca3ce48cd52d8976}{Stampa\+Modalita}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$partita)
+\item 
+void \mbox{\hyperlink{headers_8h_a437eadc82c33c207a08c56dd45047a2c}{Stampa\+Turno}} (\mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71}{Giocatore}} $\ast$g, int x)
+\item 
+void \mbox{\hyperlink{headers_8h_a0e38291646160c1fdca0ee549bcfc3e5}{Stampa\+Punteggio}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, int x)
+\item 
+void \mbox{\hyperlink{headers_8h_a4bd11352e0ae411c0317ee40ef25abac}{Stampa\+Menu\+Scelta\+Pezzo}} (\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2}{Tipo\+Pezzo}} pz, int pezzi\+Rimasti\mbox{[}7\mbox{]}, int x)
+\item 
+void \mbox{\hyperlink{headers_8h_a92a3e0936c91ba2637b83d6bf6b574c3}{stampa\+Mappa}} (int mappa1\mbox{[}15\mbox{]}\mbox{[}10\mbox{]}, int x, int y)
+\item 
+void \mbox{\hyperlink{headers_8h_a9ff0ad714c4ea83ccd8f0295c35a7422}{stampa\+Fine}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, int x)
+\item 
+void \mbox{\hyperlink{headers_8h_a61652e02ad29691cdddaeb081e43d09a}{menu\+Iniziale}} ()
+\item 
+void \mbox{\hyperlink{headers_8h_a16eee978e1d4a24b6335088b46abaafc}{Inizia\+Partita}} (\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}} mode)
+\item 
+\mbox{\hyperlink{structPartita}{Partita}} $\ast$ \mbox{\hyperlink{headers_8h_af28aaf1726d8ec86c3a5cb151f957618}{inizializza\+Partita}} (\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}} mode)
+\item 
+void \mbox{\hyperlink{headers_8h_a0644bf5c04860d153c63e55276965bf7}{richiedi\+Scelta\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$partita)
+\item 
+void \mbox{\hyperlink{headers_8h_a3ca0a7e37697fea638822a12904faa47}{incrementa\+Punteggio}} (int $\ast$punteggio, int linee\+Rimosse)
+\item 
+void \mbox{\hyperlink{headers_8h_abb3eccb7d44151f49d0c51aeb419a253}{cambia\+Turno}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$partita)
+\item 
+void \mbox{\hyperlink{headers_8h_abb62c59f8632bbe99b030bf4aa422978}{Scrivi\+Su\+Mappa}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz, int valore)
+\item 
+\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$ \mbox{\hyperlink{headers_8h_a65b7a5ca94c38ebee4a890329fdc42d1}{genera\+Pezzo}} (\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2}{Tipo\+Pezzo}} tipo)
+\item 
+void \mbox{\hyperlink{headers_8h_ae447353be6acd2ec2f2511845f79a6f1}{assegna\+Disposizione}} (\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+void \mbox{\hyperlink{headers_8h_a72ae0f2c84722d8faecac7c208d9382a}{distruggi\+Pezzo}} (\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+void \mbox{\hyperlink{headers_8h_af0a6d2f6a14a4e9883a40322b586c699}{inserisci\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+void \mbox{\hyperlink{headers_8h_af372721013335e373c8a79a1af8b804d}{rimuovi\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+void \mbox{\hyperlink{headers_8h_aea8e121a46998b4ba6e499c3ad6217de}{conferma\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+void \mbox{\hyperlink{headers_8h_a50acfd52e1f4d0b9b1b7abdaa5887fb5}{posiziona\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$partita, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+int \mbox{\hyperlink{headers_8h_a2640addffae1e0ba94a6e1270e59054b}{muovi\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz, int dx, int dy)
+\item 
+int \mbox{\hyperlink{headers_8h_a6bb98f39b683d3b6d4b66be58dbc583e}{ruota\+Pezzo}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+int \mbox{\hyperlink{headers_8h_a9a2a1a8dc3e71a104d0f831a6a1f9620}{is\+Pezzo\+Spostabile}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+int \mbox{\hyperlink{headers_8h_a286cba791d3dfa4c618f2aedce8aa9af}{is\+Pezzo\+Posizionabile}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$pz)
+\item 
+void \mbox{\hyperlink{headers_8h_a3462860dd63effd24a917b2dfd8e3dab}{inverti\+Righe}} (int mappa\mbox{[}15\mbox{]}\mbox{[}10\mbox{]}, int nrighe)
+\item 
+int \mbox{\hyperlink{headers_8h_a974c16f6eb2db617d5f61d7eec167d48}{rimuovi\+Linee}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa)
+\item 
+void \mbox{\hyperlink{headers_8h_a93c77b7b4c510aa276e702f60c03e056}{abbassa\+Blocchi}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa, int linea)
+\item 
+int \mbox{\hyperlink{headers_8h_a4f8797e090e14386ed5ec0aaf75233ad}{check\+Game\+End}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa)
+\item 
+void \mbox{\hyperlink{headers_8h_a3b56bd58ab71c11366cddcf03ca3b4d2}{esegui\+Mossa\+CPU}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa)
+\item 
+int \mbox{\hyperlink{headers_8h_a80a3370e57277b9bb40f9fd91843aa18}{migliore\+Mossa}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa)
+\item 
+int \mbox{\hyperlink{headers_8h_a2d855d001a1f794a18b6011bd1f368fb}{calcola\+Punteggio\+Scenario}} (\mbox{\hyperlink{structPartita}{Partita}} $\ast$pa)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{headers_8h_a5708c0924ebd1d9475c7baf8b1e29774}{Colore\+Default}} \mbox{[}$\,$\mbox{]}
+\item 
+char \mbox{\hyperlink{headers_8h_ace47038d69331e8d3d310749c8452224}{Colore\+Bianco}} \mbox{[}$\,$\mbox{]}
+\item 
+char \mbox{\hyperlink{headers_8h_a11b630e4c5eba8076c9a53e5b513a159}{Colore\+Blu}} \mbox{[}$\,$\mbox{]}
+\item 
+int \mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{Centro\+Schermo}}
+\item 
+int \mbox{\hyperlink{headers_8h_a70305e061fda1d93d73c5cb4b801aebb}{I\+\_\+\+PATTERN}} \mbox{[}16\mbox{]}
+\item 
+int \mbox{\hyperlink{headers_8h_a032ebef625b5b16829f5901c0cf47438}{J\+\_\+\+PATTERN}} \mbox{[}9\mbox{]}
+\item 
+int \mbox{\hyperlink{headers_8h_a6177a638bb33cbc9d931c74f6c8576b2}{L\+\_\+\+PATTERN}} \mbox{[}9\mbox{]}
+\item 
+int \mbox{\hyperlink{headers_8h_a3c60ea2336411654a38e6769a81508c4}{O\+\_\+\+PATTERN}} \mbox{[}4\mbox{]}
+\item 
+int \mbox{\hyperlink{headers_8h_a5ffdaacb539cbe809c60e8a843475ca5}{S\+\_\+\+PATTERN}} \mbox{[}9\mbox{]}
+\item 
+int \mbox{\hyperlink{headers_8h_a4c1274994abe8752c6ea6faf62056bd7}{T\+\_\+\+PATTERN}} \mbox{[}9\mbox{]}
+\item 
+int \mbox{\hyperlink{headers_8h_a0b63803eaf8d8879554a48ac6680c9c2}{Z\+\_\+\+PATTERN}} \mbox{[}9\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71}\label{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71}} 
+\index{headers.h@{headers.h}!Giocatore@{Giocatore}}
+\index{Giocatore@{Giocatore}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{Giocatore}{Giocatore}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71}{Giocatore}}}
+
+ENUMERATOR per gestire i due giocatori \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P1@{P1}!headers.h@{headers.h}}\index{headers.h@{headers.h}!P1@{P1}}}\mbox{\Hypertarget{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}\label{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}} 
+P1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P2@{P2}!headers.h@{headers.h}}\index{headers.h@{headers.h}!P2@{P2}}}\mbox{\Hypertarget{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}\label{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}} 
+P2&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{headers_8h_source_l00042}{42}} of file \mbox{\hyperlink{headers_8h_source}{headers.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042 \{\mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}},\mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}{P2}}\} \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71}{Giocatore}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a750038be76e4d033eb35e297713c09d6}\label{headers_8h_a750038be76e4d033eb35e297713c09d6}} 
+\index{headers.h@{headers.h}!Modalita@{Modalita}}
+\index{Modalita@{Modalita}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{Modalita}{Modalita}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}}}
+
+ENUMERATOR per gestire la modalità di gioco \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SINGLEPLAYER@{SINGLEPLAYER}!headers.h@{headers.h}}\index{headers.h@{headers.h}!SINGLEPLAYER@{SINGLEPLAYER}}}\mbox{\Hypertarget{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}\label{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}} 
+SINGLEPLAYER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MULTIPLAYER@{MULTIPLAYER}!headers.h@{headers.h}}\index{headers.h@{headers.h}!MULTIPLAYER@{MULTIPLAYER}}}\mbox{\Hypertarget{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}\label{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}} 
+MULTIPLAYER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CPU@{CPU}!headers.h@{headers.h}}\index{headers.h@{headers.h}!CPU@{CPU}}}\mbox{\Hypertarget{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}\label{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}} 
+CPU&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{headers_8h_source_l00048}{48}} of file \mbox{\hyperlink{headers_8h_source}{headers.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048 \{\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}},\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}},\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}}\} \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a88782d333a32d594feb2707a16f4361b}\label{headers_8h_a88782d333a32d594feb2707a16f4361b}} 
+\index{headers.h@{headers.h}!Stato@{Stato}}
+\index{Stato@{Stato}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{Stato}{Stato}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361b}{Stato}}}
+
+ENUMMERATOR per memorizzare lo stato della partita \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IN\_CORSO@{IN\_CORSO}!headers.h@{headers.h}}\index{headers.h@{headers.h}!IN\_CORSO@{IN\_CORSO}}}\mbox{\Hypertarget{headers_8h_a88782d333a32d594feb2707a16f4361baaee25f5c8faad8c33ffb82478b0a8a38}\label{headers_8h_a88782d333a32d594feb2707a16f4361baaee25f5c8faad8c33ffb82478b0a8a38}} 
+IN\+\_\+\+CORSO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TERMINATA@{TERMINATA}!headers.h@{headers.h}}\index{headers.h@{headers.h}!TERMINATA@{TERMINATA}}}\mbox{\Hypertarget{headers_8h_a88782d333a32d594feb2707a16f4361ba1869bf781a45310b54779a2d2bfc17ae}\label{headers_8h_a88782d333a32d594feb2707a16f4361ba1869bf781a45310b54779a2d2bfc17ae}} 
+TERMINATA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VITTORIA\_P1@{VITTORIA\_P1}!headers.h@{headers.h}}\index{headers.h@{headers.h}!VITTORIA\_P1@{VITTORIA\_P1}}}\mbox{\Hypertarget{headers_8h_a88782d333a32d594feb2707a16f4361ba74ef188effc4ac9e6105377323e3f2c6}\label{headers_8h_a88782d333a32d594feb2707a16f4361ba74ef188effc4ac9e6105377323e3f2c6}} 
+VITTORIA\+\_\+\+P1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VITTORIA\_P2@{VITTORIA\_P2}!headers.h@{headers.h}}\index{headers.h@{headers.h}!VITTORIA\_P2@{VITTORIA\_P2}}}\mbox{\Hypertarget{headers_8h_a88782d333a32d594feb2707a16f4361ba41386872ebe4dff73280be09b76c422d}\label{headers_8h_a88782d333a32d594feb2707a16f4361ba41386872ebe4dff73280be09b76c422d}} 
+VITTORIA\+\_\+\+P2&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{headers_8h_source_l00051}{51}} of file \mbox{\hyperlink{headers_8h_source}{headers.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051 \{\mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361baaee25f5c8faad8c33ffb82478b0a8a38}{IN\_CORSO}},\mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba1869bf781a45310b54779a2d2bfc17ae}{TERMINATA}},\mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba74ef188effc4ac9e6105377323e3f2c6}{VITTORIA\_P1}},\mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba41386872ebe4dff73280be09b76c422d}{VITTORIA\_P2}}\} \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361b}{Stato}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a8e85313b011d27748c8c59514d8c79d2}\label{headers_8h_a8e85313b011d27748c8c59514d8c79d2}} 
+\index{headers.h@{headers.h}!TipoPezzo@{TipoPezzo}}
+\index{TipoPezzo@{TipoPezzo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{TipoPezzo}{TipoPezzo}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2}{Tipo\+Pezzo}}}
+
+ENUMERATOR per gestire tipi di pezzi \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I@{I}!headers.h@{headers.h}}\index{headers.h@{headers.h}!I@{I}}}\mbox{\Hypertarget{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}\label{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}} 
+I&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T@{T}!headers.h@{headers.h}}\index{headers.h@{headers.h}!T@{T}}}\mbox{\Hypertarget{headers_8h_a8e85313b011d27748c8c59514d8c79d2a21f40778b7db9343a6ca75ec2c41ccce}\label{headers_8h_a8e85313b011d27748c8c59514d8c79d2a21f40778b7db9343a6ca75ec2c41ccce}} 
+T&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{O@{O}!headers.h@{headers.h}}\index{headers.h@{headers.h}!O@{O}}}\mbox{\Hypertarget{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}\label{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}} 
+O&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L@{L}!headers.h@{headers.h}}\index{headers.h@{headers.h}!L@{L}}}\mbox{\Hypertarget{headers_8h_a8e85313b011d27748c8c59514d8c79d2aef31cc6fe9479955961311ee18ac205f}\label{headers_8h_a8e85313b011d27748c8c59514d8c79d2aef31cc6fe9479955961311ee18ac205f}} 
+L&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J@{J}!headers.h@{headers.h}}\index{headers.h@{headers.h}!J@{J}}}\mbox{\Hypertarget{headers_8h_a8e85313b011d27748c8c59514d8c79d2a03605500b0c55f3d95874e8edfcf4e30}\label{headers_8h_a8e85313b011d27748c8c59514d8c79d2a03605500b0c55f3d95874e8edfcf4e30}} 
+J&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S@{S}!headers.h@{headers.h}}\index{headers.h@{headers.h}!S@{S}}}\mbox{\Hypertarget{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}\label{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}} 
+S&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Z@{Z}!headers.h@{headers.h}}\index{headers.h@{headers.h}!Z@{Z}}}\mbox{\Hypertarget{headers_8h_a8e85313b011d27748c8c59514d8c79d2aa70478ce277ffc322f8e1e3418e07355}\label{headers_8h_a8e85313b011d27748c8c59514d8c79d2aa70478ce277ffc322f8e1e3418e07355}} 
+Z&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{headers_8h_source_l00045}{45}} of file \mbox{\hyperlink{headers_8h_source}{headers.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045 \{\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}},\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a21f40778b7db9343a6ca75ec2c41ccce}{T}},\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}},\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aef31cc6fe9479955961311ee18ac205f}{L}},\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a03605500b0c55f3d95874e8edfcf4e30}{J}},\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}{S}},\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aa70478ce277ffc322f8e1e3418e07355}{Z}}\} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2}{TipoPezzo}};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{headers_8h_a93c77b7b4c510aa276e702f60c03e056}\label{headers_8h_a93c77b7b4c510aa276e702f60c03e056}} 
+\index{headers.h@{headers.h}!abbassaBlocchi@{abbassaBlocchi}}
+\index{abbassaBlocchi@{abbassaBlocchi}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{abbassaBlocchi()}{abbassaBlocchi()}}
+{\footnotesize\ttfamily void abbassa\+Blocchi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{int}]{linea }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di abbassare righe di blocchi, in genere invocata dopo che una o più righe sono state eliminate 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em linea} & altezza dell\textquotesingle{}ultima riga da abbassare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00348}{348}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00349 \{}
+\DoxyCodeLine{00350     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{00351     \textcolor{keywordflow}{for} (i = linea-\/1; i > -\/1; i-\/-\/)                             \textcolor{comment}{/* scorro tutte le righe a partire da quella da elminiare   */}}
+\DoxyCodeLine{00352     \{                                                          \textcolor{comment}{/* verso l'alto e le muovo in basso di una posizione ognuna */} }
+\DoxyCodeLine{00353         }
+\DoxyCodeLine{00354         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)                               \textcolor{comment}{/* scorro ogni cella di ogni riga */}          }
+\DoxyCodeLine{00355         \{                                               }
+\DoxyCodeLine{00356             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}})                                \textcolor{comment}{/* la mappa su cui lavoro dipende dal turno attuale */}}
+\DoxyCodeLine{00357             \{}
+\DoxyCodeLine{00358                 pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i+1][j] = pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j];         \textcolor{comment}{/* copio la cella superiore in quella dove sono */}}
+\DoxyCodeLine{00359                 pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j] = 0;                          \textcolor{comment}{/* setto la cella superiore pari a zero */}}
+\DoxyCodeLine{00360             \}}
+\DoxyCodeLine{00361             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00362             \{}
+\DoxyCodeLine{00363                 pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i+1][j] = pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j];          \textcolor{comment}{/* stesso procedimento per il giocatore 2 */}}
+\DoxyCodeLine{00364                 pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j] = 0;                           }
+\DoxyCodeLine{00365             \}}
+\DoxyCodeLine{00366         \}}
+\DoxyCodeLine{00367     \}}
+\DoxyCodeLine{00368 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_af9fd89df2dcf2b7fe18d6eac306cbd70}\label{headers_8h_af9fd89df2dcf2b7fe18d6eac306cbd70}} 
+\index{headers.h@{headers.h}!aggiornaCentroSchermo@{aggiornaCentroSchermo}}
+\index{aggiornaCentroSchermo@{aggiornaCentroSchermo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{aggiornaCentroSchermo()}{aggiornaCentroSchermo()}}
+{\footnotesize\ttfamily void aggiorna\+Centro\+Schermo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+aggiorna la variabile statica Centro\+Schermo se rileva che il terminale ha cambiato dimensione 
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00010}{10}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011 \{}
+\DoxyCodeLine{00012     \textcolor{comment}{/*ottengo la larghezza del terminale chiamando la funzione */}}
+\DoxyCodeLine{00013     \textcolor{comment}{/* ioctl della libreria sys/ioctl.h e divido per 2 per il centroschermo */}}
+\DoxyCodeLine{00014     \textcolor{keyword}{struct }winsize w;}
+\DoxyCodeLine{00015     ioctl(0, TIOCGWINSZ, \&w);}
+\DoxyCodeLine{00016     \mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}} = w.ws\_col/2;}
+\DoxyCodeLine{00017 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_ae447353be6acd2ec2f2511845f79a6f1}\label{headers_8h_ae447353be6acd2ec2f2511845f79a6f1}} 
+\index{headers.h@{headers.h}!assegnaDisposizione@{assegnaDisposizione}}
+\index{assegnaDisposizione@{assegnaDisposizione}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{assegnaDisposizione()}{assegnaDisposizione()}}
+{\footnotesize\ttfamily void assegna\+Disposizione (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di copiare una delle matrici globali nella matrice di disposzione del pezzo La diposizione di interi nella matrice rappresenta il pattern e la forma del pezzo stesso nel momento in cui dovrà essere stampato nella mappa 
+\begin{DoxyParams}{Parameters}
+{\em pz} & pointer alla struct \mbox{\hyperlink{structPezzo}{Pezzo}} da aggionrnare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00149}{149}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00150 \{}
+\DoxyCodeLine{00151     \textcolor{comment}{/* la dimensione della disposizione di un pezzo dipende dal tipo di pezzo */}}
+\DoxyCodeLine{00152     \textcolor{keywordtype}{int} i, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 4 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 16 : 9);}
+\DoxyCodeLine{00153     \textcolor{keywordtype}{int} *schema;}
+\DoxyCodeLine{00154     \textcolor{keywordflow}{switch} (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}})}
+\DoxyCodeLine{00155     \{}
+\DoxyCodeLine{00156         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}}: schema = \mbox{\hyperlink{headers_8h_a3c60ea2336411654a38e6769a81508c4}{O\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00157         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}}: schema = \mbox{\hyperlink{headers_8h_a70305e061fda1d93d73c5cb4b801aebb}{I\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00158         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aa70478ce277ffc322f8e1e3418e07355}{Z}}: schema = \mbox{\hyperlink{headers_8h_a0b63803eaf8d8879554a48ac6680c9c2}{Z\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00159         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}{S}}: schema = \mbox{\hyperlink{headers_8h_a5ffdaacb539cbe809c60e8a843475ca5}{S\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00160         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aef31cc6fe9479955961311ee18ac205f}{L}}: schema = \mbox{\hyperlink{headers_8h_a6177a638bb33cbc9d931c74f6c8576b2}{L\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00161         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a21f40778b7db9343a6ca75ec2c41ccce}{T}}: schema = \mbox{\hyperlink{headers_8h_a4c1274994abe8752c6ea6faf62056bd7}{T\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00162         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a03605500b0c55f3d95874e8edfcf4e30}{J}}: schema = \mbox{\hyperlink{headers_8h_a032ebef625b5b16829f5901c0cf47438}{J\_PATTERN}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00163     \}}
+\DoxyCodeLine{00164     pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} = malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int})*l);                   \textcolor{comment}{/* alloco memoria per salvare la disposizione del pezzo nella sua struct */}}
+\DoxyCodeLine{00165     \textcolor{keywordflow}{for}(i = 0; i < l; i++) pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}}[i] = schema[i];     \textcolor{comment}{/* e copio la disposizione standard del suo tipo nella sua struct*/}}
+\DoxyCodeLine{00166 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a2d855d001a1f794a18b6011bd1f368fb}\label{headers_8h_a2d855d001a1f794a18b6011bd1f368fb}} 
+\index{headers.h@{headers.h}!calcolaPunteggioScenario@{calcolaPunteggioScenario}}
+\index{calcolaPunteggioScenario@{calcolaPunteggioScenario}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{calcolaPunteggioScenario()}{calcolaPunteggioScenario()}}
+{\footnotesize\ttfamily int calcola\+Punteggio\+Scenario (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa }\end{DoxyParamCaption})}
+
+Funzione creata con lo scopo di calcolare il punteggio di uno scenario basato sulla disposizione dei pezzi all\textquotesingle{}interno della mappa, un punteggio maggiore è indice di uno scenario \char`\"{}buono\char`\"{} per la CPU. Ogni scenario inizia da un punteggio pari a 100 che viene decrementato da 2 fattori\+: 1) viene tolto una quantità di punti direttamente proporzionale all\textquotesingle{}altezza raggiunta dai blocchi 2) viene tolto una quantità di punti direttamente proporzionale alla quantità di \char`\"{}buchi\char`\"{} presenti sui livelli già occupati 
+\begin{DoxyParams}{Parameters}
+{\em pa} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{funzioniCpu_8c_source_l00074}{74}} of file \mbox{\hyperlink{funzioniCpu_8c_source}{funzioni\+Cpu.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075 \{}
+\DoxyCodeLine{00076     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{00077     \textcolor{keywordtype}{int} trovato = 0;}
+\DoxyCodeLine{00078     \textcolor{keywordtype}{int} punteggio = 100;                                                    \textcolor{comment}{/* ogni scenario inizia con un punteggio base di 100 punti      */}}
+\DoxyCodeLine{00079     \textcolor{keywordflow}{for} (i = 0; i < 15 \&\& !trovato; i++)                                }
+\DoxyCodeLine{00080     \{                                                                       \textcolor{comment}{/* scorro tutte le righe per vedere se sono occupate da blocchi */}}
+\DoxyCodeLine{00081         \textcolor{keywordflow}{for} ( j = 0; j < 10; j++)                                           }
+\DoxyCodeLine{00082         \{}
+\DoxyCodeLine{00083             trovato = pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j] + trovato;                           \textcolor{comment}{/* passo tutte le colonne per vedere se trovo almeno un blocco  */}}
+\DoxyCodeLine{00084         \}                                                                   }
+\DoxyCodeLine{00085     \}}
+\DoxyCodeLine{00086     punteggio += (16-\/i)*(-\/1);                                               \textcolor{comment}{/* la variabile punteggio viene decrementata in base a quanto   */}}
+\DoxyCodeLine{00087     \textcolor{keywordtype}{int} n;                                                                  \textcolor{comment}{/* alta è la costruzione di blocchi costruita                   */}}
+\DoxyCodeLine{00088     \textcolor{keywordflow}{for} ( n = 14; n >= i-\/1; n-\/-\/)}
+\DoxyCodeLine{00089     \{                                                                       \textcolor{comment}{/* ciclo tutte le righe occupate da almeno un blocco            */}}
+\DoxyCodeLine{00090         \textcolor{keywordflow}{for} ( j = 0; j < 10; j++)           }
+\DoxyCodeLine{00091         \{                                                                   \textcolor{comment}{/* per ogni riga cerco quanti "{}buchi"{} sono presenti             */}}
+\DoxyCodeLine{00092             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[n][j] == 0)}
+\DoxyCodeLine{00093                 punteggio = punteggio -\/ 3 -\/2*pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[n-\/1][j];            \textcolor{comment}{/* rimuovo dal punteggio 3 punti per ogni buco che trovo        */}}
+\DoxyCodeLine{00094         \}                                                                   \textcolor{comment}{/* e tolgo 2 punti ulteriori se il blocco non è raggiungibile   */}}
+\DoxyCodeLine{00095     \}}
+\DoxyCodeLine{00096     \textcolor{keywordflow}{return} punteggio;}
+\DoxyCodeLine{00097 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_abb3eccb7d44151f49d0c51aeb419a253}\label{headers_8h_abb3eccb7d44151f49d0c51aeb419a253}} 
+\index{headers.h@{headers.h}!cambiaTurno@{cambiaTurno}}
+\index{cambiaTurno@{cambiaTurno}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{cambiaTurno()}{cambiaTurno()}}
+{\footnotesize\ttfamily void cambia\+Turno (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{partita }\end{DoxyParamCaption})}
+
+Funzione con il semplice scopo di passare il turno all\textquotesingle{}altro giocatore aggiornando la relativa variabile nella struct partita 
+\begin{DoxyParams}{Parameters}
+{\em partita} & puntatore alla struct partita \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00114}{114}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00115 \{}
+\DoxyCodeLine{00116     \textcolor{comment}{/* se è il turno del giocatore 2 passo al giocatore 1 */}}
+\DoxyCodeLine{00117     \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}{P2}} || partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}}) }
+\DoxyCodeLine{00118         partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} = \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}};}
+\DoxyCodeLine{00119     \textcolor{keywordflow}{else}    \textcolor{comment}{/*altrimenti passo al giocatore 2*/}}
+\DoxyCodeLine{00120         partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} = \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}{P2}};}
+\DoxyCodeLine{00121 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a4f8797e090e14386ed5ec0aaf75233ad}\label{headers_8h_a4f8797e090e14386ed5ec0aaf75233ad}} 
+\index{headers.h@{headers.h}!checkGameEnd@{checkGameEnd}}
+\index{checkGameEnd@{checkGameEnd}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{checkGameEnd()}{checkGameEnd()}}
+{\footnotesize\ttfamily int check\+Game\+End (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa }\end{DoxyParamCaption})}
+
+Verifica se la partita è giunta al termine o meno e determina il vincitore. Invocata in genere dopo ogni turno. La partita termina se un giocatore supera il limite superiore o TUTTI i blocchi finiscono 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & se la partita non è ancora terminata \\
+\hline
+{\em 1} & se il giocatore 1 ha perso \\
+\hline
+{\em 2} & se il giocatore 2 ha perso \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00370}{370}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00371 \{}
+\DoxyCodeLine{00372     \textcolor{comment}{/* la partita termina in 2 casi:   superato limite superiore    blocchi esauriti  */}}
+\DoxyCodeLine{00373     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{00374     \textcolor{keywordflow}{for} (i = 0; i < 2; i++)     \textcolor{comment}{/* scorro le due righe della mappa "{}vietate"{} */}}
+\DoxyCodeLine{00375     \{}
+\DoxyCodeLine{00376         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)}
+\DoxyCodeLine{00377         \{}
+\DoxyCodeLine{00378             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j]) \textcolor{keywordflow}{return} 1;      \textcolor{comment}{/* se nella mappa1 la zona vietata è stata superata il giocatore 1 ha perso */}}
+\DoxyCodeLine{00379             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j]) \textcolor{keywordflow}{return} 2;      \textcolor{comment}{/* se nella mappa2 la zona vietata è stata superata il giocatore 2 ha perso */}}
+\DoxyCodeLine{00380         \}}
+\DoxyCodeLine{00381     \}}
+\DoxyCodeLine{00382     \textcolor{keywordtype}{int} sum = 0;}
+\DoxyCodeLine{00383     \textcolor{keywordflow}{for} (i = 0; i < 7; i++) }
+\DoxyCodeLine{00384         sum += pa-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[i];                         \textcolor{comment}{/* sommo tutti i pezzi rimasti insieme               */}}
+\DoxyCodeLine{00385 }
+\DoxyCodeLine{00386     \textcolor{keywordflow}{if}(sum == 0)                                            \textcolor{comment}{/* verifico se sono uguali a zero                    */}}
+\DoxyCodeLine{00387         \textcolor{keywordflow}{return} pa-\/>\mbox{\hyperlink{structPartita_ae53779d2d90a0232675ae2b8aa3b384d}{punteggio1}} > pa-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}} ? 2 : 1 ;    \textcolor{comment}{/* se questo accade vince il giocatore con più punti */}}
+\DoxyCodeLine{00388 }
+\DoxyCodeLine{00389     \textcolor{keywordflow}{return} 0;                                               \textcolor{comment}{/* se niente di tutto ciò accade la partita continua */}}
+\DoxyCodeLine{00390 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_aea8e121a46998b4ba6e499c3ad6217de}\label{headers_8h_aea8e121a46998b4ba6e499c3ad6217de}} 
+\index{headers.h@{headers.h}!confermaPezzo@{confermaPezzo}}
+\index{confermaPezzo@{confermaPezzo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{confermaPezzo()}{confermaPezzo()}}
+{\footnotesize\ttfamily void conferma\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di confermare nella mappa un pezzo non ancora confermato. Ciò vinene fatto invocando la funzione Scrivi\+Su\+Mappa sul pezzo pz con valore 1 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer al pezzo da inserire \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00189}{189}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00190 \{}
+\DoxyCodeLine{00191     \textcolor{comment}{/* scrivo sulla mappa il valore 1 che rappresenta un pezzo confermato     */}}
+\DoxyCodeLine{00192     \textcolor{comment}{/* passo il pezzo stesso come maschera per la stampa                      */}}
+\DoxyCodeLine{00193     \mbox{\hyperlink{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}{ScriviSuMappa}}(pa,pz,1);}
+\DoxyCodeLine{00194 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a72ae0f2c84722d8faecac7c208d9382a}\label{headers_8h_a72ae0f2c84722d8faecac7c208d9382a}} 
+\index{headers.h@{headers.h}!distruggiPezzo@{distruggiPezzo}}
+\index{distruggiPezzo@{distruggiPezzo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{distruggiPezzo()}{distruggiPezzo()}}
+{\footnotesize\ttfamily void distruggi\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di liberare la memoria occupata da una struct pezzo non più necessaria. Viene liberata anche la matrice dispozine contenuta nella struct 
+\begin{DoxyParams}{Parameters}
+{\em pz} & pointer alla struct \mbox{\hyperlink{structPezzo}{Pezzo}} da eliminare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00168}{168}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00169 \{}
+\DoxyCodeLine{00170     \textcolor{comment}{/* libero la memoria occupata da un pezzo */}}
+\DoxyCodeLine{00171     free(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}});}
+\DoxyCodeLine{00172     free(pz);}
+\DoxyCodeLine{00173 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a3b56bd58ab71c11366cddcf03ca3b4d2}\label{headers_8h_a3b56bd58ab71c11366cddcf03ca3b4d2}} 
+\index{headers.h@{headers.h}!eseguiMossaCPU@{eseguiMossaCPU}}
+\index{eseguiMossaCPU@{eseguiMossaCPU}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{eseguiMossaCPU()}{eseguiMossaCPU()}}
+{\footnotesize\ttfamily void esegui\+Mossa\+CPU (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa }\end{DoxyParamCaption})}
+
+Funzione da invocare per far eseguire una mossa alla macchina. Questa funzione si occupa non solo di invocare la funzione migliore\+Mossa ma anche di generare il pezzo, inserirlo nella posizione corretta, rimuovere le eventuali righe e aggioarnare il punteggio tramite chiamate ad apposite funzioni 
+\begin{DoxyParams}{Parameters}
+{\em pa} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{funzioniCpu_8c_source_l00006}{6}} of file \mbox{\hyperlink{funzioniCpu_8c_source}{funzioni\+Cpu.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00008     \mbox{\hyperlink{funzioniCpu_8c_a80a3370e57277b9bb40f9fd91843aa18}{miglioreMossa}}(pa);                                     \textcolor{comment}{/* prima di tutto calcolo la migliore mossa                   */}  }
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010     \mbox{\hyperlink{structPezzo}{Pezzo}} *pz = \mbox{\hyperlink{eventiPartita_8c_a65b7a5ca94c38ebee4a890329fdc42d1}{generaPezzo}}(\mbox{\hyperlink{funzioniCpu_8c_ad81fdf0e913cb85318cf39c0a6b1fb1a}{bestP}});                        \textcolor{comment}{/* genero il pezzo in base al migliore tipo                   */}}
+\DoxyCodeLine{00011     \textcolor{keywordflow}{while} (\mbox{\hyperlink{funzioniCpu_8c_aee62db5a798cf4c13d81f66441ca34a2}{bestR}}-\/-\/ > 0)                                         }
+\DoxyCodeLine{00012         \mbox{\hyperlink{eventiPartita_8c_a6bb98f39b683d3b6d4b66be58dbc583e}{ruotaPezzo}}(pa,pz);                                 \textcolor{comment}{/* ruoto il pezzo fino a raggiungere la migliore rotazione    */}}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014     \mbox{\hyperlink{eventiPartita_8c_af372721013335e373c8a79a1af8b804d}{rimuoviPezzo}}(pa,pz);                                   \textcolor{comment}{/* rimuovo il pezzo dalla mappa                               */}}
+\DoxyCodeLine{00015     pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} = \mbox{\hyperlink{funzioniCpu_8c_a2008363a4d9fe9be71210e7a2ebafa87}{bestX}};                                         \textcolor{comment}{/* lo riposiziono alle                                        */}}
+\DoxyCodeLine{00016     pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} = \mbox{\hyperlink{funzioniCpu_8c_ac891e119a2477504e36b609384fb99d2}{bestY}};                                         \textcolor{comment}{/* coordinate corrette                                        */}}
+\DoxyCodeLine{00017     \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(pa,pz);                                 \textcolor{comment}{/* lo re-\/inserisco nella mappa                                */}}
+\DoxyCodeLine{00018     \mbox{\hyperlink{eventiPartita_8c_aea8e121a46998b4ba6e499c3ad6217de}{confermaPezzo}}(pa,pz);                                  \textcolor{comment}{/* e confermo la sua posizione                                */}}
+\DoxyCodeLine{00019     }
+\DoxyCodeLine{00020     \textcolor{keywordtype}{int} rimosse = \mbox{\hyperlink{eventiPartita_8c_a974c16f6eb2db617d5f61d7eec167d48}{rimuoviLinee}}(pa);                         \textcolor{comment}{/* verifico se ci sono righe da eliminare e salvo la quantità */}}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00022     \mbox{\hyperlink{eventiPartita_8c_a3ca0a7e37697fea638822a12904faa47}{incrementaPunteggio}}(\&pa-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}}, rimosse);         \textcolor{comment}{/* incremento il punteggio in base alle righe rimosse         */}}
+\DoxyCodeLine{00023     \textcolor{keywordflow}{if}(rimosse >= 3 )                                      \textcolor{comment}{/* se il numero di righe rimosse è uguale o maggiore di tre   */}}
+\DoxyCodeLine{00024         \mbox{\hyperlink{eventiPartita_8c_a3462860dd63effd24a917b2dfd8e3dab}{invertiRighe}}( pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}, rimosse);                \textcolor{comment}{/* inverto le righe del giocatore                             */}}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026     pa-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[\mbox{\hyperlink{funzioniCpu_8c_ad81fdf0e913cb85318cf39c0a6b1fb1a}{bestP}}]-\/-\/;                             \textcolor{comment}{/* diminuisco il numero di pezzi disponibile del tipo scelto  */}}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{00028     \mbox{\hyperlink{funzioniCpu_8c_a20d8d1f54a664e6c739edef51e735b80}{punteggioBest}} = 0;}
+\DoxyCodeLine{00029     }
+\DoxyCodeLine{00030     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00031 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a65b7a5ca94c38ebee4a890329fdc42d1}\label{headers_8h_a65b7a5ca94c38ebee4a890329fdc42d1}} 
+\index{headers.h@{headers.h}!generaPezzo@{generaPezzo}}
+\index{generaPezzo@{generaPezzo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{generaPezzo()}{generaPezzo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$ genera\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2}{Tipo\+Pezzo}}}]{tipo }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di allocare memoria per una nuova struct pezzo e assegnargli come disposizione una delle matrici globali rappresentanti i vari pattern 
+\begin{DoxyParams}{Parameters}
+{\em tipo} & enumerator rappresentante il tipo di pezzo che di vuole generare \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Pezzo$\ast$} & pointer alla struct \mbox{\hyperlink{structPezzo}{Pezzo}} appena creata \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00139}{139}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00140 \{}
+\DoxyCodeLine{00141     \textcolor{comment}{/*  alloco memoria per la struct del nuovo pezzo */}}
+\DoxyCodeLine{00142     \mbox{\hyperlink{structPezzo}{Pezzo}} *pz = malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structPezzo}{Pezzo}}));}
+\DoxyCodeLine{00143     pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} = tipo;}
+\DoxyCodeLine{00144     pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} = 3; pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} = 0;   \textcolor{comment}{/* posiziono il nuovo pezzo in centro in alto alla mappa */}}
+\DoxyCodeLine{00145     \mbox{\hyperlink{eventiPartita_8c_ae447353be6acd2ec2f2511845f79a6f1}{assegnaDisposizione}}(pz);\textcolor{comment}{/* e gli assegno la dispozione in base al suo tipo */}}
+\DoxyCodeLine{00146     \textcolor{keywordflow}{return} pz;}
+\DoxyCodeLine{00147 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_ae824443b3f661414ba1f2718e17fe97d}\label{headers_8h_ae824443b3f661414ba1f2718e17fe97d}} 
+\index{headers.h@{headers.h}!gotoxy@{gotoxy}}
+\index{gotoxy@{gotoxy}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{gotoxy()}{gotoxy()}}
+{\footnotesize\ttfamily void gotoxy (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+posiziona il cursore in una precisa posizione nel terminale. Funzione fondamentale nel render della partita poichè permette di separare la stampa di vari elementi della schermata in più funzioni diverse. 
+\begin{DoxyParams}{Parameters}
+{\em x} & coordinata x \\
+\hline
+{\em y} & coordinata y \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00004}{4}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005 \{}
+\DoxyCodeLine{00006     \textcolor{comment}{/* utilizzo il carattere \(\backslash\)033[<L>;<C>H per spostare il cursore */}}
+\DoxyCodeLine{00007     printf(\textcolor{stringliteral}{"{}\(\backslash\)033[\%d;\%dH"{}}, (y), (x));}
+\DoxyCodeLine{00008 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a3ca0a7e37697fea638822a12904faa47}\label{headers_8h_a3ca0a7e37697fea638822a12904faa47}} 
+\index{headers.h@{headers.h}!incrementaPunteggio@{incrementaPunteggio}}
+\index{incrementaPunteggio@{incrementaPunteggio}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{incrementaPunteggio()}{incrementaPunteggio()}}
+{\footnotesize\ttfamily void incrementa\+Punteggio (\begin{DoxyParamCaption}\item[{int $\ast$}]{punteggio,  }\item[{int}]{linee\+Rimosse }\end{DoxyParamCaption})}
+
+Incrementa il punteggio di un giocatore in funzione di quante righe ha rimosso in questo turno. 1 riga -\/\texorpdfstring{$>$}{>} 1 punto 2 righe -\/\texorpdfstring{$>$}{>} 3 punti 3 righe -\/\texorpdfstring{$>$}{>} 6 punti 4 righe -\/\texorpdfstring{$>$}{>} 12 punti 
+\begin{DoxyParams}{Parameters}
+{\em int} & puntatore alla var contenente il punteggio del giocatore \\
+\hline
+{\em int} & righe rimosse dal giocatore in questo turno \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00084}{84}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085 \{}
+\DoxyCodeLine{00086     \textcolor{comment}{/* aumento il punteggio del giocatore in funzione delle righe che ha rimosso*/}}
+\DoxyCodeLine{00087     \textcolor{keywordflow}{switch} (lineeRimosse)}
+\DoxyCodeLine{00088     \{}
+\DoxyCodeLine{00089         \textcolor{keywordflow}{case} 1:  *punteggio+=1;  \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00090         \textcolor{keywordflow}{case} 2:  *punteggio+=3;  \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00091         \textcolor{keywordflow}{case} 3:  *punteggio+=6;  \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00092         \textcolor{keywordflow}{case} 4:  *punteggio+=12; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00093     \}}
+\DoxyCodeLine{00094 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_af28aaf1726d8ec86c3a5cb151f957618}\label{headers_8h_af28aaf1726d8ec86c3a5cb151f957618}} 
+\index{headers.h@{headers.h}!inizializzaPartita@{inizializzaPartita}}
+\index{inizializzaPartita@{inizializzaPartita}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{inizializzaPartita()}{inizializzaPartita()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPartita}{Partita}} $\ast$ inizializza\+Partita (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}}}]{mode }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di allocare memoria per una nuova struct partita e inizializzare le varie strutture dati presenti in essa, contenenti informazioni come la mappa di gioco e l\textquotesingle{}array di pezzi rimasti 
+\begin{DoxyParams}{Parameters}
+{\em mode} & modalità scelta per la nuova partita \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Partita$\ast$} & pointer alla struct \mbox{\hyperlink{structPartita}{Partita}} appena creata \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00062}{62}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063 \{}
+\DoxyCodeLine{00064     \textcolor{comment}{/* alloco memoria per la struct partita e setto le variabili principali */}}
+\DoxyCodeLine{00065     \mbox{\hyperlink{structPartita}{Partita}}* partita = malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structPartita}{Partita}}));}
+\DoxyCodeLine{00066     partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} = mode;}
+\DoxyCodeLine{00067     partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} = \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}};}
+\DoxyCodeLine{00068     partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} = \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361baaee25f5c8faad8c33ffb82478b0a8a38}{IN\_CORSO}};}
+\DoxyCodeLine{00069     \textcolor{comment}{/* riempo entrambi i campi di gioco con zeri */}}
+\DoxyCodeLine{00070     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{00071     \textcolor{keywordflow}{for} (i = 0; i < 15; i++)}
+\DoxyCodeLine{00072         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)}
+\DoxyCodeLine{00073             partita-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j] = 0;}
+\DoxyCodeLine{00074             partita-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j] = 0;}
+\DoxyCodeLine{00075     \textcolor{comment}{/* setto la quantità massima di ogni pezzo a 20 */}}
+\DoxyCodeLine{00076     for (i = 0; i < 7; i++)}
+\DoxyCodeLine{00077         partita-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[i] = 20;}
+\DoxyCodeLine{00078     \textcolor{comment}{/* setto i punteggi dei giocatori entrambi a 0 */}}
+\DoxyCodeLine{00079     partita-\/>\mbox{\hyperlink{structPartita_ae53779d2d90a0232675ae2b8aa3b384d}{punteggio1}} = partita-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}} = 0;}
+\DoxyCodeLine{00080     partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}} = 0;}
+\DoxyCodeLine{00081     \textcolor{keywordflow}{return} partita;}
+\DoxyCodeLine{00082 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a16eee978e1d4a24b6335088b46abaafc}\label{headers_8h_a16eee978e1d4a24b6335088b46abaafc}} 
+\index{headers.h@{headers.h}!IniziaPartita@{IniziaPartita}}
+\index{IniziaPartita@{IniziaPartita}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{IniziaPartita()}{IniziaPartita()}}
+{\footnotesize\ttfamily void Inizia\+Partita (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}}}]{mode }\end{DoxyParamCaption})}
+
+Funzione principale che viene chiamata all\textquotesingle{}inizio di una nuova partita e che termina con la conclusione della stessa. Si occuppa di chiamare tutte le funzioni per inizializzare e e gestire lo svolgimento dell\textquotesingle{}intera partita 
+\begin{DoxyParams}{Parameters}
+{\em mode} & modalità scelta per la nuova partita \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00003}{3}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004 \{}
+\DoxyCodeLine{00005     \mbox{\hyperlink{structPartita}{Partita}}* partita = \mbox{\hyperlink{eventiPartita_8c_af28aaf1726d8ec86c3a5cb151f957618}{inizializzaPartita}}(mode);                       \textcolor{comment}{/* inizializzo la struct partita                     */}}
+\DoxyCodeLine{00006     \textcolor{keywordflow}{while} (partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} == \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361baaee25f5c8faad8c33ffb82478b0a8a38}{IN\_CORSO}})                                 \textcolor{comment}{/* ciclo fino alla fine della partita                */}}
+\DoxyCodeLine{00007     \{   }
+\DoxyCodeLine{00008         \mbox{\hyperlink{structPezzo}{Pezzo}} *pz = NULL;}
+\DoxyCodeLine{00009         \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}} \&\& partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}{P2}})           \textcolor{comment}{/* se è il turno del computer                        */}}
+\DoxyCodeLine{00010             \mbox{\hyperlink{funzioniCpu_8c_a3b56bd58ab71c11366cddcf03ca3b4d2}{eseguiMossaCPU}}(partita);                                   \textcolor{comment}{/* chiedo alla macchina di fare una mossa            */}}
+\DoxyCodeLine{00011         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00012         \{                                                              \textcolor{comment}{/* altrimenti, se è il turno di un giocatore         */}}
+\DoxyCodeLine{00013             \mbox{\hyperlink{eventiPartita_8c_a0644bf5c04860d153c63e55276965bf7}{richiediSceltaPezzo}}(partita);                              \textcolor{comment}{/* richiedo al giocatore di scegliere un pezzo       */}}
+\DoxyCodeLine{00014             pz = \mbox{\hyperlink{eventiPartita_8c_a65b7a5ca94c38ebee4a890329fdc42d1}{generaPezzo}}(partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}});               \textcolor{comment}{/* genero un pezzo del tipo selezionato dall'utente  */}}
+\DoxyCodeLine{00015             \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,0,0);                                \textcolor{comment}{/* posiziono il pezzo appena creato nella mappa      */}}
+\DoxyCodeLine{00016             \mbox{\hyperlink{eventiPartita_8c_a50acfd52e1f4d0b9b1b7abdaa5887fb5}{posizionaPezzo}}(partita,pz);                                \textcolor{comment}{/* chiedo al giocatore di posizionarlo e confermarlo */}}
+\DoxyCodeLine{00017             \mbox{\hyperlink{eventiPartita_8c_a72ae0f2c84722d8faecac7c208d9382a}{distruggiPezzo}}(pz);                                        \textcolor{comment}{/* distruggo il pezzo che non serve più              */}}
+\DoxyCodeLine{00018         \}}
+\DoxyCodeLine{00019         }
+\DoxyCodeLine{00020         \textcolor{keywordtype}{int} rimosse = \mbox{\hyperlink{eventiPartita_8c_a974c16f6eb2db617d5f61d7eec167d48}{rimuoviLinee}}(partita);                              \textcolor{comment}{/* verifico se ci sono righe da eliminare e salvo la quantità    */}}
+\DoxyCodeLine{00021         \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) }
+\DoxyCodeLine{00022         \{}
+\DoxyCodeLine{00023             \mbox{\hyperlink{eventiPartita_8c_a3ca0a7e37697fea638822a12904faa47}{incrementaPunteggio}}(\&partita-\/>\mbox{\hyperlink{structPartita_ae53779d2d90a0232675ae2b8aa3b384d}{punteggio1}}, rimosse);                       \textcolor{comment}{/* se il turno è del giocatore 1 aumento il suo punteggio in     */}}
+\DoxyCodeLine{00024             \textcolor{keywordflow}{if}(rimosse >= 3 ) \mbox{\hyperlink{eventiPartita_8c_a3462860dd63effd24a917b2dfd8e3dab}{invertiRighe}}(partita-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}, rimosse);                 \textcolor{comment}{/* base alle righe rimosse e eventualmente se il numero è        */}}
+\DoxyCodeLine{00025         \}                                                                             \textcolor{comment}{/* maggiore di 3 inverto le medesime righe nel campo avversario  */}}
+\DoxyCodeLine{00026         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00027         \{}
+\DoxyCodeLine{00028             \mbox{\hyperlink{eventiPartita_8c_a3ca0a7e37697fea638822a12904faa47}{incrementaPunteggio}}(\&partita-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}}, rimosse);                       \textcolor{comment}{/* se il turno è del giocatore 2 aumento il suo punteggio in     */}}
+\DoxyCodeLine{00029             \textcolor{keywordflow}{if}(rimosse >= 3 ) \mbox{\hyperlink{eventiPartita_8c_a3462860dd63effd24a917b2dfd8e3dab}{invertiRighe}}(partita-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}, rimosse);                 \textcolor{comment}{/* base alle righe rimosse e eventualmente se il numero è        */}}
+\DoxyCodeLine{00030         \}                                                                             \textcolor{comment}{/* maggiore di 3 inverto le medesime righe nel campo avversario  */}}
+\DoxyCodeLine{00031         }
+\DoxyCodeLine{00032         \mbox{\hyperlink{eventiPartita_8c_abb3eccb7d44151f49d0c51aeb419a253}{cambiaTurno}}(partita);                                                         \textcolor{comment}{/* terminata la mossa cambio il turno                            */}}
+\DoxyCodeLine{00033         \mbox{\hyperlink{eventiPartita_8c_a974c16f6eb2db617d5f61d7eec167d48}{rimuoviLinee}}(partita);                                                        \textcolor{comment}{/* verifico se dopo l'inversione ci sono righe da rimuovere      */}}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035         \textcolor{keywordtype}{int} end = \mbox{\hyperlink{eventiPartita_8c_a4f8797e090e14386ed5ec0aaf75233ad}{checkGameEnd}}(partita);                                              \textcolor{comment}{/* verifico se la partita è giunta al termine                    */}}
+\DoxyCodeLine{00036         \textcolor{keywordflow}{if}(end == 1) partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} = \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba41386872ebe4dff73280be09b76c422d}{VITTORIA\_P2}};                                    \textcolor{comment}{/* se la funzione ritorna 1 ha vinto il giocatore 2              */}}
+\DoxyCodeLine{00037         \textcolor{keywordflow}{if}(end == 2) partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} = \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba74ef188effc4ac9e6105377323e3f2c6}{VITTORIA\_P1}};                                    \textcolor{comment}{/* se ritnorna 2 ha vinto il giocatore 1                         */}}
+\DoxyCodeLine{00038     \}}
+\DoxyCodeLine{00039     \mbox{\hyperlink{grafica_8c_a010bf1806ab2d2e0767a91438f2cb675}{Update}}(partita);                                                                  \textcolor{comment}{/* terminata la partita aggiorno lo schermo per il menù finale   */}}
+\DoxyCodeLine{00040     \mbox{\hyperlink{eventiPartita_8c_a0644bf5c04860d153c63e55276965bf7}{richiediSceltaPezzo}}(partita);                                                     \textcolor{comment}{/* utilizzo questa funzione per attendere un "{}invio"{} dall'utente */}}
+\DoxyCodeLine{00041     free(partita);                                                                    \textcolor{comment}{/* la partita è terminata quindi libero la memoria               */}}
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_af0a6d2f6a14a4e9883a40322b586c699}\label{headers_8h_af0a6d2f6a14a4e9883a40322b586c699}} 
+\index{headers.h@{headers.h}!inserisciPezzo@{inserisciPezzo}}
+\index{inserisciPezzo@{inserisciPezzo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{inserisciPezzo()}{inserisciPezzo()}}
+{\footnotesize\ttfamily void inserisci\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di inserire nella mappa un pezzo non ancora confermato. Ciò vinene fatto invocando la funzione Scrivi\+Su\+Mappa sul pezzo pz con valore 2 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer al pezzo da inserire \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00175}{175}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00176 \{}
+\DoxyCodeLine{00177     \textcolor{comment}{/* scrivo sulla mappa il valore 2 che rappresenta un pezzo non confermato */}}
+\DoxyCodeLine{00178     \textcolor{comment}{/* passo il pezzo stesso come maschera per la stampa                      */}}
+\DoxyCodeLine{00179     \mbox{\hyperlink{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}{ScriviSuMappa}}(pa,pz,2);}
+\DoxyCodeLine{00180 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a3462860dd63effd24a917b2dfd8e3dab}\label{headers_8h_a3462860dd63effd24a917b2dfd8e3dab}} 
+\index{headers.h@{headers.h}!invertiRighe@{invertiRighe}}
+\index{invertiRighe@{invertiRighe}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{invertiRighe()}{invertiRighe()}}
+{\footnotesize\ttfamily void inverti\+Righe (\begin{DoxyParamCaption}\item[{int}]{mappa\mbox{[}15\mbox{]}\mbox{[}10\mbox{]},  }\item[{int}]{nrighe }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di invertire n righe in una data mappa a partire dal findo mappa. Viene invocata dopo che un giocatore ha eliminato 3 o più righe dal suo campo 
+\begin{DoxyParams}{Parameters}
+{\em mappa\mbox{[}15\mbox{]}\mbox{[}10\mbox{]}} & mappa da invertire \\
+\hline
+{\em nrighe} & numero di righe da eliminare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00313}{313}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00314 \{}
+\DoxyCodeLine{00315     \textcolor{keywordtype}{int} i = 0, j = 0;}
+\DoxyCodeLine{00316     \textcolor{keywordflow}{for} (i = 14; i > 14-\/nrighe; i-\/-\/)            \textcolor{comment}{/* scorro solo le righe richieste */}}
+\DoxyCodeLine{00317         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)                \textcolor{comment}{/* scorro tutta la riga */}}
+\DoxyCodeLine{00318             mappa[i][j] = (mappa[i][j]+1)\%2;    \textcolor{comment}{/* se il valore è 1 diventa 0 e viceversa */}}
+\DoxyCodeLine{00319     }
+\DoxyCodeLine{00320 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a286cba791d3dfa4c618f2aedce8aa9af}\label{headers_8h_a286cba791d3dfa4c618f2aedce8aa9af}} 
+\index{headers.h@{headers.h}!isPezzoPosizionabile@{isPezzoPosizionabile}}
+\index{isPezzoPosizionabile@{isPezzoPosizionabile}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{isPezzoPosizionabile()}{isPezzoPosizionabile()}}
+{\footnotesize\ttfamily int is\+Pezzo\+Posizionabile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di verificare se è possibile confermare un pezzo nella posizione in cui si trova. Perchè ciò sia possibile il pezzo deve essere \char`\"{}appoggiato\char`\"{} su un altro blocco o sul fondo mappa 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer alla struct del pezzo \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 1} & se il pezzo è confermabile \\
+\hline
+{\em 0} & se il pezzo non è confermabile \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00289}{289}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00290 \{}
+\DoxyCodeLine{00291     \textcolor{comment}{/* per verificare se il pezzo è posizionabile ovvero confermabile devo scorrere la matrice rappresentante la */}}
+\DoxyCodeLine{00292     \textcolor{comment}{/* sua disposizione sovrapponendola alla mappa di gioco per vedere se è appoggiato a qualcosa o è fluttuante */}}
+\DoxyCodeLine{00293     \textcolor{keywordtype}{int} i, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3);\textcolor{comment}{/* ottengo la dimensione della dispozisione del pezzo */}}
+\DoxyCodeLine{00294     \textcolor{keywordtype}{int} result = 0;\textcolor{comment}{/* variabile rappresentante la proprietà esistenziale inizialmente falsa */}}
+\DoxyCodeLine{00295     \textcolor{comment}{/* scorro la disposizione del pezzo */}}
+\DoxyCodeLine{00296     \textcolor{keywordflow}{for} ( i = 0; i < l*l; i++)}
+\DoxyCodeLine{00297     \{}
+\DoxyCodeLine{00298         \textcolor{keywordtype}{int} x = pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} + i\%l;                            \textcolor{comment}{/* ottengo le corrispondenti coordinate  */}}
+\DoxyCodeLine{00299         \textcolor{keywordtype}{int} y = pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} + i/l;                            \textcolor{comment}{/* in relazione alla mappa               */}}
+\DoxyCodeLine{00300 }
+\DoxyCodeLine{00301         \textcolor{keywordflow}{if}(y == 14 \&\& *(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i)) result = 1;      \textcolor{comment}{/* se è appoggiato al fondo mappa ho già risolto */}}
+\DoxyCodeLine{00302         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(x > -\/1 \&\& y > -\/1 \&\& x < 10 \&\& y < 15)}
+\DoxyCodeLine{00303         \{}
+\DoxyCodeLine{00304             \textcolor{comment}{/* osservo la mappa del giocatore che sta giocando */}}
+\DoxyCodeLine{00305             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) result = (*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[y + 1][x] == 1) || result;      \textcolor{comment}{/* per ogni "{}blocco"{} che forma il pezzo */}}
+\DoxyCodeLine{00306             \textcolor{keywordflow}{else}                result = (*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[y + 1][x] == 1) || result;      \textcolor{comment}{/* guardo se sotto di esso c'è qualcosa */}}
+\DoxyCodeLine{00307         \}}
+\DoxyCodeLine{00308             }
+\DoxyCodeLine{00309     \}}
+\DoxyCodeLine{00310     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00311 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a9a2a1a8dc3e71a104d0f831a6a1f9620}\label{headers_8h_a9a2a1a8dc3e71a104d0f831a6a1f9620}} 
+\index{headers.h@{headers.h}!isPezzoSpostabile@{isPezzoSpostabile}}
+\index{isPezzoSpostabile@{isPezzoSpostabile}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{isPezzoSpostabile()}{isPezzoSpostabile()}}
+{\footnotesize\ttfamily int is\+Pezzo\+Spostabile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di verificare se un pezzo NON ancora confermato è spostabile nella posizione indicata dalle sue coordinate presenti all\textquotesingle{}interno della sua struct. Se il pezzo si sovrappone ad altri pezzi o è fuori dalla mappa il pezzo non è inseribile 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer alla struct del pezzo \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 1} & se il pezzo è spostabile \\
+\hline
+{\em 0} & se il pezzo non è spostabile \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00265}{265}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00266 \{}
+\DoxyCodeLine{00267     \textcolor{comment}{/* per verificare se il pezzo è spostabile in una data posizione devo scorrere la matrice rappresentante la       */}}
+\DoxyCodeLine{00268     \textcolor{comment}{/* sua disposizione sovrapponendola alla mappa di gioco per vedere se esce dai bordi o se collide con altri pezzi */}}
+\DoxyCodeLine{00269     \textcolor{keywordtype}{int} i, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3); \textcolor{comment}{/* ottengo la dimensione della dispozisione del pezzo */}}
+\DoxyCodeLine{00270     \textcolor{keywordtype}{int} result = 1;  \textcolor{comment}{/* variabile rappresentante la proprietà universale inizialmente vera*/}}
+\DoxyCodeLine{00271     \textcolor{comment}{/* scorro la disposizione del pezzo */}}
+\DoxyCodeLine{00272     \textcolor{keywordflow}{for} ( i = 0; i < l*l; i++)}
+\DoxyCodeLine{00273     \{}
+\DoxyCodeLine{00274         \textcolor{keywordtype}{int} x = pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} + i\%l;                            \textcolor{comment}{/* ottengo le corrispondenti coordinate  */}}
+\DoxyCodeLine{00275         \textcolor{keywordtype}{int} y = pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} + i/l;                            \textcolor{comment}{/* in relazione alla mappa               */}}
+\DoxyCodeLine{00276 }
+\DoxyCodeLine{00277         \textcolor{keywordflow}{if}(x > -\/1 \&\& y > -\/1 \&\& x < 10 \&\& y < 15)        \textcolor{comment}{/* verifico di essere entro i limiti della mappa di gioco */}}
+\DoxyCodeLine{00278         \{}
+\DoxyCodeLine{00279             \textcolor{comment}{/* osservo la mappa del giocatore che sta giocando */}}
+\DoxyCodeLine{00280             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) result = !(*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[y][x]) \&\& result;  \textcolor{comment}{/* verifico se in questa coordinata specifica */}}
+\DoxyCodeLine{00281             \textcolor{keywordflow}{else}                result = !(*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[y][x]) \&\& result;  \textcolor{comment}{/* si verifica una collisione tra due pezzi   */}}
+\DoxyCodeLine{00282         \}}
+\DoxyCodeLine{00283         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i) \&\& result)  \textcolor{comment}{/* controllo se il pezzo esiste fuori dai limiti della mappa */}}
+\DoxyCodeLine{00284             result = !*(pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} + i);      \textcolor{comment}{/* se ciò accade la mossa diventa illegale */}}
+\DoxyCodeLine{00285     \}}
+\DoxyCodeLine{00286     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00287 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a61652e02ad29691cdddaeb081e43d09a}\label{headers_8h_a61652e02ad29691cdddaeb081e43d09a}} 
+\index{headers.h@{headers.h}!menuIniziale@{menuIniziale}}
+\index{menuIniziale@{menuIniziale}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{menuIniziale()}{menuIniziale()}}
+{\footnotesize\ttfamily void menu\+Iniziale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Attende l\textquotesingle{}input dell\textquotesingle{}utente e richiama la funzione di stampa menu iniziale ogni volta che l\textquotesingle{}utente effettua un cambiamento nella selezione della modalità 
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00044}{44}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045 \{}
+\DoxyCodeLine{00046     \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}} mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}};}
+\DoxyCodeLine{00047     \textcolor{keywordtype}{char} cmd = \textcolor{charliteral}{'0'};     \textcolor{comment}{/* variabile per memorizzare l'input */}}
+\DoxyCodeLine{00048    }
+\DoxyCodeLine{00049     \textcolor{keywordflow}{while} (cmd != \textcolor{charliteral}{'\(\backslash\)n'})             \textcolor{comment}{/* fino a che l'utente non preme invio attendo l'input */}}
+\DoxyCodeLine{00050     \{}
+\DoxyCodeLine{00051         \mbox{\hyperlink{grafica_8c_a3f5a170d8ea031166b5f9748e9678057}{StampaMenuIniziale}}(mode);   \textcolor{comment}{/* stampo la grafica del menù */}}
+\DoxyCodeLine{00052         cmd = getchar();            \textcolor{comment}{/*ottengo l'input utente*/}}
+\DoxyCodeLine{00053         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'A'} \&\& mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}})    mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}};           \textcolor{comment}{/* se l'utente preme la freccia verso l'alto   */}}
+\DoxyCodeLine{00054         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'A'} \&\& mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}})            mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}};       \textcolor{comment}{/* ciclo verso l'alto l'opzione selezionata    */}}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00056         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'B'} \&\& mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}})   mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}};       \textcolor{comment}{/* se l'utente preme la freccia verso il basso */}}
+\DoxyCodeLine{00057         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'B'} \&\& mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}})    mode = \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}};               \textcolor{comment}{/* ciclo verso il basso l'opzione selezionata  */}}
+\DoxyCodeLine{00058     \}}
+\DoxyCodeLine{00059     \mbox{\hyperlink{eventiPartita_8c_a16eee978e1d4a24b6335088b46abaafc}{IniziaPartita}}(mode);}
+\DoxyCodeLine{00060 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a80a3370e57277b9bb40f9fd91843aa18}\label{headers_8h_a80a3370e57277b9bb40f9fd91843aa18}} 
+\index{headers.h@{headers.h}!miglioreMossa@{miglioreMossa}}
+\index{miglioreMossa@{miglioreMossa}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{miglioreMossa()}{miglioreMossa()}}
+{\footnotesize\ttfamily int migliore\+Mossa (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{funzioniCpu_8c_source_l00033}{33}} of file \mbox{\hyperlink{funzioniCpu_8c_source}{funzioni\+Cpu.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034 \{}
+\DoxyCodeLine{00035     pa-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}} = \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}{S}};                                       \textcolor{comment}{/* in questa funzione testo ogni mossa possibile per determinare la    */}}
+\DoxyCodeLine{00036     \mbox{\hyperlink{structPezzo}{Pezzo}} *pz;                                                      \textcolor{comment}{/* migliore in ogni data situazione                                    */}}
+\DoxyCodeLine{00037     \textcolor{keywordtype}{int} tipo , rot;}
+\DoxyCodeLine{00038     \textcolor{keywordflow}{for} (tipo = 0; tipo <= \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aa70478ce277ffc322f8e1e3418e07355}{Z}}; tipo++ )                              \textcolor{comment}{/* il for più esterno ha il compito di scorrere tutti i tipi di pezzo  */}}
+\DoxyCodeLine{00039     \{}
+\DoxyCodeLine{00040         \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[tipo] > 0)                              \textcolor{comment}{/* verifico che i pezzi di questo tipo non siano finiti                */}}
+\DoxyCodeLine{00041         \{}
+\DoxyCodeLine{00042             pz = \mbox{\hyperlink{eventiPartita_8c_a65b7a5ca94c38ebee4a890329fdc42d1}{generaPezzo}}(tipo);                                 \textcolor{comment}{/* genero il pezzo                                                     */}}
+\DoxyCodeLine{00043             \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(pa,pz,0,0);                                  \textcolor{comment}{/* e lo posiziono nella mappa                                          */}}
+\DoxyCodeLine{00044             }
+\DoxyCodeLine{00045             \textcolor{keywordflow}{for} (rot = 0; rot < 4; rot++)                           \textcolor{comment}{/* con questo ciclo testo tutte le 4 rotazioni possibili del pezzo     */}}
+\DoxyCodeLine{00046             \{}
+\DoxyCodeLine{00047                 \textcolor{keywordflow}{while} (\mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(pa,pz,-\/1,0));                     }
+\DoxyCodeLine{00048                 \textcolor{keywordflow}{do}                                                  \textcolor{comment}{/* con questo ciclo testo tutte le posizioni nell'asse delle x         */}}
+\DoxyCodeLine{00049                 \{}
+\DoxyCodeLine{00050                     \textcolor{keywordflow}{while} (\mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(pa,pz,0,1));                  \textcolor{comment}{/* fino a che non incontro qualcosa continuo a muoverlo verso il basso */}}
+\DoxyCodeLine{00051                     \textcolor{keywordtype}{int} punteggio = \mbox{\hyperlink{funzioniCpu_8c_a2d855d001a1f794a18b6011bd1f368fb}{calcolaPunteggioScenario}}(pa);   \textcolor{comment}{/* calcolo il punteggio dello scenario che si è venuto a creare        */}}
+\DoxyCodeLine{00052                     \textcolor{keywordflow}{if}(punteggio > \mbox{\hyperlink{funzioniCpu_8c_a20d8d1f54a664e6c739edef51e735b80}{punteggioBest}})}
+\DoxyCodeLine{00053                     \{}
+\DoxyCodeLine{00054                         \mbox{\hyperlink{funzioniCpu_8c_a2008363a4d9fe9be71210e7a2ebafa87}{bestX}} = pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}};                              \textcolor{comment}{/* se il punteggio appena calcolato risulta maggiore del punteggio     */}}
+\DoxyCodeLine{00055                         \mbox{\hyperlink{funzioniCpu_8c_ac891e119a2477504e36b609384fb99d2}{bestY}} = pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}};                              \textcolor{comment}{/* best, salvo in memoria il nuovo punteggio e i dati relativi alla    */}}
+\DoxyCodeLine{00056                         \mbox{\hyperlink{funzioniCpu_8c_aee62db5a798cf4c13d81f66441ca34a2}{bestR}} = rot;                                \textcolor{comment}{/* mossa come: tipo pezzo, rotazione e coordinate                      */}}
+\DoxyCodeLine{00057                         \mbox{\hyperlink{funzioniCpu_8c_ad81fdf0e913cb85318cf39c0a6b1fb1a}{bestP}} = tipo;}
+\DoxyCodeLine{00058                         \mbox{\hyperlink{funzioniCpu_8c_a20d8d1f54a664e6c739edef51e735b80}{punteggioBest}} = punteggio;}
+\DoxyCodeLine{00059                     \}}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061                     \textcolor{keywordflow}{while} (pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} != 1)}
+\DoxyCodeLine{00062                         \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(pa,pz,0,-\/1);                     \textcolor{comment}{/* resetto il pezzo alla posizione di partenza per essere ruotato      */}}
+\DoxyCodeLine{00063                 \} \textcolor{keywordflow}{while} (\mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(pa,pz,1,0));}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065                 \textcolor{keywordflow}{while}(!\mbox{\hyperlink{eventiPartita_8c_a6bb98f39b683d3b6d4b66be58dbc583e}{ruotaPezzo}}(pa,pz))                           \textcolor{comment}{/* muovo il pezzo a sinistra fino a che non riesco a passare alla      */}}
+\DoxyCodeLine{00066                     \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(pa,pz,-\/1,0);                         \textcolor{comment}{/* prossima rotazione                                                  */}}
+\DoxyCodeLine{00067             \}}
+\DoxyCodeLine{00068             \mbox{\hyperlink{eventiPartita_8c_af372721013335e373c8a79a1af8b804d}{rimuoviPezzo}}(pa,pz);                                    \textcolor{comment}{/* tolgo il pezzo dalla mappa                                          */}}
+\DoxyCodeLine{00069             \mbox{\hyperlink{eventiPartita_8c_a72ae0f2c84722d8faecac7c208d9382a}{distruggiPezzo}}(pz);                                     \textcolor{comment}{/* libero la memoria occupada dalla struct del pezzo                   */}}
+\DoxyCodeLine{00070         \}}
+\DoxyCodeLine{00071     \}}
+\DoxyCodeLine{00072 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a2640addffae1e0ba94a6e1270e59054b}\label{headers_8h_a2640addffae1e0ba94a6e1270e59054b}} 
+\index{headers.h@{headers.h}!muoviPezzo@{muoviPezzo}}
+\index{muoviPezzo@{muoviPezzo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{muoviPezzo()}{muoviPezzo()}}
+{\footnotesize\ttfamily int muovi\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz,  }\item[{int}]{dx,  }\item[{int}]{dy }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di muovere un pezzo presente nella mappa di un dato delta x e delta y rispetto alla sua attuale posizione. Prima di fare ciò si accerta che l\textquotesingle{}operazione sia legale invocando la funzione is\+Pezzo\+Spostabile 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer al pezzo non confermato da muovere \\
+\hline
+{\em dx} & delta x \\
+\hline
+{\em dy} & delta y \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00217}{217}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00218 \{}
+\DoxyCodeLine{00219     \mbox{\hyperlink{eventiPartita_8c_af372721013335e373c8a79a1af8b804d}{rimuoviPezzo}}(pa,pz);                \textcolor{comment}{/* rimuovo il pezzo dalla mappa */}}
+\DoxyCodeLine{00220     pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} += dx; pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} += dy;           \textcolor{comment}{/* muovo il pezzo di dy e dx senza modificare la mappa */}}
+\DoxyCodeLine{00221     \textcolor{keywordflow}{if}(\mbox{\hyperlink{eventiPartita_8c_a9a2a1a8dc3e71a104d0f831a6a1f9620}{isPezzoSpostabile}}(pa,pz))        \textcolor{comment}{/* verifico se il pezzo in questa posizione è spostabile */}}
+\DoxyCodeLine{00222     \{}
+\DoxyCodeLine{00223         \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(pa,pz);          \textcolor{comment}{/* se è così, aggiorno la sua posizione anche nella mappa */}}
+\DoxyCodeLine{00224         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00225     \}}
+\DoxyCodeLine{00226     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00227     \{}
+\DoxyCodeLine{00228         pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} -\/= dx; pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} -\/= dy;       \textcolor{comment}{/* altrimenti lo faccio tornare dove era */}}
+\DoxyCodeLine{00229         \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(pa,pz);          \textcolor{comment}{/* e lo inserisco nuovamente nella mappa */}}
+\DoxyCodeLine{00230         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00231     \}}
+\DoxyCodeLine{00232 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a50acfd52e1f4d0b9b1b7abdaa5887fb5}\label{headers_8h_a50acfd52e1f4d0b9b1b7abdaa5887fb5}} 
+\index{headers.h@{headers.h}!posizionaPezzo@{posizionaPezzo}}
+\index{posizionaPezzo@{posizionaPezzo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{posizionaPezzo()}{posizionaPezzo()}}
+{\footnotesize\ttfamily void posiziona\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{partita,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Attende l\textquotesingle{}input dell\textquotesingle{}utente per muovere un pezzo non ancora confermato. Ogni volta che l\textquotesingle{}utente preme una freccetta direzionale viene invocata la funzione muovi\+Pezzo che proverà, se possibile, a muovere il pezzo nella direzione indicata. Se l\textquotesingle{}utente preme invio invece il pezzo viene confermato (sempre se possibile) 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer al pezzo non confermato da muovere \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00196}{196}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00197 \{}
+\DoxyCodeLine{00198     \textcolor{keywordtype}{char} cmd = \textcolor{charliteral}{'0'};\textcolor{comment}{/* variabile per memorizzare l'input */}}
+\DoxyCodeLine{00199     \textcolor{comment}{/* fino a che l'utente non preme invio continuo ad attendere l'input */}}
+\DoxyCodeLine{00200     \textcolor{keywordflow}{while} (cmd != \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{00201     \{}
+\DoxyCodeLine{00202         \mbox{\hyperlink{grafica_8c_a010bf1806ab2d2e0767a91438f2cb675}{Update}}(partita); \textcolor{comment}{/* aggiorno la grafica perchè l'utente deve vedere il pezzo che ha appena mosso */}}
+\DoxyCodeLine{00203         cmd = getchar(); }
+\DoxyCodeLine{00204         \textcolor{keywordtype}{int} fatta = 0;}
+\DoxyCodeLine{00205         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'A'}) fatta = \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,0,-\/1);         \textcolor{comment}{/* questi sono i quattro casi che rappresentano */}}
+\DoxyCodeLine{00206         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'D'}) fatta = \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,-\/1,0);         \textcolor{comment}{/* le quattro direzioni in qui un utente può    */}}
+\DoxyCodeLine{00207         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'B'}) fatta = \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,0,1);          \textcolor{comment}{/* muovere ogni pezzo tramite le 4 freccette    */}}
+\DoxyCodeLine{00208         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'C'}) fatta = \mbox{\hyperlink{eventiPartita_8c_a2640addffae1e0ba94a6e1270e59054b}{muoviPezzo}}(partita,pz,1,0);          \textcolor{comment}{/* direzionali                                  */}}
+\DoxyCodeLine{00209         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'\(\backslash\)n'}) }
+\DoxyCodeLine{00210             \textcolor{keywordflow}{if}(\mbox{\hyperlink{eventiPartita_8c_a286cba791d3dfa4c618f2aedce8aa9af}{isPezzoPosizionabile}}(partita,pz))                    \textcolor{comment}{/* se l'utente preme invio controllo che il pezzo */}}
+\DoxyCodeLine{00211                 \mbox{\hyperlink{eventiPartita_8c_aea8e121a46998b4ba6e499c3ad6217de}{confermaPezzo}}(partita,pz);                          \textcolor{comment}{/* sia posizionabile ed eventualmente lo confermo */}}
+\DoxyCodeLine{00212             \textcolor{keywordflow}{else} cmd = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{00213         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'r'}) \mbox{\hyperlink{eventiPartita_8c_a6bb98f39b683d3b6d4b66be58dbc583e}{ruotaPezzo}}(partita, pz);                     \textcolor{comment}{/* se invece l'utente preme il tasto r ruoto il pezzo (sempre se possibile) */}}
+\DoxyCodeLine{00214     \}}
+\DoxyCodeLine{00215 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_af6f0d5767349bbc19df9486c71f32b09}\label{headers_8h_af6f0d5767349bbc19df9486c71f32b09}} 
+\index{headers.h@{headers.h}!pulisciSchermo@{pulisciSchermo}}
+\index{pulisciSchermo@{pulisciSchermo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{pulisciSchermo()}{pulisciSchermo()}}
+{\footnotesize\ttfamily void pulisci\+Schermo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+funzione con lo scopo di \char`\"{}pulire\char`\"{} il terminale stampando stringhe di spazi lunghi quanto la larghezza del terminale stesso. 
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00052}{52}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00053 \{}
+\DoxyCodeLine{00054     \textcolor{comment}{/* costruisco una stringa di spazi lunga quanto il terminale */}}
+\DoxyCodeLine{00055     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{00056     \textcolor{keywordtype}{char}* vuoto = malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})*\mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}*2+1);}
+\DoxyCodeLine{00057     vuoto[\mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}*2] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00058     memset(vuoto,\textcolor{charliteral}{' '},\mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}*2);}
+\DoxyCodeLine{00059     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{00060     \textcolor{comment}{/* stampo la stringa vuota più volte per pulire il terminale */}}
+\DoxyCodeLine{00061     \textcolor{keywordflow}{for} (i = 0; i < 45; i++)}
+\DoxyCodeLine{00062         \mbox{\hyperlink{grafica_8c_a3643d55f259bc6e310a4aae78e199b4c}{Stampa}}(vuoto);}
+\DoxyCodeLine{00063 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a0644bf5c04860d153c63e55276965bf7}\label{headers_8h_a0644bf5c04860d153c63e55276965bf7}} 
+\index{headers.h@{headers.h}!richiediSceltaPezzo@{richiediSceltaPezzo}}
+\index{richiediSceltaPezzo@{richiediSceltaPezzo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{richiediSceltaPezzo()}{richiediSceltaPezzo()}}
+{\footnotesize\ttfamily void richiedi\+Scelta\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{partita }\end{DoxyParamCaption})}
+
+Attende l\textquotesingle{}input utente riguardo alla scelta del pezzo e aggiorna lo schermo ogni volta che la scelta cambia. Premendo invio la funzione conferma la selezione e decremena i pezzi rimanenti di quello specifico tipo 
+\begin{DoxyParams}{Parameters}
+{\em partita} & puntatore alla struct partita \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00096}{96}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097 \{}
+\DoxyCodeLine{00098     partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}} = 0;}
+\DoxyCodeLine{00099     \textcolor{keywordtype}{char} cmd = \textcolor{charliteral}{'0'};    \textcolor{comment}{/* variabile per memorizzare l'input */}}
+\DoxyCodeLine{00100     \textcolor{keywordtype}{int} scelto = 0;}
+\DoxyCodeLine{00101     \textcolor{comment}{/* fino a che l'utente non preme invio o sceglie un pezzo non esaurito attendo l'input */}}
+\DoxyCodeLine{00102     \textcolor{keywordflow}{while} (cmd != \textcolor{charliteral}{'\(\backslash\)n'} || partita-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[scelto] <= 0)}
+\DoxyCodeLine{00103     \{}
+\DoxyCodeLine{00104         \mbox{\hyperlink{grafica_8c_a010bf1806ab2d2e0767a91438f2cb675}{Update}}(partita);}
+\DoxyCodeLine{00105         cmd = getchar(); \textcolor{comment}{/* ottengo l'input */}}
+\DoxyCodeLine{00106         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'D'}) scelto = (scelto+1)\%7;       \textcolor{comment}{/* se l'utente preme il la freccia destra o sinistra */}}
+\DoxyCodeLine{00107         \textcolor{keywordflow}{if}(cmd == \textcolor{charliteral}{'C'}) scelto = (scelto+6)\%7;       \textcolor{comment}{/* continuo a ciclare la lista di pezzi dispobiibli  */}}
+\DoxyCodeLine{00108         partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}} = scelto;}
+\DoxyCodeLine{00109     \}}
+\DoxyCodeLine{00110     \textcolor{comment}{/* una volta che il pezzo è confermato diminuisco la quantità disponibile per lo stesso tipo */}}
+\DoxyCodeLine{00111     partita-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}[scelto]-\/-\/;}
+\DoxyCodeLine{00112 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a974c16f6eb2db617d5f61d7eec167d48}\label{headers_8h_a974c16f6eb2db617d5f61d7eec167d48}} 
+\index{headers.h@{headers.h}!rimuoviLinee@{rimuoviLinee}}
+\index{rimuoviLinee@{rimuoviLinee}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{rimuoviLinee()}{rimuoviLinee()}}
+{\footnotesize\ttfamily int rimuovi\+Linee (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa }\end{DoxyParamCaption})}
+
+Funzione creata per scorrere le righe della mappa eliminando quelle che sono complete. Ogni volta che ciò accade invoca abbassa\+Blocchi per abbassare i blocchi al di sopra della linea. Ritorna in oltre il numero di righe eliminate necessarie alla modifica dei punteggi 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & rappresentante il numero di righe eliminate \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00322}{322}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00323 \{}
+\DoxyCodeLine{00324     \textcolor{comment}{/* questa funzione ha lo scopo di verificare le righe che sono da rimuovere prima di rimuoverle     */}}
+\DoxyCodeLine{00325     \textcolor{comment}{/* lo fa contando quanti "{}1"{} sono presenti in una riga: se il valore è pari a 10 la riga va rimossa */}}
+\DoxyCodeLine{00326     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{00327     \textcolor{keywordtype}{int} rimosse = 0;}
+\DoxyCodeLine{00328     \textcolor{keywordflow}{for} (i = 0; i < 15; i++)                                                \textcolor{comment}{/* passo ogni riga della matrice */}}
+\DoxyCodeLine{00329     \{}
+\DoxyCodeLine{00330         \textcolor{keywordtype}{int} count = 0;}
+\DoxyCodeLine{00331         \textcolor{keywordflow}{for}(j = 0; j < 10; j++)\{                                            \textcolor{comment}{/* per ogni riga scorro le celle */}}
+\DoxyCodeLine{00332             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) count = count + pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j];           \textcolor{comment}{/* e tengo il conto di quante    */}}
+\DoxyCodeLine{00333             \textcolor{keywordflow}{else}                count = count + pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j];           \textcolor{comment}{/* di queste hanno valore 1      */}}
+\DoxyCodeLine{00334         \}}
+\DoxyCodeLine{00335         \textcolor{keywordflow}{if}(count == 10)                                                     \textcolor{comment}{/* se la somma fa 10 la riga va rimossa */}}
+\DoxyCodeLine{00336         \{}
+\DoxyCodeLine{00337             \textcolor{keywordflow}{for} (j = 0; j < 10; j++)\{                                       \textcolor{comment}{/* scorro nuovamente la riga e   */}}
+\DoxyCodeLine{00338                 \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[i][j] = 0;                   \textcolor{comment}{/* setto a zero tutti i valori   */}}
+\DoxyCodeLine{00339                 \textcolor{keywordflow}{else}                pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[i][j] = 0;}
+\DoxyCodeLine{00340             \}}
+\DoxyCodeLine{00341             rimosse++;                                                      \textcolor{comment}{/* incremento il contatore righe rimosse */}  }
+\DoxyCodeLine{00342             \mbox{\hyperlink{eventiPartita_8c_a93c77b7b4c510aa276e702f60c03e056}{abbassaBlocchi}}(pa,i);                                           \textcolor{comment}{/* abbasso i blocchi superiori alla riga tolta */}}
+\DoxyCodeLine{00343         \}   }
+\DoxyCodeLine{00344     \}}
+\DoxyCodeLine{00345     \textcolor{keywordflow}{return} rimosse;}
+\DoxyCodeLine{00346 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_af372721013335e373c8a79a1af8b804d}\label{headers_8h_af372721013335e373c8a79a1af8b804d}} 
+\index{headers.h@{headers.h}!rimuoviPezzo@{rimuoviPezzo}}
+\index{rimuoviPezzo@{rimuoviPezzo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{rimuoviPezzo()}{rimuoviPezzo()}}
+{\footnotesize\ttfamily void rimuovi\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di rimuovere dalla mappa un pezzo. Ciò vinene fatto invocando la funzione Scrivi\+Su\+Mappa sul pezzo pz con valore 0 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer al pezzo da inserire \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00182}{182}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00183 \{}
+\DoxyCodeLine{00184     \textcolor{comment}{/* scrivo sulla mappa il valore 0 che rappresenta uno spazio vuoto        */}}
+\DoxyCodeLine{00185     \textcolor{comment}{/* passo il pezzo stesso come maschera per la stampa                      */}}
+\DoxyCodeLine{00186     \mbox{\hyperlink{eventiPartita_8c_abb62c59f8632bbe99b030bf4aa422978}{ScriviSuMappa}}(pa,pz,0);}
+\DoxyCodeLine{00187 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a6bb98f39b683d3b6d4b66be58dbc583e}\label{headers_8h_a6bb98f39b683d3b6d4b66be58dbc583e}} 
+\index{headers.h@{headers.h}!ruotaPezzo@{ruotaPezzo}}
+\index{ruotaPezzo@{ruotaPezzo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{ruotaPezzo()}{ruotaPezzo()}}
+{\footnotesize\ttfamily int ruota\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz }\end{DoxyParamCaption})}
+
+Funzione con lo scopo di ruotare un pezzo presente nella mappa in senso orario di 90 gradi. Prima di fare ciò si accerta che l\textquotesingle{}operazione sia legale invocando la funzione is\+Pezzo\+Spostabile 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pointer al pezzo non confermato da muovere \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00234}{234}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00235 \{}
+\DoxyCodeLine{00236     \mbox{\hyperlink{eventiPartita_8c_af372721013335e373c8a79a1af8b804d}{rimuoviPezzo}}(pa,pz); \textcolor{comment}{/* rimuovo il pezzo dalla mappa */}}
+\DoxyCodeLine{00237 }
+\DoxyCodeLine{00238     \textcolor{keywordtype}{int} i,j, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3);               \textcolor{comment}{/*                                             */}}
+\DoxyCodeLine{00239     \textcolor{keywordtype}{int} *result = malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int})*l*l);                                  \textcolor{comment}{/* in questa sezione applico un algoritmo per  */}}
+\DoxyCodeLine{00240     \textcolor{keywordtype}{int} n = 0;                                                              \textcolor{comment}{/* ruotare la matrice che rappresenta la       */}}
+\DoxyCodeLine{00241     \textcolor{keywordflow}{for}(i = 0; i < l; i++)                                                  \textcolor{comment}{/* disposizione del blocco. E salvo la matrice */}}
+\DoxyCodeLine{00242     \{                                                                       \textcolor{comment}{/* ruotata in una variabile a parte            */}        }
+\DoxyCodeLine{00243         \textcolor{keywordflow}{for}(j = l-\/1; j >= 0; j-\/-\/)                                           \textcolor{comment}{/*                                             */}}
+\DoxyCodeLine{00244         \{}
+\DoxyCodeLine{00245             result[n++] = pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}}[j*l + i];}
+\DoxyCodeLine{00246         \}}
+\DoxyCodeLine{00247     \}   }
+\DoxyCodeLine{00248     \textcolor{keywordtype}{int} *old = pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}};                                            \textcolor{comment}{/* tuttavia non elimino la vecchia disposizione  */}}
+\DoxyCodeLine{00249     pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} = result;}
+\DoxyCodeLine{00250     \textcolor{keywordflow}{if}(\mbox{\hyperlink{eventiPartita_8c_a9a2a1a8dc3e71a104d0f831a6a1f9620}{isPezzoSpostabile}}(pa,pz))                                            \textcolor{comment}{/* verifico se è possibile inserire il pezzo con */}}
+\DoxyCodeLine{00251     \{                                                                       \textcolor{comment}{/* la nuova disposizione                         */}}
+\DoxyCodeLine{00252         free(old);                                                          \textcolor{comment}{/* se posso elimino la vecchia disposizione      */}}
+\DoxyCodeLine{00253         \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(pa,pz);}
+\DoxyCodeLine{00254         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00255     \}}
+\DoxyCodeLine{00256     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00257     \{   }
+\DoxyCodeLine{00258         pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}} = old;                                             \textcolor{comment}{/* altrimenti annullo le modifiche fatte al pezzo */}}
+\DoxyCodeLine{00259         free(result);                                                       \textcolor{comment}{/* elimino la nuova disposizione                  */}}
+\DoxyCodeLine{00260         \mbox{\hyperlink{eventiPartita_8c_af0a6d2f6a14a4e9883a40322b586c699}{inserisciPezzo}}(pa,pz);                                              \textcolor{comment}{/* e inserisco di nuovo il pezzo                  */}}
+\DoxyCodeLine{00261         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00262     \}}
+\DoxyCodeLine{00263 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_abb62c59f8632bbe99b030bf4aa422978}\label{headers_8h_abb62c59f8632bbe99b030bf4aa422978}} 
+\index{headers.h@{headers.h}!ScriviSuMappa@{ScriviSuMappa}}
+\index{ScriviSuMappa@{ScriviSuMappa}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{ScriviSuMappa()}{ScriviSuMappa()}}
+{\footnotesize\ttfamily void Scrivi\+Su\+Mappa (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{\mbox{\hyperlink{structPezzo}{Pezzo}} $\ast$}]{pz,  }\item[{int}]{valore }\end{DoxyParamCaption})}
+
+Funzione con il compito di inserire un pezzo nella matrice rappresenante la mappa . In base allo stato del pezzo (confermato o non confermato) il valore con la quale il pezzo viene inserito nella mappa cambia. 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em pz} & pezzo rappresentante l\textquotesingle{}area e la posizione di scrittura \\
+\hline
+{\em valore} & stato del pezzo che si sta inserendo (1 = confermato, 2 = non confermato, 0 = spazio vuoto) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{eventiPartita_8c_source_l00123}{123}} of file \mbox{\hyperlink{eventiPartita_8c_source}{eventi\+Partita.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124 \{}
+\DoxyCodeLine{00125     \textcolor{comment}{/* la dimensione del lato l del quadrato dell'area della matrice su cui devo scivere varia */}}
+\DoxyCodeLine{00126     \textcolor{comment}{/* in base al tipo del pezzo che uso come maschera */}}
+\DoxyCodeLine{00127     \textcolor{keywordtype}{int} i, l = pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz-\/>\mbox{\hyperlink{structPezzo_aa6e3491fd82148d6d2958121162ab51b}{tipo}} == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3);}
+\DoxyCodeLine{00128     \textcolor{comment}{/* uso un cursore per scorrere la matrice che rappresenta la disposizione del pezzo  */}}
+\DoxyCodeLine{00129     \textcolor{keywordtype}{int} *parser = pz-\/>\mbox{\hyperlink{structPezzo_a2fe43191282c0dc917b3efbe9a86566c}{disposizione}};}
+\DoxyCodeLine{00130     \textcolor{keywordflow}{for} (i = 0; i < l*l; i++)}
+\DoxyCodeLine{00131         \textcolor{keywordflow}{if}(*(parser++) == 1)    \textcolor{comment}{/* se in quel punto il pezzo esiste stampo sulla mappa il valore richiesto */}}
+\DoxyCodeLine{00132         \{}
+\DoxyCodeLine{00133             \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}} == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}}) pa-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}[pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} + i/l][pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} + i\%l] = valore;  }
+\DoxyCodeLine{00134             \textcolor{keywordflow}{else}                pa-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}[pz-\/>\mbox{\hyperlink{structPezzo_a4f3dce5264e1075cf281a17f25c4fd66}{y}} + i/l][pz-\/>\mbox{\hyperlink{structPezzo_a849e430c5d9d1d37a0551eb915e479eb}{x}} + i\%l] = valore;}
+\DoxyCodeLine{00135         \} }
+\DoxyCodeLine{00136     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00137 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a3643d55f259bc6e310a4aae78e199b4c}\label{headers_8h_a3643d55f259bc6e310a4aae78e199b4c}} 
+\index{headers.h@{headers.h}!Stampa@{Stampa}}
+\index{Stampa@{Stampa}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{Stampa()}{Stampa()}}
+{\footnotesize\ttfamily void Stampa (\begin{DoxyParamCaption}\item[{char $\ast$}]{s }\end{DoxyParamCaption})}
+
+funzione di stampa che allinea la stringa da stampare con il resto del programma senza ritorno a capo 
+\begin{DoxyParams}{Parameters}
+{\em s} & array di caratteri da stampare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00031}{31}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032 \{}
+\DoxyCodeLine{00033     \textcolor{comment}{/* prima della stringa stampo una serie di spazi per allinearla al centro */}}
+\DoxyCodeLine{00034     printf(\textcolor{stringliteral}{"{}\%*s"{}}, (\textcolor{keywordtype}{int})\mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}-\/(\mbox{\hyperlink{grafica_8c_a3602fc0c6dd5b37a3ea4e41dc9d31c63}{StrLenMB}}(s)/2), \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00035     printf(\textcolor{stringliteral}{"{}\%s"{}},s);}
+\DoxyCodeLine{00036 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a9ff0ad714c4ea83ccd8f0295c35a7422}\label{headers_8h_a9ff0ad714c4ea83ccd8f0295c35a7422}} 
+\index{headers.h@{headers.h}!stampaFine@{stampaFine}}
+\index{stampaFine@{stampaFine}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{stampaFine()}{stampaFine()}}
+{\footnotesize\ttfamily void stampa\+Fine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{int}]{x }\end{DoxyParamCaption})}
+
+stampa il resoconto di fine partita comprendente i punteggi dei giocatori e info riguardanti il vincitore. 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em x} & posizione orizzontale nel terminale su cui stampare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00325}{325}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00326 \{}
+\DoxyCodeLine{00327     \textcolor{comment}{/* stampo il resoconto finale in modo simile alla stampa degli altri menù */}}
+\DoxyCodeLine{00328     \textcolor{keywordtype}{int} i,y = 12;}
+\DoxyCodeLine{00329     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y);}
+\DoxyCodeLine{00330     \textcolor{comment}{/*  cancello il menù di gioco stampato precendentemente */}}
+\DoxyCodeLine{00331     \textcolor{keywordflow}{for} (i = 0; i < 5; i++) }
+\DoxyCodeLine{00332     \{}
+\DoxyCodeLine{00333         printf(\textcolor{stringliteral}{"{}                      "{}});}
+\DoxyCodeLine{00334         \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00335     \}}
+\DoxyCodeLine{00336     printf(\textcolor{stringliteral}{"{}  PARTITA TERMINATA!  "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00337     printf(\textcolor{stringliteral}{"{}┏━━━━━━━━━━━━━━━━━━━━┓"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00338     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00339     printf(\textcolor{stringliteral}{"{}┃  PUNTEGGIO FINALE  ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00340     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00341     printf(\textcolor{stringliteral}{"{}┃     Giocatore 1    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00342     printf(\textcolor{stringliteral}{"{}┃         \%02d         ┃"{}},pa-\/>\mbox{\hyperlink{structPartita_ae53779d2d90a0232675ae2b8aa3b384d}{punteggio1}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);            \textcolor{comment}{/* ottengo il punteggio del giocatore 1 dalla struct */}}
+\DoxyCodeLine{00343     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00344     \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} != \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}})                                            \textcolor{comment}{/* se non sono in modalità multiplayer non mostro i seguenti dati */}}
+\DoxyCodeLine{00345     \{}
+\DoxyCodeLine{00346         printf(\textcolor{stringliteral}{"{}┃     Giocatore 2    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00347         printf(\textcolor{stringliteral}{"{}┃         \%02d         ┃"{}},pa-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);        \textcolor{comment}{/* ottengo il punteggio del giocatore 2 dalla struct */}}
+\DoxyCodeLine{00348         printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00349         printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00350         printf(\textcolor{stringliteral}{"{}┃      VINCITORE     ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00351         \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} == \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba74ef188effc4ac9e6105377323e3f2c6}{VITTORIA\_P1}})}
+\DoxyCodeLine{00352             printf(\textcolor{stringliteral}{"{}┃     Giocatore 1    ┃"{}});                                   \textcolor{comment}{/* in base ha chi a vinto stampo giocatore 1 , 2 o CPU */}}
+\DoxyCodeLine{00353         \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} == \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba41386872ebe4dff73280be09b76c422d}{VITTORIA\_P2}} \&\& pa-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}})                                         }
+\DoxyCodeLine{00354             printf(\textcolor{stringliteral}{"{}┃     Giocatore 2    ┃"{}});}
+\DoxyCodeLine{00355         \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} == \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361ba41386872ebe4dff73280be09b76c422d}{VITTORIA\_P2}} \&\& pa-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}})                                         }
+\DoxyCodeLine{00356             printf(\textcolor{stringliteral}{"{}┃         CPU        ┃"{}});}
+\DoxyCodeLine{00357         \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00358         printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);    }
+\DoxyCodeLine{00359         printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);   }
+\DoxyCodeLine{00360     \}}
+\DoxyCodeLine{00361     printf(\textcolor{stringliteral}{"{}┃       Menu: ⤶      ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00362     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);    }
+\DoxyCodeLine{00363     printf(\textcolor{stringliteral}{"{}┗━━━━━━━━━━━━━━━━━━━━┛"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00364 }
+\DoxyCodeLine{00365 }
+\DoxyCodeLine{00366     \textcolor{comment}{/*  cancello il menù di gioco stampato precendentemente */}}
+\DoxyCodeLine{00367     \textcolor{keywordflow}{for} (i = 0; i < 5; i++)}
+\DoxyCodeLine{00368     \{}
+\DoxyCodeLine{00369         printf(\textcolor{stringliteral}{"{}                      "{}});}
+\DoxyCodeLine{00370         \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00371     \}}
+\DoxyCodeLine{00372 }
+\DoxyCodeLine{00373     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{00374 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a90ae96fa446382b324d95fe843d77bf3}\label{headers_8h_a90ae96fa446382b324d95fe843d77bf3}} 
+\index{headers.h@{headers.h}!StampaL@{StampaL}}
+\index{StampaL@{StampaL}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{StampaL()}{StampaL()}}
+{\footnotesize\ttfamily void StampaL (\begin{DoxyParamCaption}\item[{char $\ast$}]{s }\end{DoxyParamCaption})}
+
+funzione di stampa che allinea la stringa da stampare con il resto del programma con ritorno a capo 
+\begin{DoxyParams}{Parameters}
+{\em s} & array di caratteri da stampare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00038}{38}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039 \{}
+\DoxyCodeLine{00040     \mbox{\hyperlink{grafica_8c_a3643d55f259bc6e310a4aae78e199b4c}{Stampa}}(s);}
+\DoxyCodeLine{00041     printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a1e0ab7d58dc648a857033796bebc8c44}\label{headers_8h_a1e0ab7d58dc648a857033796bebc8c44}} 
+\index{headers.h@{headers.h}!StampaLConColore@{StampaLConColore}}
+\index{StampaLConColore@{StampaLConColore}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{StampaLConColore()}{StampaLConColore()}}
+{\footnotesize\ttfamily void Stampa\+LCon\+Colore (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{int}]{Num\+Colori\+Usati }\end{DoxyParamCaption})}
+
+simile a funzione Stampa ma tiene conto di caratteri speciali per il colore 
+\begin{DoxyParams}{Parameters}
+{\em s} & array di caratteri da stampare \\
+\hline
+{\em Num\+Colori\+Usati} & quantità dei codici colore usati \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00044}{44}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045 \{}
+\DoxyCodeLine{00046     \textcolor{comment}{/* prima della stringa stampo una serie di spazi per allinearla al centro */}}
+\DoxyCodeLine{00047     printf(\textcolor{stringliteral}{"{}\%*s"{}}, (\textcolor{keywordtype}{int})(\mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}-\/((\mbox{\hyperlink{grafica_8c_a3602fc0c6dd5b37a3ea4e41dc9d31c63}{StrLenMB}}(s) -\/ (NumColoriUsati/2 * 13))/2)), \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00048     printf(\textcolor{stringliteral}{"{}\%s"{}},s);}
+\DoxyCodeLine{00049     printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00050 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a92a3e0936c91ba2637b83d6bf6b574c3}\label{headers_8h_a92a3e0936c91ba2637b83d6bf6b574c3}} 
+\index{headers.h@{headers.h}!stampaMappa@{stampaMappa}}
+\index{stampaMappa@{stampaMappa}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{stampaMappa()}{stampaMappa()}}
+{\footnotesize\ttfamily void stampa\+Mappa (\begin{DoxyParamCaption}\item[{int}]{mappa1\mbox{[}15\mbox{]}\mbox{[}10\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+funzione utilizzata nella stampa dell\textquotesingle{}effettivo campo di gioco. Viene chiamata dalla funzione Update una volta in singleplayer o due in multiplayer per permettere ai giocatori di vedere lo stato del proprio campo di gioco e di quello dell\textquotesingle{}avversario contemporaneamente 
+\begin{DoxyParams}{Parameters}
+{\em int\mbox{[}15\mbox{]}\mbox{[}10\mbox{]}} & matrice rappresentante il campo da gioco \\
+\hline
+{\em x} & posizione orizzontale nel terminale su cui stampare \\
+\hline
+{\em y} & posizione verticale nel terminale su cui stampare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00279}{279}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00280 \{}
+\DoxyCodeLine{00281     \textcolor{comment}{/* Questa funzione stampa la mappa fornitale costruendo ogni singola  */}}
+\DoxyCodeLine{00282     \textcolor{comment}{/* riga da stampare in base al contenuto della matrice mappa          */}}
+\DoxyCodeLine{00283 }
+\DoxyCodeLine{00284     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y);}
+\DoxyCodeLine{00285     printf(\textcolor{stringliteral}{"{}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"{}});}
+\DoxyCodeLine{00286     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00287     \textcolor{keywordtype}{char} riga[200] = \textcolor{stringliteral}{"{}"{}};                        \textcolor{comment}{/* questa è la riga che al termine di ogni ciclo rappresenterà la i-\/esima riga della mappa che stiamo stampando */}}
+\DoxyCodeLine{00288     \textcolor{keywordtype}{int} i ,j;}
+\DoxyCodeLine{00289     \textcolor{keywordtype}{int} coloriUsati = 0;                }
+\DoxyCodeLine{00290     \textcolor{keywordflow}{for} (i = 0; i < 30; i++)                    \textcolor{comment}{/* ogni riga della mappa è alta 2 caratteri quindi questo for viene eseguito 30 volte */}}
+\DoxyCodeLine{00291     \{}
+\DoxyCodeLine{00292         strcat(riga,\textcolor{stringliteral}{"{}┃ "{}});                      \textcolor{comment}{/* inizio concatenando il bordo sinistro della mappa*/}}
+\DoxyCodeLine{00293                                                 }
+\DoxyCodeLine{00294         \textcolor{keywordflow}{for} (j = 0; j < 10; j++)                \textcolor{comment}{/*i "{}blocchi"{} contenuti in una riga della mappa sono 10, eseguo il ciclo per ognuno */}}
+\DoxyCodeLine{00295         \{ }
+\DoxyCodeLine{00296             \textcolor{keywordflow}{if}(mappa[i/2][j] > 0)               \textcolor{comment}{/* se la mappa in posizione [i/2][j] non è zero devo stampare un blocco colorato */}}
+\DoxyCodeLine{00297             \{}
+\DoxyCodeLine{00298                 \textcolor{keywordflow}{if}(mappa[i/2][j] == 1)          \textcolor{comment}{/* se il valore è == 1 appartiene ad un blocco confermato */}}
+\DoxyCodeLine{00299                     strcat(riga,\mbox{\hyperlink{headers_8h_ace47038d69331e8d3d310749c8452224}{ColoreBianco}});}
+\DoxyCodeLine{00300                 \textcolor{keywordflow}{if}(mappa[i/2][j] == 2)          \textcolor{comment}{/* se il valore è == 2 appartiene ad un blocco non ancora confermato */}}
+\DoxyCodeLine{00301                     strcat(riga,\mbox{\hyperlink{headers_8h_a11b630e4c5eba8076c9a53e5b513a159}{ColoreBlu}});}
+\DoxyCodeLine{00302                 \textcolor{keywordflow}{if}(i == 3) strcat(riga,\textcolor{stringliteral}{"{}▁ ▁ "{}}); \textcolor{comment}{/* se staiamo stampando la 3a stringa aggiungo trateggio di limite superiore */}}
+\DoxyCodeLine{00303                 \textcolor{keywordflow}{else}       strcat(riga,\textcolor{stringliteral}{"{}    "{}}); \textcolor{comment}{/* se è un qualunque altro blocco stampo solo uno spazio */}}
+\DoxyCodeLine{00304 }
+\DoxyCodeLine{00305                 strcat(riga,\mbox{\hyperlink{headers_8h_a5708c0924ebd1d9475c7baf8b1e29774}{ColoreDefault}});     \textcolor{comment}{/* in ogni caso resetto il colore */}}
+\DoxyCodeLine{00306                 coloriUsati += 2;}
+\DoxyCodeLine{00307             \}}
+\DoxyCodeLine{00308             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(i == 3) strcat(riga,\textcolor{stringliteral}{"{}▁ ▁ "{}});}
+\DoxyCodeLine{00309             \textcolor{keywordflow}{else}       strcat(riga,\textcolor{stringliteral}{"{}    "{}});     \textcolor{comment}{/* se invece il valore è zero aggiungo un blocco senza colorarlo */}}
+\DoxyCodeLine{00310         \}}
+\DoxyCodeLine{00311         strcat(riga,\textcolor{stringliteral}{"{} ┃"{}});                      \textcolor{comment}{/* concludo la riga concatenando il bordo destro della mappa */}}
+\DoxyCodeLine{00312 }
+\DoxyCodeLine{00313         printf(\textcolor{stringliteral}{"{}\%s"{}},riga);                      \textcolor{comment}{/*   stampo    */}}
+\DoxyCodeLine{00314         \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);                          \textcolor{comment}{/* cambio riga */}}
+\DoxyCodeLine{00315         memset(riga, 0, \textcolor{keyword}{sizeof}(riga));          \textcolor{comment}{/*  resestto   */}}
+\DoxyCodeLine{00316         coloriUsati = 0;}
+\DoxyCodeLine{00317     \}}
+\DoxyCodeLine{00318     printf(\textcolor{stringliteral}{"{}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"{}});}
+\DoxyCodeLine{00319     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y+2);                                                              \textcolor{comment}{/* stampo il bordo inferiore */}}
+\DoxyCodeLine{00320     printf(\textcolor{stringliteral}{"{} Movimento: ◁ ▷ △ ▽   Ruota: r   Ok: ⤶ \(\backslash\)n"{}});                        \textcolor{comment}{/* e aggiungo una legenda    */}}
+\DoxyCodeLine{00321     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{00322     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00323 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a3f5a170d8ea031166b5f9748e9678057}\label{headers_8h_a3f5a170d8ea031166b5f9748e9678057}} 
+\index{headers.h@{headers.h}!StampaMenuIniziale@{StampaMenuIniziale}}
+\index{StampaMenuIniziale@{StampaMenuIniziale}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{StampaMenuIniziale()}{StampaMenuIniziale()}}
+{\footnotesize\ttfamily void Stampa\+Menu\+Iniziale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6}{Modalita}}}]{mode }\end{DoxyParamCaption})}
+
+stampa in il menù iniziale per la scelta della modalità con la relativa legenda per l\textquotesingle{}input utente 
+\begin{DoxyParams}{Parameters}
+{\em mode} & enumerator rappresentante la modalità attualmente selezionata \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00076}{76}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077 \{}
+\DoxyCodeLine{00078     \mbox{\hyperlink{grafica_8c_af9fd89df2dcf2b7fe18d6eac306cbd70}{aggiornaCentroSchermo}}();}
+\DoxyCodeLine{00079     \mbox{\hyperlink{grafica_8c_af6f0d5767349bbc19df9486c71f32b09}{pulisciSchermo}}();}
+\DoxyCodeLine{00080     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{00081     \mbox{\hyperlink{grafica_8c_a014659789ddcd7e2285393ff76d1e978}{StampaTitolo}}();}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083     \textcolor{comment}{/* la stringa da stampare varia in base alla scelta corrente dell'utente */}}
+\DoxyCodeLine{00084     \textcolor{keywordtype}{char} Opt1[200] = \textcolor{stringliteral}{"{}┃           "{}};}
+\DoxyCodeLine{00085     \textcolor{keywordtype}{char} Opt2[200] = \textcolor{stringliteral}{"{}┃           "{}};}
+\DoxyCodeLine{00086     \textcolor{keywordtype}{char} Opt3[200] = \textcolor{stringliteral}{"{}┃           "{}};}
+\DoxyCodeLine{00087     \textcolor{keywordtype}{char}* \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}{S}} = \textcolor{stringliteral}{"{}   SINGLE PLAYER              ┃"{}};}
+\DoxyCodeLine{00088     \textcolor{keywordtype}{char}* M = \textcolor{stringliteral}{"{}    MULTYPLAYER               ┃"{}};}
+\DoxyCodeLine{00089     \textcolor{keywordtype}{char}* C = \textcolor{stringliteral}{"{}        CPU                   ┃"{}};}
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00091     \textcolor{comment}{/* la posizione del puntatore dipende dalla scelta dell'utente */}}
+\DoxyCodeLine{00092     \textcolor{keywordtype}{char} pointer[] = \textcolor{stringliteral}{"{}>"{}};}
+\DoxyCodeLine{00093     \textcolor{keywordtype}{char} nopointer[] = \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00096     \textcolor{keywordflow}{if}(mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}})     \textcolor{comment}{/* inserisco il puntatore alla prima opzione */}}
+\DoxyCodeLine{00097         strcat(Opt1,pointer);}
+\DoxyCodeLine{00098     \textcolor{keywordflow}{else} }
+\DoxyCodeLine{00099         strcat(Opt1,nopointer);}
+\DoxyCodeLine{00100     \textcolor{keywordflow}{if}(mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}})      \textcolor{comment}{/* inserisco il puntatore alla seconda opzione */}}
+\DoxyCodeLine{00101         strcat(Opt2,pointer);}
+\DoxyCodeLine{00102     \textcolor{keywordflow}{else} }
+\DoxyCodeLine{00103         strcat(Opt2,nopointer);}
+\DoxyCodeLine{00104     \textcolor{keywordflow}{if}(mode == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}})              \textcolor{comment}{/* inserisco il puntatore alla terza opzione */}}
+\DoxyCodeLine{00105         strcat(Opt3,pointer);  }
+\DoxyCodeLine{00106     \textcolor{keywordflow}{else} }
+\DoxyCodeLine{00107         strcat(Opt3,nopointer);}
+\DoxyCodeLine{00108     }
+\DoxyCodeLine{00109     strcat(Opt1, \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}{S}});}
+\DoxyCodeLine{00110     strcat(Opt2, M);}
+\DoxyCodeLine{00111     strcat(Opt3, C);}
+\DoxyCodeLine{00112 }
+\DoxyCodeLine{00113     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"{}});}
+\DoxyCodeLine{00114     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┃                                          ┃"{}});}
+\DoxyCodeLine{00115     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┃      Seleziona la modalità di gioco      ┃"{}});}
+\DoxyCodeLine{00116     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┃                                          ┃"{}});}
+\DoxyCodeLine{00117     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┃                                          ┃"{}});}
+\DoxyCodeLine{00118     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(Opt1);}
+\DoxyCodeLine{00119     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(Opt2);     \textcolor{comment}{/* stampo le 3 scelte */}}
+\DoxyCodeLine{00120     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(Opt3);}
+\DoxyCodeLine{00121     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┃                                          ┃"{}});}
+\DoxyCodeLine{00122     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┃                                          ┃"{}});}
+\DoxyCodeLine{00123     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛"{}});}
+\DoxyCodeLine{00124     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00125     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{} Movimento: △ ▽        Ok: ⤶ "{}});}
+\DoxyCodeLine{00126 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a4bd11352e0ae411c0317ee40ef25abac}\label{headers_8h_a4bd11352e0ae411c0317ee40ef25abac}} 
+\index{headers.h@{headers.h}!StampaMenuSceltaPezzo@{StampaMenuSceltaPezzo}}
+\index{StampaMenuSceltaPezzo@{StampaMenuSceltaPezzo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{StampaMenuSceltaPezzo()}{StampaMenuSceltaPezzo()}}
+{\footnotesize\ttfamily void Stampa\+Menu\+Scelta\+Pezzo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2}{Tipo\+Pezzo}}}]{pz,  }\item[{int}]{pezzi\+Rimasti\mbox{[}7\mbox{]},  }\item[{int}]{x }\end{DoxyParamCaption})}
+
+stampa a video a fianco del campo di gioco il menu che permette all\textquotesingle{}utente di vedere quale pezzo sta per selezionare con la relativa legenda per l\textquotesingle{}input 
+\begin{DoxyParams}{Parameters}
+{\em pz} & puntatore al tipo di pezzo attualmente selezionato \\
+\hline
+{\em int\mbox{[}7\mbox{]}} & array contenente la quantità rimasta per pezzo \\
+\hline
+{\em x} & posizione orizzontale nel terminale su cui stampare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00178}{178}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00179 \{}
+\DoxyCodeLine{00180     \textcolor{comment}{/* prima stampo il riquadro che conterrà il pezzo */}}
+\DoxyCodeLine{00181     \textcolor{comment}{/* poi mi riposiziono al suo interno per stampare il pezzo */}}
+\DoxyCodeLine{00182     \textcolor{keywordtype}{int} y = 19;}
+\DoxyCodeLine{00183     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y);}
+\DoxyCodeLine{00184     printf(\textcolor{stringliteral}{"{}   Scegli un pezzo:   "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00185     printf(\textcolor{stringliteral}{"{}Tipo: O    Rimasti: 0"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00186     printf(\textcolor{stringliteral}{"{}┏━━━━━━━━━━━━━━━━━━━━┓"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00187     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00188     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00189     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00190     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00191     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00192     printf(\textcolor{stringliteral}{"{}┃                    ┃"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00193     printf(\textcolor{stringliteral}{"{}┗━━━━━━━━━━━━━━━━━━━━┛"{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00194     printf(\textcolor{stringliteral}{"{}   Scegli:     ◁ ▷  "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00195     printf(\textcolor{stringliteral}{"{}   Conferma:     ⤶   "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00196 }
+\DoxyCodeLine{00197     \textcolor{keywordtype}{int}* pattern;}
+\DoxyCodeLine{00198     \textcolor{keywordtype}{char} letter = \textcolor{charliteral}{'O'};}
+\DoxyCodeLine{00199     \textcolor{comment}{/* il pattern che devo stampare dipende dalla tipologia del pezzo attualmente */}}
+\DoxyCodeLine{00200     \textcolor{comment}{/* selezionato dall'utente. ottengo il pattern dalle variabili globali */}}
+\DoxyCodeLine{00201     \textcolor{keywordflow}{switch} (pz)}
+\DoxyCodeLine{00202     \{}
+\DoxyCodeLine{00203         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}}: pattern = \mbox{\hyperlink{headers_8h_a3c60ea2336411654a38e6769a81508c4}{O\_PATTERN}}; letter = \textcolor{charliteral}{'O'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00204         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af1ce01387d2348f8b858721a7db81670}{S}}: pattern = \mbox{\hyperlink{headers_8h_a5ffdaacb539cbe809c60e8a843475ca5}{S\_PATTERN}}; letter = \textcolor{charliteral}{'S'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00205         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a21f40778b7db9343a6ca75ec2c41ccce}{T}}: pattern = \mbox{\hyperlink{headers_8h_a4c1274994abe8752c6ea6faf62056bd7}{T\_PATTERN}}; letter = \textcolor{charliteral}{'T'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00206         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aa70478ce277ffc322f8e1e3418e07355}{Z}}: pattern = \mbox{\hyperlink{headers_8h_a0b63803eaf8d8879554a48ac6680c9c2}{Z\_PATTERN}}; letter = \textcolor{charliteral}{'Z'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00207         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}}: pattern = \mbox{\hyperlink{headers_8h_a70305e061fda1d93d73c5cb4b801aebb}{I\_PATTERN}}; letter = \textcolor{charliteral}{'I'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00208         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2a03605500b0c55f3d95874e8edfcf4e30}{J}}: pattern = \mbox{\hyperlink{headers_8h_a032ebef625b5b16829f5901c0cf47438}{J\_PATTERN}}; letter = \textcolor{charliteral}{'J'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00209         \textcolor{keywordflow}{case} \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2aef31cc6fe9479955961311ee18ac205f}{L}}: pattern = \mbox{\hyperlink{headers_8h_a6177a638bb33cbc9d931c74f6c8576b2}{L\_PATTERN}}; letter = \textcolor{charliteral}{'L'}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00210     \}}
+\DoxyCodeLine{00211     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,21);}
+\DoxyCodeLine{00212     printf(\textcolor{stringliteral}{"{}Tipo: \%c    Rimasti: \%d"{}},letter, pezziRimasti[pz]);}
+\DoxyCodeLine{00213 }
+\DoxyCodeLine{00214 }
+\DoxyCodeLine{00215     y = 24;                                         \textcolor{comment}{/* mi posiziono sempre ad altezza 24 */}}
+\DoxyCodeLine{00216     pz == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? x+=7 : (pz == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? x+=3 : (x+=5));     \textcolor{comment}{/* orizzontalmente mi posiziono in funzione del pezzo che devo stampare*/}}
+\DoxyCodeLine{00217     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y);}
+\DoxyCodeLine{00218     }
+\DoxyCodeLine{00219     \textcolor{keywordtype}{char} stampa[400] = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00220     \textcolor{keywordtype}{char}* spazio = \textcolor{stringliteral}{"{}    "{}};}
+\DoxyCodeLine{00221     \textcolor{keywordtype}{int} i, l = pz == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2af4b8b7698dfedf5562a7db2bdb07010a}{O}} ? 2 : (pz == \mbox{\hyperlink{headers_8h_a8e85313b011d27748c8c59514d8c79d2ad091b8e376f7cf432dc367e1eda65e85}{I}} ? 4 : 3);}
+\DoxyCodeLine{00222     \textcolor{keywordflow}{for}(i = 0; i < l*l \&\& i < 8 ; i++)}
+\DoxyCodeLine{00223     \{}
+\DoxyCodeLine{00224         \textcolor{keywordflow}{if}(*(pattern + i))  \textcolor{comment}{/*se il pattern in posizione i è uguale a 1 stampo con il colore*/}}
+\DoxyCodeLine{00225         \{}
+\DoxyCodeLine{00226             strcat(stampa,\mbox{\hyperlink{headers_8h_ace47038d69331e8d3d310749c8452224}{ColoreBianco}}); \textcolor{comment}{/* attivo il colore bianco */}}
+\DoxyCodeLine{00227             strcat(stampa,spazio);       \textcolor{comment}{/* concateno un blocco bianco alla stringa finale */}}
+\DoxyCodeLine{00228             strcat(stampa,\mbox{\hyperlink{headers_8h_a5708c0924ebd1d9475c7baf8b1e29774}{ColoreDefault}});\textcolor{comment}{/* attivo il colore default */}}
+\DoxyCodeLine{00229         \}}
+\DoxyCodeLine{00230         \textcolor{keywordflow}{else}                \textcolor{comment}{/*altrimenti stampo senza colore*/}}
+\DoxyCodeLine{00231         \{}
+\DoxyCodeLine{00232             strcat(stampa,spazio);      \textcolor{comment}{/* concateno un blocco vuoto alla stringa finale */}}
+\DoxyCodeLine{00233         \}}
+\DoxyCodeLine{00234         \textcolor{keywordflow}{if}((i+1)\%l == 0)}
+\DoxyCodeLine{00235         \{}
+\DoxyCodeLine{00236             \textcolor{comment}{/* stampo due volte perchè ogni "{}unità"{} che compone i blocchi è alta 2 caratteri */}}
+\DoxyCodeLine{00237             printf(\textcolor{stringliteral}{"{}\%s"{}},stampa);\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00238             printf(\textcolor{stringliteral}{"{}\%s"{}},stampa);\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00239             stampa[0] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00240             }
+\DoxyCodeLine{00241         \}}
+\DoxyCodeLine{00242     \}}
+\DoxyCodeLine{00243     printf(\textcolor{stringliteral}{"{}\%s"{}},stampa);}
+\DoxyCodeLine{00244     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{00245 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a7423c11fab2fe524ca3ce48cd52d8976}\label{headers_8h_a7423c11fab2fe524ca3ce48cd52d8976}} 
+\index{headers.h@{headers.h}!StampaModalita@{StampaModalita}}
+\index{StampaModalita@{StampaModalita}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{StampaModalita()}{StampaModalita()}}
+{\footnotesize\ttfamily void Stampa\+Modalita (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{partita }\end{DoxyParamCaption})}
+
+stampa la Modalità di gioco corrente 
+\begin{DoxyParams}{Parameters}
+{\em partita} & puntatore alla struct partita \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00128}{128}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00129 \{}
+\DoxyCodeLine{00130     \textcolor{comment}{/* stampo la modalità corrente al di sotto del titolo dell'applicazione */}}
+\DoxyCodeLine{00131     \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}})}
+\DoxyCodeLine{00132         \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}Modalita di gioco: SINGLE PLAYER"{}});}
+\DoxyCodeLine{00133     \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}})}
+\DoxyCodeLine{00134         \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}Modalita di gioco: MULTYPLAYER"{}});}
+\DoxyCodeLine{00135         \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}})}
+\DoxyCodeLine{00136     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}Modalita di gioco: CPU vs UTENTE"{}});}
+\DoxyCodeLine{00137     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{} "{}});\mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{00138 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a0e38291646160c1fdca0ee549bcfc3e5}\label{headers_8h_a0e38291646160c1fdca0ee549bcfc3e5}} 
+\index{headers.h@{headers.h}!StampaPunteggio@{StampaPunteggio}}
+\index{StampaPunteggio@{StampaPunteggio}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{StampaPunteggio()}{StampaPunteggio()}}
+{\footnotesize\ttfamily void Stampa\+Punteggio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{pa,  }\item[{int}]{x }\end{DoxyParamCaption})}
+
+stampa info riguardanti il punteggio attuale dei giocatori 
+\begin{DoxyParams}{Parameters}
+{\em pa} & puntatore alla struct partita \\
+\hline
+{\em x} & posizione orizzontale nel terminale su cui stampare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00266}{266}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00267 \{}
+\DoxyCodeLine{00268     \textcolor{keywordtype}{int} y = 35;     \textcolor{comment}{/* mi posiziono ad altezza 35 per stampare il punteggio */}}
+\DoxyCodeLine{00269     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y);}
+\DoxyCodeLine{00270     printf(\textcolor{stringliteral}{"{}      PUNTEGGIO     "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);         \textcolor{comment}{/* ottengo il punteggio dei giocatori */}}
+\DoxyCodeLine{00271     printf(\textcolor{stringliteral}{"{}  Giocatore 1:  \%d"{}}, pa-\/>\mbox{\hyperlink{structPartita_ae53779d2d90a0232675ae2b8aa3b384d}{punteggio1}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);         \textcolor{comment}{/*       dalla struct partita         */}}
+\DoxyCodeLine{00272     \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a403778345700cbd36b5b26352b144f78}{MULTIPLAYER}}) }
+\DoxyCodeLine{00273         printf(\textcolor{stringliteral}{"{}  Giocatore 2:  \%d"{}}, pa-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}});                   \textcolor{comment}{/* se sto giocando contro un altro    */}}
+\DoxyCodeLine{00274     \textcolor{keywordflow}{if}(pa-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6a0035eb0600d18dfc302f6bf7a7cbfa3b}{CPU}})                                             \textcolor{comment}{/* giocatore stampo giocatore 2       */}}
+\DoxyCodeLine{00275         printf(\textcolor{stringliteral}{"{}      CPU    :  \%d"{}}, pa-\/>\mbox{\hyperlink{structPartita_ab14c3baaee8a359486745f6dca4e239f}{punteggio2}});                   \textcolor{comment}{/* altrimenti stampo CPU              */}}
+\DoxyCodeLine{00276     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{00277 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a014659789ddcd7e2285393ff76d1e978}\label{headers_8h_a014659789ddcd7e2285393ff76d1e978}} 
+\index{headers.h@{headers.h}!StampaTitolo@{StampaTitolo}}
+\index{StampaTitolo@{StampaTitolo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{StampaTitolo()}{StampaTitolo()}}
+{\footnotesize\ttfamily void Stampa\+Titolo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+stampa in ASCII ART il titiolo \char`\"{}\+X-\/\+Tetris\char`\"{} 
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00065}{65}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066 \{}
+\DoxyCodeLine{00067     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{} \_\_  \_\_     \_\_\_\_\_\_   \_\_\_\_\_\_     \_\_\_\_\_\_   \_\_\_\_\_\_     \_\_     \_\_\_\_\_\_    "{}});}
+\DoxyCodeLine{00068     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}/\(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)   /\(\backslash\)\(\backslash\)\_\_  \_\(\backslash\)\(\backslash\) /\(\backslash\)\(\backslash\)  \_\_\_\(\backslash\)\(\backslash\)   /\(\backslash\)\(\backslash\)\_\_  \_\(\backslash\)\(\backslash\) /\(\backslash\)\(\backslash\)  == \(\backslash\)\(\backslash\)   /\(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)   /\(\backslash\)\(\backslash\)  \_\_\_\(\backslash\)\(\backslash\)   "{}});}
+\DoxyCodeLine{00069     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)/\_/\(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)/\_  \(\backslash\)\(\backslash\)/\_/\(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)/ \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)  \_\_\(\backslash\)\(\backslash\)   \(\backslash\)\(\backslash\)/\_/\(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)/ \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)  \_\_<   \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)  \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\_\_  \(\backslash\)\(\backslash\)  "{}});}
+\DoxyCodeLine{00070     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}  /\(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)/\(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)    \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)  \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\_\_\_\_\(\backslash\)\(\backslash\)    \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)  \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)  \(\backslash\)\(\backslash\) \(\backslash\)\(\backslash\)\_\(\backslash\)\(\backslash\)  \(\backslash\)\(\backslash\)/\(\backslash\)\(\backslash\)\_\_\_\_\_\(\backslash\)\(\backslash\) "{}});}
+\DoxyCodeLine{00071     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{}  \(\backslash\)\(\backslash\)/\_/\(\backslash\)\(\backslash\)/\_/     \(\backslash\)\(\backslash\)/\_/   \(\backslash\)\(\backslash\)/\_\_\_\_\_/     \(\backslash\)\(\backslash\)/\_/   \(\backslash\)\(\backslash\)/\_/ /\_/   \(\backslash\)\(\backslash\)/\_/   \(\backslash\)\(\backslash\)/\_\_\_\_\_/ "{}});}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073     \mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{} "{}});\mbox{\hyperlink{grafica_8c_a90ae96fa446382b324d95fe843d77bf3}{StampaL}}(\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{00074 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a437eadc82c33c207a08c56dd45047a2c}\label{headers_8h_a437eadc82c33c207a08c56dd45047a2c}} 
+\index{headers.h@{headers.h}!StampaTurno@{StampaTurno}}
+\index{StampaTurno@{StampaTurno}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{StampaTurno()}{StampaTurno()}}
+{\footnotesize\ttfamily void Stampa\+Turno (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71}{Giocatore}} $\ast$}]{g,  }\item[{int}]{x }\end{DoxyParamCaption})}
+
+stampa info riguardanti chi ha il turno 
+\begin{DoxyParams}{Parameters}
+{\em g} & puntatore al giocatore che ha il turno \\
+\hline
+{\em x} & posizione orizzontale nel terminale su cui stampare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00248}{248}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00249 \{}
+\DoxyCodeLine{00250     \textcolor{keywordtype}{int} y = 12;     \textcolor{comment}{/* mi posiziono ad altezza 12 per stampare il turno */}}
+\DoxyCodeLine{00251     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,y);}
+\DoxyCodeLine{00252     printf(\textcolor{stringliteral}{"{}     TURNO ATTUALE    "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00253 }
+\DoxyCodeLine{00254     \textcolor{keywordflow}{if}(*g == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a4d51b143f8a2002e214bce6f00d2e449}{P1}})    \textcolor{comment}{/* se è il turno del giocatore uno stampo giocatore 1 */}}
+\DoxyCodeLine{00255     \{}
+\DoxyCodeLine{00256         printf(\textcolor{stringliteral}{"{}    ◁ giocatore 1    "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00257     \}}
+\DoxyCodeLine{00258     \textcolor{keywordflow}{if}(*g == \mbox{\hyperlink{headers_8h_a5f4d4adb13e7c7585ab68fc65b345f71a8b57afdf165e597991c29f09afcf71f9}{P2}})    \textcolor{comment}{/* se è il turno del giocatore due stampo giocatore 2 */}}
+\DoxyCodeLine{00259     \{}
+\DoxyCodeLine{00260         printf(\textcolor{stringliteral}{"{}      giocatore 2 ▷  "{}});\mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(x,++y);}
+\DoxyCodeLine{00261     \}}
+\DoxyCodeLine{00262 }
+\DoxyCodeLine{00263     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{00264 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a3602fc0c6dd5b37a3ea4e41dc9d31c63}\label{headers_8h_a3602fc0c6dd5b37a3ea4e41dc9d31c63}} 
+\index{headers.h@{headers.h}!StrLenMB@{StrLenMB}}
+\index{StrLenMB@{StrLenMB}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{StrLenMB()}{StrLenMB()}}
+{\footnotesize\ttfamily int Str\+Len\+MB (\begin{DoxyParamCaption}\item[{char $\ast$}]{s }\end{DoxyParamCaption})}
+
+uno strlen più avanzato che tiene conto dei caratteri speciali in utf8, funzione necessaria allo scopo di utilizzare stringhe colorate nel terminale 
+\begin{DoxyParams}{Parameters}
+{\em s} & array di caratteri da contare \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00019}{19}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020 \{}
+\DoxyCodeLine{00021     \textcolor{keywordtype}{int} len = strlen(s);}
+\DoxyCodeLine{00022     \textcolor{keywordtype}{int} count, i;}
+\DoxyCodeLine{00023     count = 0;}
+\DoxyCodeLine{00024     \textcolor{comment}{/* nel for conto solo i caratteri che fanno parte del range degli ASCII */}}
+\DoxyCodeLine{00025     \textcolor{comment}{/* evitando così di contare i codici del cambio colore */}}
+\DoxyCodeLine{00026     \textcolor{keywordflow}{for}(i = 0; i < len; i++)}
+\DoxyCodeLine{00027         count += ((s[i] \& 0xc0) != 0x80) ? 1 : 0;}
+\DoxyCodeLine{00028     \textcolor{keywordflow}{return} count;}
+\DoxyCodeLine{00029 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{headers_8h_a010bf1806ab2d2e0767a91438f2cb675}\label{headers_8h_a010bf1806ab2d2e0767a91438f2cb675}} 
+\index{headers.h@{headers.h}!Update@{Update}}
+\index{Update@{Update}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPartita}{Partita}} $\ast$}]{partita }\end{DoxyParamCaption})}
+
+Funzione principale per l\textquotesingle{}aggiornamento della grafica, esegue un refresh dello stato della partita sul terminale invocando tutte le funzioni grafiche necessarie. Funzine da invocare qualora si facciano modifiche alla struct \mbox{\hyperlink{structPartita}{Partita}} 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$partita} & puntatore alla struct partita \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{grafica_8c_source_l00140}{140}} of file \mbox{\hyperlink{grafica_8c_source}{grafica.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00141 \{}
+\DoxyCodeLine{00142     \textcolor{comment}{/* eseguo il refresh dell'intera schermata */}}
+\DoxyCodeLine{00143     \mbox{\hyperlink{grafica_8c_af9fd89df2dcf2b7fe18d6eac306cbd70}{aggiornaCentroSchermo}}();}
+\DoxyCodeLine{00144     \mbox{\hyperlink{grafica_8c_af6f0d5767349bbc19df9486c71f32b09}{pulisciSchermo}}();}
+\DoxyCodeLine{00145     \mbox{\hyperlink{grafica_8c_ae824443b3f661414ba1f2718e17fe97d}{gotoxy}}(0,0);}
+\DoxyCodeLine{00146     \mbox{\hyperlink{grafica_8c_a014659789ddcd7e2285393ff76d1e978}{StampaTitolo}}();}
+\DoxyCodeLine{00147     \mbox{\hyperlink{grafica_8c_a7423c11fab2fe524ca3ce48cd52d8976}{StampaModalita}}(partita);}
+\DoxyCodeLine{00148     \textcolor{keywordtype}{int} posizioneMenu;}
+\DoxyCodeLine{00149     }
+\DoxyCodeLine{00150     \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_a3e7fa985efeda07b13c66d60373b4613}{Modalita}} == \mbox{\hyperlink{headers_8h_a750038be76e4d033eb35e297713c09d6adf9c53b97637b5e5ac722fb2f6d26512}{SINGLEPLAYER}})}
+\DoxyCodeLine{00151     \{}
+\DoxyCodeLine{00152         \textcolor{comment}{/* se la partita è singleplayer stampo una sola mappa*/}}
+\DoxyCodeLine{00153         \mbox{\hyperlink{grafica_8c_a9a576d9d4b0be31cdf7044c303445546}{stampaMappa}}(partita-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}, \mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}-\/7, 11);}
+\DoxyCodeLine{00154         \textcolor{comment}{/* in una partita singleplayer posiziono il menù a sx della mappa */}}
+\DoxyCodeLine{00155         posizioneMenu = \mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}} -\/ 33;}
+\DoxyCodeLine{00156     \}}
+\DoxyCodeLine{00157     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00158     \{}
+\DoxyCodeLine{00159         \textcolor{comment}{/* se la partita è multiplayer stampo le due mappe */}}
+\DoxyCodeLine{00160         \mbox{\hyperlink{grafica_8c_a9a576d9d4b0be31cdf7044c303445546}{stampaMappa}}(partita-\/>\mbox{\hyperlink{structPartita_ae086a0ff9a982eee8c59b6f504dbacaa}{mappa1}}, \mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}-\/59, 11);}
+\DoxyCodeLine{00161         \mbox{\hyperlink{grafica_8c_a9a576d9d4b0be31cdf7044c303445546}{stampaMappa}}(partita-\/>\mbox{\hyperlink{structPartita_ace5973a817177da5c15b3a8e6b737345}{mappa2}}, \mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}}+15, 11);}
+\DoxyCodeLine{00162         \textcolor{comment}{/* in una partita multiplayer posiziono il menù tra le due mappe */}}
+\DoxyCodeLine{00163         posizioneMenu = \mbox{\hyperlink{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}{CentroSchermo}} -\/ 11;}
+\DoxyCodeLine{00164     \}}
+\DoxyCodeLine{00165 }
+\DoxyCodeLine{00166     \textcolor{keywordflow}{if}(partita-\/>\mbox{\hyperlink{structPartita_a443be20f584eb362fbfaaa5f2f885809}{stato}} == \mbox{\hyperlink{headers_8h_a88782d333a32d594feb2707a16f4361baaee25f5c8faad8c33ffb82478b0a8a38}{IN\_CORSO}})}
+\DoxyCodeLine{00167     \{}
+\DoxyCodeLine{00168         \textcolor{comment}{/* se la partita è in corso stampo il menù di gioco */}}
+\DoxyCodeLine{00169         \mbox{\hyperlink{grafica_8c_a437eadc82c33c207a08c56dd45047a2c}{StampaTurno}}(\&partita-\/>\mbox{\hyperlink{structPartita_aa1d16183ec3781615c4fc26ce35027c3}{turno}}, posizioneMenu);}
+\DoxyCodeLine{00170         \mbox{\hyperlink{grafica_8c_a4bd11352e0ae411c0317ee40ef25abac}{StampaMenuSceltaPezzo}}(partita-\/>\mbox{\hyperlink{structPartita_ab1979fd9a4fb6c15e162debf21c72235}{pezzoSelezionato}},partita-\/>\mbox{\hyperlink{structPartita_a07e379f7f81f342782075a8a81ad1cff}{pezziRimasti}}, posizioneMenu);}
+\DoxyCodeLine{00171         \mbox{\hyperlink{grafica_8c_a0e38291646160c1fdca0ee549bcfc3e5}{StampaPunteggio}}(partita, posizioneMenu);}
+\DoxyCodeLine{00172     \}}
+\DoxyCodeLine{00173     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00174         \textcolor{comment}{/* se la partita è finita stampo il menù finale con il resoconto */}}
+\DoxyCodeLine{00175         \mbox{\hyperlink{grafica_8c_a9ff0ad714c4ea83ccd8f0295c35a7422}{stampaFine}}(partita, posizioneMenu);}
+\DoxyCodeLine{00176 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}\label{headers_8h_a2a16604d53500b2aca0bc9cd8bc14c6d}} 
+\index{headers.h@{headers.h}!CentroSchermo@{CentroSchermo}}
+\index{CentroSchermo@{CentroSchermo}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{CentroSchermo}{CentroSchermo}}
+{\footnotesize\ttfamily int Centro\+Schermo\hspace{0.3cm}{\ttfamily [extern]}}
+
+centro dello schermo in caratteri di distanza del margine destro della console 
+
+Definition at line \mbox{\hyperlink{varGlobali_8c_source_l00007}{7}} of file \mbox{\hyperlink{varGlobali_8c_source}{var\+Globali.\+c}}.
+
+\mbox{\Hypertarget{headers_8h_ace47038d69331e8d3d310749c8452224}\label{headers_8h_ace47038d69331e8d3d310749c8452224}} 
+\index{headers.h@{headers.h}!ColoreBianco@{ColoreBianco}}
+\index{ColoreBianco@{ColoreBianco}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{ColoreBianco}{ColoreBianco}}
+{\footnotesize\ttfamily char Colore\+Bianco\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+definizione del colore \textquotesingle{}bianco\textquotesingle{} 
+
+Definition at line \mbox{\hyperlink{varGlobali_8c_source_l00004}{4}} of file \mbox{\hyperlink{varGlobali_8c_source}{var\+Globali.\+c}}.
+
+\mbox{\Hypertarget{headers_8h_a11b630e4c5eba8076c9a53e5b513a159}\label{headers_8h_a11b630e4c5eba8076c9a53e5b513a159}} 
+\index{headers.h@{headers.h}!ColoreBlu@{ColoreBlu}}
+\index{ColoreBlu@{ColoreBlu}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{ColoreBlu}{ColoreBlu}}
+{\footnotesize\ttfamily char Colore\+Blu\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+definizione del colore \textquotesingle{}blu\textquotesingle{} 
+
+Definition at line \mbox{\hyperlink{varGlobali_8c_source_l00005}{5}} of file \mbox{\hyperlink{varGlobali_8c_source}{var\+Globali.\+c}}.
+
+\mbox{\Hypertarget{headers_8h_a5708c0924ebd1d9475c7baf8b1e29774}\label{headers_8h_a5708c0924ebd1d9475c7baf8b1e29774}} 
+\index{headers.h@{headers.h}!ColoreDefault@{ColoreDefault}}
+\index{ColoreDefault@{ColoreDefault}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{ColoreDefault}{ColoreDefault}}
+{\footnotesize\ttfamily char Colore\+Default\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+colore dello sfondo 
+
+Definition at line \mbox{\hyperlink{varGlobali_8c_source_l00003}{3}} of file \mbox{\hyperlink{varGlobali_8c_source}{var\+Globali.\+c}}.
+
+\mbox{\Hypertarget{headers_8h_a70305e061fda1d93d73c5cb4b801aebb}\label{headers_8h_a70305e061fda1d93d73c5cb4b801aebb}} 
+\index{headers.h@{headers.h}!I\_PATTERN@{I\_PATTERN}}
+\index{I\_PATTERN@{I\_PATTERN}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{I\_PATTERN}{I\_PATTERN}}
+{\footnotesize\ttfamily int I\+\_\+\+PATTERN\mbox{[}16\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+pattern di default per un blocco di tipo I 
+
+Definition at line \mbox{\hyperlink{varGlobali_8c_source_l00010}{10}} of file \mbox{\hyperlink{varGlobali_8c_source}{var\+Globali.\+c}}.
+
+\mbox{\Hypertarget{headers_8h_a032ebef625b5b16829f5901c0cf47438}\label{headers_8h_a032ebef625b5b16829f5901c0cf47438}} 
+\index{headers.h@{headers.h}!J\_PATTERN@{J\_PATTERN}}
+\index{J\_PATTERN@{J\_PATTERN}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{J\_PATTERN}{J\_PATTERN}}
+{\footnotesize\ttfamily int J\+\_\+\+PATTERN\mbox{[}9\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+pattern di default per un blocco di tipo J 
+
+Definition at line \mbox{\hyperlink{varGlobali_8c_source_l00015}{15}} of file \mbox{\hyperlink{varGlobali_8c_source}{var\+Globali.\+c}}.
+
+\mbox{\Hypertarget{headers_8h_a6177a638bb33cbc9d931c74f6c8576b2}\label{headers_8h_a6177a638bb33cbc9d931c74f6c8576b2}} 
+\index{headers.h@{headers.h}!L\_PATTERN@{L\_PATTERN}}
+\index{L\_PATTERN@{L\_PATTERN}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{L\_PATTERN}{L\_PATTERN}}
+{\footnotesize\ttfamily int L\+\_\+\+PATTERN\mbox{[}9\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+pattern di default per un blocco di tipo L 
+
+Definition at line \mbox{\hyperlink{varGlobali_8c_source_l00019}{19}} of file \mbox{\hyperlink{varGlobali_8c_source}{var\+Globali.\+c}}.
+
+\mbox{\Hypertarget{headers_8h_a3c60ea2336411654a38e6769a81508c4}\label{headers_8h_a3c60ea2336411654a38e6769a81508c4}} 
+\index{headers.h@{headers.h}!O\_PATTERN@{O\_PATTERN}}
+\index{O\_PATTERN@{O\_PATTERN}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{O\_PATTERN}{O\_PATTERN}}
+{\footnotesize\ttfamily int O\+\_\+\+PATTERN\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+pattern di default per un blocco di tipo O 
+
+Definition at line \mbox{\hyperlink{varGlobali_8c_source_l00023}{23}} of file \mbox{\hyperlink{varGlobali_8c_source}{var\+Globali.\+c}}.
+
+\mbox{\Hypertarget{headers_8h_a5ffdaacb539cbe809c60e8a843475ca5}\label{headers_8h_a5ffdaacb539cbe809c60e8a843475ca5}} 
+\index{headers.h@{headers.h}!S\_PATTERN@{S\_PATTERN}}
+\index{S\_PATTERN@{S\_PATTERN}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{S\_PATTERN}{S\_PATTERN}}
+{\footnotesize\ttfamily int S\+\_\+\+PATTERN\mbox{[}9\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+pattern di default per un blocco di tipo S 
+
+Definition at line \mbox{\hyperlink{varGlobali_8c_source_l00026}{26}} of file \mbox{\hyperlink{varGlobali_8c_source}{var\+Globali.\+c}}.
+
+\mbox{\Hypertarget{headers_8h_a4c1274994abe8752c6ea6faf62056bd7}\label{headers_8h_a4c1274994abe8752c6ea6faf62056bd7}} 
+\index{headers.h@{headers.h}!T\_PATTERN@{T\_PATTERN}}
+\index{T\_PATTERN@{T\_PATTERN}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{T\_PATTERN}{T\_PATTERN}}
+{\footnotesize\ttfamily int T\+\_\+\+PATTERN\mbox{[}9\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+pattern di default per un blocco di tipo T 
+
+Definition at line \mbox{\hyperlink{varGlobali_8c_source_l00030}{30}} of file \mbox{\hyperlink{varGlobali_8c_source}{var\+Globali.\+c}}.
+
+\mbox{\Hypertarget{headers_8h_a0b63803eaf8d8879554a48ac6680c9c2}\label{headers_8h_a0b63803eaf8d8879554a48ac6680c9c2}} 
+\index{headers.h@{headers.h}!Z\_PATTERN@{Z\_PATTERN}}
+\index{Z\_PATTERN@{Z\_PATTERN}!headers.h@{headers.h}}
+\doxysubsubsection{\texorpdfstring{Z\_PATTERN}{Z\_PATTERN}}
+{\footnotesize\ttfamily int Z\+\_\+\+PATTERN\mbox{[}9\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+pattern di default per un blocco di tipo Z 
+
+Definition at line \mbox{\hyperlink{varGlobali_8c_source_l00034}{34}} of file \mbox{\hyperlink{varGlobali_8c_source}{var\+Globali.\+c}}.
+
