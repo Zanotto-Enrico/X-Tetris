@@ -56,9 +56,12 @@ void pulisciSchermo()
     char* vuoto = malloc(sizeof(char)*CentroSchermo*2+1);
     vuoto[CentroSchermo*2] = '\0';
     memset(vuoto,' ',CentroSchermo*2);
-    int i;
+    int i, h;
+    struct winsize w;
+    ioctl(0, TIOCGWINSZ, &w);
+    h = w.ws_row;
     /* stampo la stringa vuota più volte per pulire il terminale */
-    for (i = 0; i < 45; i++)
+    for (i = 0; i < h; i++)
         Stampa(vuoto);
 }
 
